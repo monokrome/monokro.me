@@ -1,0 +1,17 @@
+!!! 5
+
+html
+	head
+		meta(charset="UTF-8")
+		title="monokrome"
+
+		link(href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css", rel="stylesheet", type="text/css")
+		link(href="http://fonts.googleapis.com/css?family=Droid+Sans", rel="stylesheet", type="text/css")
+
+		link(href="/styles/ui.css", rel="stylesheet", type="text/css")
+		link(href="/styles/common.css", rel="stylesheet", type="text/css")
+
+	body
+		canvas#backdrop
+		#page-container!=body
+		script(data-main='/lib/main.js', src='/lib/require.min.js')

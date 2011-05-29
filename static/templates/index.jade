@@ -1,0 +1,25 @@
+#header
+	#logo-container
+		#logo
+
+	h1.heading
+		a(href="http://twitter.com/#!/monokrome")="monokrome"
+
+	h2.subheading
+		a(href="http://twitter.com/#!/LimpidTech")="@LimpidTech"
+
+#content.tabbed.collapsible
+	ul
+		li
+			a(href='#projects')='Projects'
+
+	div#projects
+		div.accordion.collapsible.no-default.no-auto-height
+			- each projects, category in project_categories
+				h3=category
+
+				ul#nodejs-projects
+					- each project in projects
+						li
+							a(href=project.url, target=project.name)=project.name
+							h5=project.description

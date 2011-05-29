@@ -122,11 +122,6 @@ h6 { font-size: 0.8em; }
     text-align: left;
 }
 
-#projects ul
-{
-    max-height: 150px;
-}
-
 #projects h3
 {
     text-align: center;

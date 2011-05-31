@@ -10,4 +10,3 @@ server.set('views', __dirname + '/static/templates');
 views(server);
 
 server.listen(8000);
-

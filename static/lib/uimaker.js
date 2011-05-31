@@ -43,8 +43,6 @@ define('uimaker', [], function define_uimaker () {
                 }
             }
 
-            console.log(options);
-
             $(this)[type](options);
         });
 

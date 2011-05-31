@@ -10,7 +10,10 @@ html
 
 		link(href="/styles/ui.css", rel="stylesheet", type="text/css")
 		link(href="/styles/common.css", rel="stylesheet", type="text/css")
-		script!='document.addEventListener("load", function () { var content = document.getElementById("content"); if (content) content.style.display = "none"; });'
+
+		//- This is synchronously loaded, but is required in order to hide elements initially without waiting
+		//- for an asynchronously loaded script to hide them.
+		script(src='/lib/init.js')
 
 	body
 		canvas#backdrop

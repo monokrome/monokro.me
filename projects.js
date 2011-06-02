@@ -7,6 +7,7 @@ var github = new (require('github').GitHubApi)(true),
         'django-snippets': 'Python',
         'djynamite': 'Python',
         'monodjango': 'Python',
+				'jinzou': 'Python',
 
         'jquery-particles': 'JavaScript',
         'mappy': 'JavaScript',

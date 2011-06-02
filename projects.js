@@ -11,9 +11,12 @@ var github = new (require('github').GitHubApi)(true),
 
         'jquery-particles': 'JavaScript',
         'mappy': 'JavaScript',
+				'SteamPowered': 'JavaScript',
 
         // GitHub thinks that this is C. Why?
-        'openal-source': 'C++'
+        'openal-source': 'C++',
+
+				'web-base-frontend': 'HTML5'
     },
 
     // Projects that I find aren't interesting.

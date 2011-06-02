@@ -115,6 +115,11 @@ h6 { font-size: 0.8em; }
     z-index: 100;
 }
 
+.scripted #content
+{
+	display: none;
+}
+
 #content
 {
     margin: 0px auto;

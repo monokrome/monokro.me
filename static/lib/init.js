@@ -1,10 +1,15 @@
 (function init_page() {
-	// Only use this script to hide elements that need initially hidden on
-	// the page. Everything else should be done asyncronously.
-	document.addEventListener("load", function on_page_ready() {
-		var content = document.getElementById("content");
-
-		if (typeof content != 'undefined')
-			content.style.display = "none";
-	});
+	var listen; // Keep this file minimal. It's not loaded asynconously.
+	if (document.addEventListener)
+		listen = function(evt, handler, method) {
+			return document.addEventListener(evt, handler, method);
+		}
+	else
+		listen = function(evt, handler) {
+			return window.attachEvent('on'+evt, handler);
+		}
+	listen("load", (function on_page_ready() {
+		var i, body = document.getElementsByTagName('body');
+		for (i=0; i < body.length; ++i) body[i].className = 'scripted';
+	}), true);
 })();

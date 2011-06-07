@@ -1,3 +1,7 @@
+# Analysis output files
+static/analysis/*
+analyzer/*.json
+
 # IDE-specific files
 *.tmproj
 

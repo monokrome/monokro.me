@@ -19,3 +19,10 @@ html
 		canvas#backdrop
 		#page-container!=body
 		script(data-main='/lib/main.js', src='/lib/require.min.js')
+		//- Experimenting with the ga.uges tracker.
+		script(type='text/javascript')
+			| "(function() { var t   = document.createElement('script'); t.type  = 'text/javascript'; t.async = true; "
+			| "t.id    = 'gauges-tracker'; t.setAttribute('data-site-id', '4defd9da613f5d1bd2000004'); "
+			| "t.src = '//secure.gaug.es/track.js'; var s = document.getElementsByTagName('script')[0]; "
+			| "s.parentNode.insertBefore(t, s); })();"
+

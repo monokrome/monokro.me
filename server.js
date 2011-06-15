@@ -1,8 +1,7 @@
 var express = require('express'),
     server = express.createServer(),
     views = require('./views'),
-    realtime = require('./realtime'),
-    db = require('./db');
+    realtime = require('./realtime');
 
 server.use(express.static(__dirname + '/static'));
 server.use(express.errorHandler({ dumpExceptions: false, showStack: false }));

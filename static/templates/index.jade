@@ -29,8 +29,9 @@
 	div#music
 		div.accordion.collapsible.no-default.no-auto-height
 			- each album in music_albums
-				h3=album.name
+				h3
 					span.year=new Date(album.released).getFullYear()
+					span.name=album.name
 
 				ul(id='music-album-' + album.name.toLowerCase())
 					- each track in album.tracks

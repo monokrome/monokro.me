@@ -1,8 +1,15 @@
-define(['/socket.io/socket.io.js'], function define_realtime () {
+define(['/socket.io/socket.io.js'], function define_realtime (sio, msg) {
+
     var socket = new io.Socket(),
+        message_handlers = {}, // Other modules can add these arbitrarily.
         socket_handlers = {
             'connect': function on_connect () { },
-            'message': function on_message (message) { },
+
+            'message': function on_message (message) {
+                if (typeof message_handlers[message.type] != 'undefined')
+                    message_handlers[message.type].apply(socket, [message]);
+            },
+
             'disconnect': function on_disconnect () { }
         };
 
@@ -14,5 +21,9 @@ define(['/socket.io/socket.io.js'], function define_realtime () {
 
     socket.connect();
 
-    return { 'socket': socket };
+    return {
+        'socket': socket,
+        'handlers': message_handlers
+    };
+
 });

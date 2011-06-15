@@ -63,4 +63,23 @@ for (album_index in albums)
     }
 }
 
-module.exports = { albums: albums };
+function get_random_album ()
+{
+    return albums[parseInt(Math.random() * albums.length)];
+}
+
+function get_random_track (_album)
+{
+    // Get a random album if one isn't provided.
+    var album = _album || get_random_album();
+
+    // Return a random track from within that album.
+    return album.tracks[parseInt(Math.random() * album.tracks.length)];
+}
+
+module.exports = {
+    albums: albums,
+
+    get_random_album: get_random_album,
+    get_random_track: get_random_track
+};

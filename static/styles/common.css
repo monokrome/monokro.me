@@ -42,6 +42,18 @@ h6 { font-size: 0.8em; }
     z-index: -1;
 }
 
+#audio-player
+{
+    position: fixed;
+    top: 0px;
+    right: 40px;
+}
+
+body.scripted #audio-player
+{
+    display: none;
+}
+
 #header
 {
   margin: 80px auto 0px;
@@ -178,4 +190,34 @@ h6 { font-size: 0.8em; }
     color: #AAC;
 
     font-size: 0.9em;
+}
+
+body.scripted #music li
+{
+    cursor: pointer;
+}
+
+/**
+ * Additional styles for the music play/pause dynamic.
+ */
+#music li .ui-icon.ui-icon-play,
+#music li.playing .ui-icon.ui-icon-play
+{
+    display: none;
+}
+
+#music li .ui-icon.ui-icon-pause,
+body.scripted #music li:hover .ui-icon.ui-icon-pause
+{
+    display: none;
+}
+
+#music li.playing .ui-icon.ui-icon-pause
+{
+    display: inline-block;
+}
+
+body.scripted #music li:hover .ui-icon
+{
+    display: inline-block;
 }

@@ -1,13 +1,15 @@
 (function () {
-    var dependancies = ['uimaker', 'realtime'];
+    var dependancies = ['uimaker', 'realtime', 'music'];
     
-    function define_application (uimaker, realtime) {
+    function define_application (uimaker, realtime, music) {
         var $content = jQuery('#content');
     
         jQuery('.tabbed').each(uimaker('tabs'));
         jQuery('.accordion').each(uimaker('accordion'));
  
         $content.hide().delay(750).fadeIn(3000);
+        
+        jQuery('#audio-player').slideDown(1500);
     }
 
     define('application', dependancies, define_application);

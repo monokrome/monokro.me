@@ -38,6 +38,10 @@
 						li
 							span.track-number=track.number
 							span.track-name=track.name
+
+							span.ui-icon.ui-icon-play
+							span.ui-icon.ui-icon-pause
+
 							ul.download-list
 								- each friendly_name, format in album.download_formats
 									li

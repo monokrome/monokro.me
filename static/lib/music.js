@@ -18,6 +18,31 @@ define(['realtime'], function define_music (rt) {
         });
     }
 
+    function update_track_info(save_buffer_state)
+    {
+        var playing_classname = 'playing',
+            next_ul, next_li;
+
+        if (!save_buffer_state || audio_player.paused)
+        {
+            jQuery('#music li.playing').removeClass(playing_classname);
+        }
+
+        if (save_buffer_state != true)
+        {
+            track_info = buffer_track_info;
+            buffer_track_info = {};
+        }
+
+        if (!audio_player.paused)
+        {
+            next_ul = jQuery('.album[data-index=' + track_info.album.index + ']'),
+            next_li = jQuery(next_ul).find('[data-index=' + track_info.index +']');
+
+            jQuery(next_li).addClass(playing_classname);
+        }
+    }
+
     // Creates a new message handler for letting the server change the currently
     // playing track in an arbitrary fashion.
     rt.handlers.music_change_track = (function song_change (message) {
@@ -65,7 +90,9 @@ define(['realtime'], function define_music (rt) {
 
         request_buffer();
 
-        track_info = buffer_track_info;
+        update_track_info();
+    }).bind('play', function on_play () {
+        update_track_info(true);
     });
 
     // When the page first shows up, fires off a request to get a random song.

@@ -212,6 +212,16 @@ body.scripted #music li:hover .ui-icon.ui-icon-pause
     display: none;
 }
 
+body.scripted #music li.playing:hover .ui-icon.ui-icon-pause
+{
+    display: inline-block;
+}
+
+body.scripted #music li.playing:hover .ui-icon.ui-icon-play
+{
+    display: none;
+}
+
 #music li.playing .ui-icon.ui-icon-pause
 {
     display: inline-block;

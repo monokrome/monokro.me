@@ -12,14 +12,32 @@
 	ul
 		li
 			a(href='#projects')='Projects'
+		li
+			a(href='#music')='Music'
 
 	div#projects
 		div.accordion.collapsible.no-default.no-auto-height
 			- each projects, category in project_categories
 				h3=category
 
-				ul#nodejs-projects
+				ul(id='nodejs-projects-' + category.toLowerCase())
 					- each project in projects
 						li
 							a(href=project.url, target=project.name)=project.name
 							h5=project.description
+
+	div#music
+		div.accordion.collapsible.no-default.no-auto-height
+			- each album in music_albums
+				h3=album.name
+					span.year=new Date(album.released).getFullYear()
+
+				ul(id='music-album-' + album.name.toLowerCase())
+					- each track in album.tracks
+						li
+							span.track-number=track.number
+							span.track-name=track.name
+							ul.download-list
+								- each friendly_name, format in album.download_formats
+									li
+										a(href=track.get_location(format), target='_audio')=friendly_name

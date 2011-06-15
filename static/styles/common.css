@@ -127,7 +127,7 @@ h6 { font-size: 0.8em; }
     text-align: left;
 }
 
-#projects h3
+#projects h3, #music h3
 {
     text-align: center;
 }
@@ -140,4 +140,43 @@ h6 { font-size: 0.8em; }
 #projects li:last-child
 {
     margin-bottom: auto;
+}
+
+#music .track-number, #music .year
+{
+    margin-right: 1em;
+
+    color: #AAA;
+    text-align: right;
+    width: 3em;
+
+    display: inline-block;
+}
+
+#music .download-list
+{
+    float: right;
+    display: inline-block;
+}
+
+#music .download-list li
+{
+    margin-left: 1em;
+    display: inline-block;
+    font-size: 0.8em;
+}
+
+#music .download-list a
+{
+    text-decoration: underline;
+}
+
+#music .year
+{
+    margin-right: 0px;
+    margin-left: 3px;
+
+    color: #AAC;
+
+    font-size: 0.9em;
 }

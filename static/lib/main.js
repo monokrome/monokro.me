@@ -11,7 +11,8 @@
         }
     },
 
-    dependancies = ['application'];
+    dependancies = ['application', 'realtime'];
 
     require(configuration);
 })();
+

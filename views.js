@@ -1,4 +1,5 @@
 var projects = require('./projects'),
+    music = require('./music'),
     repo_list;
 
 /**
@@ -24,7 +25,8 @@ var views = {
             finalize_project_update(repositories);
 
             res.render('index.jade', {
-                project_categories: repositories
+                project_categories: repositories,
+                music_albums: music.albums
             });
         });
 

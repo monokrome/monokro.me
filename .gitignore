@@ -2,6 +2,9 @@
 static/analysis/*
 analyzer/*.json
 
+# Modules installed for the library
+node_modules/*
+
 # IDE-specific files
 *.tmproj
 

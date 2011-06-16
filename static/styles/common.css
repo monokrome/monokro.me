@@ -257,7 +257,7 @@ body.scripted #music li.playing:hover .ui-icon.ui-icon-pause
 /**
  * Extra styles for the GitHub ribbon.
  */
-.github-ribbon-container
+#github-ribbon-container
 {
     position: absolute; top: 0; right: 0;
 }

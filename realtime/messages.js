@@ -48,5 +48,18 @@ module.exports = {
             track = album.tracks[message.track.index + 1];
 
         this.broadcast(make_client_track_data(message, track));
+    },
+
+    'music_select': function get_specific_track (message) {
+        if (!message.track || !message.track.index
+            || !message.track.album || !message.track.album.index)
+        {
+            return;
+        }
+
+        var album = music.albums[message.track.album.index],
+            track = album.tracks[message.track.index];
+
+        this.broadcast(make_client_track_data(message, track));
     }
 };

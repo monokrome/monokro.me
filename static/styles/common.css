@@ -209,8 +209,8 @@ body.scripted #music li.playing:hover .ui-icon.ui-icon-play
     display: none;
 }
 
-#music li.playing .ui-icon.ui-icon-pause,
-#music li.paused .ui-icon.ui-icon-play,
+body.scripted #music li.playing .ui-icon.ui-icon-pause,
+body.scripted #music li.paused .ui-icon.ui-icon-play,
 body.scripted #music li:hover .ui-icon,
 body.scripted #music li.playing:hover .ui-icon.ui-icon-pause
 {

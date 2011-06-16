@@ -8,11 +8,22 @@ html, body
     font-family: 'Droid Sans', Arial, sans-serif;
     text-align: center;
 
+    height: 100%;
+
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
+}
+
+/** Opera breaks things. This fixes them. **/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
 }
 
 a:link, a:active, a:hover, a:visited
@@ -47,6 +58,11 @@ h6 { font-size: 0.8em; }
     position: fixed;
     top: 0px;
     right: 40px;
+}
+
+#page-container
+{
+    height: 100%;
 }
 
 body.scripted #audio-player
@@ -197,6 +213,18 @@ body.scripted #music li
     cursor: pointer;
 }
 
+#footer-push
+{
+    clear: both;
+    padding-bottom: 96px;
+}
+
+#footer
+{
+    margin: -96px 0px 32px;
+    height: 64px;
+}
+
 /**
  * Additional styles for the music play/pause dynamic.
  */
@@ -215,6 +243,15 @@ body.scripted #music li:hover .ui-icon,
 body.scripted #music li.playing:hover .ui-icon.ui-icon-pause
 {
     display: inline-block;
+}
+
+/**
+ * Extra styles for the HTML5 badge.
+ */
+.html5-badge
+{
+    width: 293px;
+    height: 64px;
 }
 
 /**

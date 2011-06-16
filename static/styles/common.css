@@ -225,6 +225,11 @@ body.scripted #music li
     height: 64px;
 }
 
+body.scripted #footer
+{
+    display: none;
+}
+
 /**
  * Additional styles for the music play/pause dynamic.
  */
@@ -260,6 +265,11 @@ body.scripted #music li.playing:hover .ui-icon.ui-icon-pause
 #github-ribbon-container
 {
     position: absolute; top: 0; right: 0;
+}
+
+body.scripted #github-ribbon-container
+{
+    display: none;
 }
 
 .github-ribbon

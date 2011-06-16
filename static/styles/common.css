@@ -216,3 +216,16 @@ body.scripted #music li.playing:hover .ui-icon.ui-icon-pause
 {
     display: inline-block;
 }
+
+/**
+ * Extra styles for the GitHub ribbon.
+ */
+.github-ribbon-container
+{
+    position: absolute; top: 0; right: 0;
+}
+
+.github-ribbon
+{
+    border: 0;
+}

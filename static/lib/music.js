@@ -4,7 +4,7 @@
  */
 define(['realtime'], function define_music (rt) {
     var audio_player = new Audio(), // Plays our audio
-        audio_buffer = new Audio(), //
+        audio_buffer = new Audio(), // Buffers our audio for gapless playback
         audio_format = 'mp3/lo', // Low-quality MP3 for streaming.
 
         awaiting_next = true,
@@ -43,7 +43,8 @@ define(['realtime'], function define_music (rt) {
 
         if (!save_buffer_state || audio_player.paused)
         {
-            jQuery('#music li.playing').removeClass(playing_classname)
+            jQuery('#music li.playing, #music li.paused')
+                                       .removeClass(playing_classname)
                                        .removeClass(paused_classname);
         }
 
@@ -70,7 +71,7 @@ define(['realtime'], function define_music (rt) {
 
     // Creates a new message handler for letting the server change the currently
     // playing track in an arbitrary fashion.
-    rt.handlers.music_change_track = (function song_change (message) {
+    rt.handlers.music_queue_track = (function song_change (message) {
         // Shortcut to our audio player OR audio buffer based on message.
         var ap;
 

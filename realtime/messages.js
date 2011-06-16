@@ -3,7 +3,7 @@ var music = require('../music');
 function make_client_track_data (message, track)
 {
     return {
-            'type': 'music_change_track',
+            'type': 'music_queue_track',
             'autoplay': message.autoplay || false,
             'buffer': message.buffer || false,
 

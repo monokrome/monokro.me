@@ -2,7 +2,7 @@
     var dependancies = ['uimaker', 'realtime', 'music'];
     
     function define_application (uimaker, realtime, music) {
-        var $content = jQuery('#content');
+        var $content = jQuery('#content, #footer, #github-ribbon-container');
     
         jQuery('.tabbed').each(uimaker('tabs'));
         jQuery('.accordion').each(uimaker('accordion'));

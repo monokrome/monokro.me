@@ -30,7 +30,7 @@ Track.prototype = {};
 
 Track.prototype.get_location = (function track_get_location (_format) {
     if (!this.album || !this.album.location)
-        throw 'No album, or not location set for album: ' + this.album;
+        throw 'No album, or no location set for album: ' + this.album;
 
     // TODO: Find the best-choice format for the specific format
     if (this.album.formats && this.album.formats.indexOf(_format) == -1)

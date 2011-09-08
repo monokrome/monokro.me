@@ -1,0 +1,16 @@
+{
+  "author": "Brandon R. Stoner <monokrome@limpidtech.com> (http://monokro.me)",
+  "name": "monokro.me",
+  "description": "My personal website.",
+  "version": "0.0.0",
+  "homepage": "http://monokro.me",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/monokrome/monokro.me.git"
+  },
+  "engines": {
+    "node": "~v0.4.11"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -11,6 +11,10 @@
   "engines": {
     "node": "~v0.4.11"
   },
-  "dependencies": {},
+  "dependencies": {
+    "coffee-script": "==1.1.2",
+    "connect": "==1.7.0",
+    "express": "==2.4.6"
+  },
   "devDependencies": {}
 }

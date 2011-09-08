@@ -14,7 +14,8 @@
   "dependencies": {
     "coffee-script": "==1.1.2",
     "connect": "==1.7.0",
-    "express": "==2.4.6"
+    "express": "==2.4.6",
+    "jade": "==0.15.4"
   },
   "devDependencies": {
     "supervisor": "0.1.3"

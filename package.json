@@ -16,5 +16,7 @@
     "connect": "==1.7.0",
     "express": "==2.4.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "supervisor": "0.1.3"
+  }
 }

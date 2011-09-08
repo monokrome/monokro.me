@@ -1,5 +1,5 @@
 express = require 'express'
-path = require('path')
+path = require 'path'
 
 public_dir = (filename) -> path.join __dirname, '../public', filename or ''
 

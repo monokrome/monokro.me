@@ -1,0 +1,20 @@
+!!! 5
+//- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+//if lt IE 7 <html class="no-js ie6 oldie" lang="en">
+//if IE 7 <html class="no-js ie7 oldie" lang="en">
+//if IE 8 <html class="no-js ie8 oldie" lang="en">
+// [if gt IE 8] <!
+html(class="no-js", lang="en")
+	// <![endif]
+
+	head
+		title=page_title
+
+		//- These scripts can't be deferred - or we will run into
+		//- some unusual behavior if CSS or deferred scripts make
+		//- use of their functionality.
+		script(src=script_url('modernizr'))
+		script(src=script_url('respond'))
+		script(src=script_url('jquery'))
+
+	body!=body

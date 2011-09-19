@@ -21,3 +21,4 @@ exports.apply = (server) ->
 
 	server.helpers helpers
 	server.dynamicHelpers dynamic_helpers
+

@@ -8,7 +8,8 @@ exports.apply = (server) ->
 	server.set 'views', public_dir 'views'
 
 	server.configure 'production', ->
-		this.set 'listening-port', 80
+		this.set 'listening-port', process.env.NODE_PORT || 80
 
 	server.configure 'development', ->
-		this.set 'listening-port', 8000
+		this.set 'listening-port', process.env.NODE_PORT || 8000
+

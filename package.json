@@ -4,6 +4,9 @@
   "description": "My personal website.",
   "version": "0.0.0",
   "homepage": "http://monokro.me",
+  "scripts": {
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/monokrome/monokro.me.git"

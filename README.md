@@ -16,6 +16,17 @@ most things out is left to be a simple task:
 - Modernizr.js
 - Respond.js
 
+It is very easy to get started with the project. Assuming you have npm
+installed (you should) you can simply run the following command in the
+root directory of our repository:
+
+    npm install
+
+This should resolve all dependencies, and you should have a server
+running at **localhost:8080** by running the following command:
+
+    npm start
+
 Architecture
 ============
 

@@ -91,5 +91,5 @@ How do I use Stylus to pre-process my CSS files?
 This project is automatically set up to do CSS pre-processing with [Stylus](http://learnboost.github.com/stylus/ "Stylus").
 To use this functionality, you can put your Stylus code in *src/stylesheets* and they will be rendered as CSS files into
 public/stylesheets. For instance, you might set up your web application to request **/stylesheets/common.css** which would
-be rendered using */src/stylesheets/common.styl* when it doesn't exist. Stylesheets are rendered upon every request when
+be rendered using */src/stylesheets/common.styl*. Stylesheets are rendered upon every request when
 the server is running in a development environment.

@@ -11,6 +11,8 @@ most things out is left to be a simple task:
 	* Express
 	* Jade
 	* Stylus
+	* Connect-Assets
+	* Nib
 - Modernizr.js
 - Respond.js
 

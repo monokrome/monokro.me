@@ -13,6 +13,7 @@ most things out is left to be a simple task:
 	* Stylus
 	* Connect-Assets
 	* Nib
+	* Uglify-JS
 - Modernizr.js
 - Respond.js
 

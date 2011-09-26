@@ -34,6 +34,7 @@ structure.
             production/ *contains minified scripts for production*
         views/ *contains our views for both server and client*
     src/ *contains all server-side source code*
+    	stylesheets/ *contains .styl files for preprocessing CSS using Stylus syntax*
     server.js *bootstarts coffee-script and requires ./src/app*
     package.json *describes package dependancies and other metadata*
 
@@ -82,3 +83,12 @@ the same code will generate:
 
 You can change which files need the ".min" in their extension by changing the
 production_environments variable in *src/helpers.coffee*.
+
+How do I use Stylus to pre-process my CSS files?
+-----------------------------------------------
+
+This project is automatically set up to do CSS pre-processing with [Stylus](http://learnboost.github.com/stylus/ "Stylus").
+To use this functionality, you can put your Stylus code in *src/stylesheets* and they will be rendered as CSS files into
+public/stylesheets. For instance, you might set up your web application to request **/stylesheets/common.css** which would
+be rendered using */src/stylesheets/common.styl* when it doesn't exist. Stylesheets are rendered upon every request when
+the server is running in a development environment.

@@ -10,6 +10,7 @@ most things out is left to be a simple task:
 	* Coffee-Script
 	* Express
 	* Jade
+        * Stylus
 - Modernizr.js
 - Respond.js
 

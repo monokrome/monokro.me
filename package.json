@@ -19,7 +19,8 @@
     "connect": "==1.7.0",
     "express": "==2.4.6",
     "jade": "==0.15.4",
-    "stylus": "==0.15.4"
+    "stylus": "==0.15.4",
+    "connect-assets": "==2.0.0-rc1"
   },
   "devDependencies": {
     "supervisor": "0.1.3"

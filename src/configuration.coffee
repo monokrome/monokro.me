@@ -6,11 +6,15 @@ path = require 'path'
 public_dir = (filename) -> path.join __dirname, '../public', filename or ''
 
 exports.apply = (server) ->
-	server.use express.static public_dir()
-	server.use assets()
+	server.assets_context = {}
 
-	css.root = '/stylesheets'
-	js.root = '/scripts'
+	server.use express.static public_dir()
+	server.use assets
+		src: 'assets/'
+		helperContext: server.assets_context
+
+	server.assets_context.css.root = 'stylesheets/'
+	server.assets_context.js.root = 'scripts/'
 
 	server.set 'views', public_dir 'views'
 

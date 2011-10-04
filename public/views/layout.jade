@@ -13,10 +13,10 @@ html(class="no-js", lang="en")
 		//- These scripts can't be deferred - or we will run into
 		//- some unusual behavior if CSS or deferred scripts make
 		//- use of their functionality.
-		!= js('modernizr')
-		!= js('respond')
-		!= js('jquery')
+		!= assets.js('modernizr')
+		!= assets.js('respond')
+		!= assets.js('jquery')
 
-		!= css('common')
+		!= assets.css('common')
 
 	body!=body

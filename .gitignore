@@ -1,6 +1,7 @@
 src/stylesheets/*.css
 public/stylesheets/*
 node_modules/*
+builtAssets/*
 
 npm-debug.log
 

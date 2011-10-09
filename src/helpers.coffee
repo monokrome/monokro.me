@@ -3,7 +3,7 @@ path = require 'path'
 production_environments = ['production']
 
 helpers =
-	page_title: 'My Website'
+	page_title: 'monokro.me'
 
 dynamic_helpers =
 	assets: (req, res) ->

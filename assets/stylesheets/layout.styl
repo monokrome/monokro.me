@@ -13,12 +13,14 @@ audio:not([controls])
 	display none
 
 html
+	height 100%
 	font-size 100%
 	overflow-y scroll
 	-webkit-text-size-adjust 100%
 	-ms-text-size-adjust 100%
 
 body
+	height 100%
 	margin 0
 
 body, button, input, select, textarea
@@ -158,6 +160,19 @@ table
 	border-spacing 0
 
 #page-container
+	min-height 100%
 	border 1px dashed #000
 	background url('/images/backdrop.png')
+
+#logo
+	width 425px
+	height 60px
+	background url('/images/monokrome.png')
+
+	position absolute
+	left 50%
+	top 50%
+
+	margin-left -212px
+	margin-top -30px
 

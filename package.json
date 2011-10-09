@@ -5,7 +5,7 @@
   "domain": "monokro.me",
   "description": "My personal website.",
   "homepage": "http://monokro.me",
-  "version": "0.0.0-1",
+  "version": "0.0.0",
   "scripts": {
     "start": "./server.js"
   },

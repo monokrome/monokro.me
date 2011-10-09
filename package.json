@@ -2,7 +2,7 @@
   "author": "Brandon R. Stoner <monokrome@limpidtech.com> (http://monokro.me)",
   "name": "monokrome",
   "subdomain": "monokrome",
-  "domain": "monokro.me",
+  "domains": "monokro.me",
   "description": "My personal website.",
   "homepage": "http://monokro.me",
   "version": "0.0.0",

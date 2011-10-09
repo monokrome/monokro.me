@@ -73,32 +73,6 @@ right now saying *but I don't want to give away my business logic*! I will
 just add that if your business logic is in your views, you've got bigger
 problems.
 
-Why are development and production scripts in different directories?
---------------------------------------------------------------------
-
-Using multiple directories allows us to use different scripts for whichever express environment that has been configured. Sharing scripts between
-environments can be done easily via symlinks:
-
-    ln -s ./development ./staging
-
-Doing this allows us to provide consistent filenames in our views. Here is an
-example in jade:
-
-    script(src=script_url('respond'))
-
-Now, if you've got the NODE_ENV environment variable set to *development*, this
-will translate into:
-
-    <script src=/scripts/development/respond.js></script>
-
-However, if you provide the *production* environment - which is our default - then
-the same code will generate:
-
-    <script src=/scripts/production/respond.min.js></script>
-
-You can change which files need the ".min" in their extension by changing the
-production_environments variable in *src/helpers.coffee*.
-
 How do I use Stylus to pre-process my CSS files?
 -----------------------------------------------
 

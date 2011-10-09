@@ -7,7 +7,7 @@
   "homepage": "http://monokro.me",
   "version": "0.0.0",
   "scripts": {
-    "start": "server.js"
+    "start": "./server.js"
   },
   "repository": {
     "type": "git",

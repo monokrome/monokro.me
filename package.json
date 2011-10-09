@@ -1,8 +1,9 @@
 {
   "author": "Brandon R. Stoner <monokrome@limpidtech.com> (http://monokro.me)",
-  "name": "monokro.me",
+  "name": "monokrome",
+  "subdomain": "monokrome",
   "description": "My personal website.",
-  "version": "0.0.0",
+  "version": "0.0.0-2",
   "homepage": "http://monokro.me",
   "scripts": {
     "start": "node server.js"

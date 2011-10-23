@@ -26,8 +26,5 @@
     "snockets": "1.2.5",
     "nib": "==0.2.0",
     "uglify-js": "==1.1.0"
-  },
-  "devDependencies": {
-    "supervisor": "0.1.3"
   }
 }

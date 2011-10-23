@@ -5,18 +5,18 @@
 //if IE 8 <html class="no-js ie8 oldie" lang="en">
 // [if gt IE 8] <!
 html(class="no-js", lang="en")
-	// <![endif]
+  // <![endif]
 
-	head
-		title=page_title
+  head
+    title=page_title
 
-		//- These scripts can't be deferred - or we will run into
-		//- some unusual behavior if CSS or deferred scripts make
-		//- use of their functionality.
-		!= assets.js('modernizr')
-		!= assets.js('respond')
-		!= assets.js('jquery')
+    //- These scripts can't be deferred - or we will run into
+    //- some unusual behavior if CSS or deferred scripts make
+    //- use of their functionality.
+    != assets.js('modernizr')
+    != assets.js('respond')
+    != assets.js('jquery')
 
-		!= assets.css('common')
+    != assets.css('common')
 
-	body!=body
+  body!=body

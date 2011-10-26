@@ -3,6 +3,9 @@ express = require 'express'
 stylus = require 'stylus'
 path = require 'path'
 
+if !process.env.NODE_ENV?
+  process.env.NODE_ENV = 'production'
+
 public_dir = (filename) -> path.join __dirname, '../public', filename or ''
 
 exports.apply = (server) ->
@@ -18,9 +21,9 @@ exports.apply = (server) ->
 
   server.set 'views', public_dir 'views'
 
-  server.configure 'production', ->
-    this.set 'listening-port', process.env.NODE_PORT || 80
-
   server.configure 'development', ->
     this.set 'listening-port', process.env.NODE_PORT || 8000
+
+  server.configure 'production', ->
+    this.set 'listening-port', process.env.NODE_PORT || 80
 

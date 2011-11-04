@@ -21,4 +21,7 @@ html(class="no-js", lang="en")
 
     != assets.js('main')
 
-  body!=body
+  body
+    #page-container
+      #content!=body
+      #footer

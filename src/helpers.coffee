@@ -13,6 +13,8 @@ development_status =
   text: "Hello. This would normally be somebody's status update. However, in " +
         "development mode - it's just a tiny 140 character piece of " +
         "example text."
+  user:
+    screen_name: "nobody"
 
 dynamic_helpers =
   assets: (req, res) ->

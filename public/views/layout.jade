@@ -25,3 +25,5 @@ html(class="no-js", lang="en")
     #page-container
       #content!=body
       #footer
+        .status=latest_twit.text
+        .author=latest_twit.user.screen_name

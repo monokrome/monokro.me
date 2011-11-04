@@ -31,6 +31,16 @@ streams = []
 
 setup_domain = (domain) ->
 
+  # Restores initial state.
+  twitter.search domain, (err, data) ->
+    if err
+      throw err
+
+    for result in data.results
+      if result.from_user in allowed_users
+        latest_twits[domain] = latest_twits[domain] || result
+
+  # Listens for any allowed users mentioning this keyword
   streams.push twitter.stream 'statuses/filter',
     follow: '800277,217652097'
     track: domain

@@ -17,9 +17,11 @@ development_status =
     screen_name: "nobody"
 
 production_status_default =
-  text: ""
+  text: "I miss the days when I used to get free a frisbee in the mail every " +
+        "once in a while courtesy of AOL Online. " +
+        "Those were the good old days. :("
   user:
-    screen_name: ""
+    screen_name: "monokrome"
 
 dynamic_helpers =
   assets: (req, res) ->

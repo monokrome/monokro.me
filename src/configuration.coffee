@@ -22,8 +22,8 @@ exports.apply = (server) ->
   server.set 'views', public_dir 'views'
 
   server.configure 'development', ->
-    this.set 'listening-port', process.env.NODE_PORT || 8000
+    this.set 'listening-port', (process.env.NODE_PORT || process.env.PORT) || 8000
 
   server.configure 'production', ->
-    this.set 'listening-port', process.env.NODE_PORT || 80
+    this.set 'listening-port', (process.env.NODE_PORT || process.env.PORT) || 80
 

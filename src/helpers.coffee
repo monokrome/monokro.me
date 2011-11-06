@@ -16,6 +16,11 @@ development_status =
   user:
     screen_name: "nobody"
 
+production_status_default =
+  text: ""
+  user:
+    screen_name: ""
+
 dynamic_helpers =
   assets: (req, res) ->
     this.assets_context
@@ -28,6 +33,8 @@ dynamic_helpers =
 
     else if process.env.NODE_ENV is 'development'
       return development_status
+
+    return production_status_default
 
 exports.apply = (server) ->
 

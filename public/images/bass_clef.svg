@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="svg3033" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px"
+	 viewBox="116.047 270.181 512 512" enable-background="new 116.047 270.181 512 512" xml:space="preserve">
+<title  id="title3077">Bass Clef</title>
+<g id="layer1">
+	
+		<linearGradient id="path3_1_" gradientUnits="userSpaceOnUse" x1="-522.8591" y1="335.6384" x2="-265.2088" y2="730.3631" gradientTransform="matrix(1 0 0 -1 754.6191 1021.6997)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.8264"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</linearGradient>
+	<path id="path3" fill="url(#path3_1_)" stroke="#000000" d="M239.562,471.393c8.526,10.762,23.634,17.907,40.832,17.907
+		c26.615,0,48.176-17.088,48.176-38.177c0-21.088-21.561-38.177-48.176-38.177c-14.853,3.036-20.906,6.581-24.234-2.126
+		c13.144-39.724,34.306-48.777,70.592-48.777c48.194,0,70.9,43.795,70.9,104.534c-13.324,139.383-150.582,209.666-180.287,231.19
+		c4.163,9.581,3.944,9.236,3.944,8.781C360.075,643.52,463.1,557.074,463.1,472.03c0-67.574-42.831-128.385-137.256-126.348
+		C269.123,345.681,201.312,408.71,239.562,471.393L239.562,471.393z M479.461,405.674c0,13.053,10.581,23.634,23.635,23.634
+		c13.053,0,23.633-10.581,23.633-23.634c0-13.052-10.58-23.633-23.633-23.633C490.042,382.04,479.461,392.621,479.461,405.674z
+		 M479.461,505.662c0,13.052,10.581,23.633,23.635,23.633c13.053,0,23.633-10.581,23.633-23.633
+		c0-13.053-10.58-23.634-23.633-23.634C490.042,482.029,479.461,492.609,479.461,505.662L479.461,505.662z"/>
+</g>
+</svg>

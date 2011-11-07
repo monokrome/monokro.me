@@ -191,11 +191,15 @@ table
 
   .author
     padding-right 10%
-    color #5dd7fc
     text-transform uppercase
     text-align right
     font-size 0.8em
 
-  .author:before
-    content '@'
+    a
+      &:link, &:active, &:visited, &:hover
+        color #5dd7fc
+        text-decoration none
+
+      &:before
+        content '@'
 

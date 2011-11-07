@@ -1,3 +1,5 @@
+window.scrollTo(0, 1)
+
 avatar_size_large = 288
 avatar_size_small = 144
 

@@ -7,19 +7,41 @@
 
   vendor(user-select, none)
 
+  position relative
+  top 0
+  left 0
+
   .avatar
     height 144px
     width 144px
 
   &:hover
     .avatar
+      background-color #FFF
       box-shadow 0px 0px 6px #009
+
+      vendor(transition, all 500ms ease-in-out)
+      vendor(transform, scale(1.8))
+
+      z-index 20
+      position relative
+      top 0
+      left 0
+
+    h1
+      vendor(transition, all 200ms ease-in-out)
+      opacity 0
 
   h1
     margin 0px
     font-size 3em
     font-weight lighter
     text-transform uppercase
+
+    z-index 18
+    position relative
+    top 0
+    left 0
 
 #code .avatar
   background-image url('/images/octocat.svg')

@@ -30,6 +30,7 @@
     h1
       vendor(transition, all 200ms ease-in-out)
       opacity 0
+      overflow hidden
 
   h1
     margin 0px
@@ -41,6 +42,12 @@
     position relative
     top 0
     left 0
+
+html.no-js
+  #code, #music, #blog
+    &:hover
+      .avatar
+        height 173px
 
 #code .avatar
   background-image url('/images/octocat.svg')

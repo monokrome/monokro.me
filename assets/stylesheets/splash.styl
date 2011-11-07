@@ -4,28 +4,20 @@
   text-align center
   width 144px
   cursor pointer
+  overflow visible
 
   vendor(user-select, none)
 
-  position relative
-  top 0
-  left 0
-
   .avatar
+    background-color #FFF
     height 144px
     width 144px
 
   &:hover
     .avatar
-      background-color #FFF
       box-shadow 0px 0px 6px #009
 
-      vendor(transition, all 500ms ease-in-out)
-
       z-index 20
-      position relative
-      top 0
-      left 0
 
     h1
       vendor(transition, all 200ms ease-in-out)
@@ -39,11 +31,8 @@
     text-transform uppercase
 
     z-index 18
-    position relative
-    top 0
-    left 0
 
-html.no-js
+.no-js
   #code, #music, #blog
     &:hover
       .avatar
@@ -57,13 +46,13 @@ html.no-js
 
 #music .avatar
   background-image url('/images/bass_clef.svg')
-  background-position-x -170px
+  background-position-x -190px
   background-position-y -120px
   background-repeat no-repeat
 
 #blog .avatar
   background-image url('/images/twitter.svg')
-  background-position-x -270px
+  background-position-x -260px
   background-position-y -140px
   background-repeat no-repeat
 

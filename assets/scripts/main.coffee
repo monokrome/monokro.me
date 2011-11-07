@@ -3,19 +3,16 @@ avatar_size_small = 144
 
 avatar_defaults =
   '#code':
-    background:
-      x: -80
-      y: -165
+    'background-position-x': -80
+    'background-position-y': -165
 
   '#music':
-    background:
-      x: -170
-      y: -120
+    'background-position-x': -190
+    'background-position-y': -120
 
   '#blog':
-    background:
-      x: -270
-      y: -140
+    'background-position-x': -260
+    'background-position-y': -140
 
 module_targets =
   '#code': 'http://github.com/monokrome'
@@ -35,26 +32,29 @@ create_animation = (selector) ->
   $avatar = jQuery (selector + ' .avatar')
 
   (jQuery selector).hover ->
-    $avatar.height avatar_size_large
-    $avatar.width avatar_size_large
-
     $avatar.css 'position', 'relative'
-    $avatar.css 'left', (((avatar_size_large - avatar_size_small) / 2) * -1)
-    $avatar.css 'top', (((avatar_size_large - avatar_size_small) / 2) * -1)
 
-    $avatar.css 'background-position-x', avatar_defaults[selector].background.x + ((avatar_size_large - avatar_size_small) / 2)
-    $avatar.css 'background-position-y', avatar_defaults[selector].background.y + ((avatar_size_large - avatar_size_small) / 2)
+    animate_to =
+      height: avatar_size_large
+      width: avatar_size_large
+      left: (((avatar_size_large - avatar_size_small) / 2) * -1)
+      top: (((avatar_size_large - avatar_size_small) / 2) * -1)
+      backgroundPosition: (avatar_defaults[selector]['background-position-x'] + ((avatar_size_large - avatar_size_small) / 2)) + 'px ' +
+                            (avatar_defaults[selector]['background-position-y'] + ((avatar_size_large - avatar_size_small) / 2)) + 'px'
+
+    $avatar.stop().animate animate_to
 
   , ->
-    $avatar.height avatar_size_small
-    $avatar.width avatar_size_small
+    animate_to =
+      height: avatar_size_small
+      width: avatar_size_small
+      position: 'relative'
+      left: 0
+      top: 0
+      backgroundPosition: avatar_defaults[selector]['background-position-x'] + 'px ' +
+                          avatar_defaults[selector]['background-position-y'] + 'px'
 
-    $avatar.css 'position', 'relative'
-    $avatar.css 'left', 0
-    $avatar.css 'top', 0
-
-    $avatar.css 'background-position-x', avatar_defaults[selector].background.x
-    $avatar.css 'background-position-y', avatar_defaults[selector].background.y
+    $avatar.stop().animate animate_to
 
 initialize_application = ->
   for selector of module_targets

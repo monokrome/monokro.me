@@ -1,0 +1,9 @@
+*.html
+*.js
+*.css
+
+.*
+!.gitmodules
+!.gitignore
+!.gitslave
+

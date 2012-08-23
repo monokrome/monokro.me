@@ -1,5 +1,6 @@
 styles/*
 !styles/bootstrap.css
+!styles/bootstrap-responsive.css
 
 scripts/*
 !scripts/bootstrap.js

@@ -1,0 +1,11 @@
+styles/*
+!styles/bootstrap.css
+
+scripts/*
+!scripts/bootstrap.js
+!scripts/jquery.js
+
+.*
+!.gitignore
+!.gitmodules
+

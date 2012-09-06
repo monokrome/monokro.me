@@ -28,9 +28,9 @@ initialize_gl = (callback) ->
   renderer.setSize window.innerWidth, window.innerHeight
 
   $canvas = jQuery(renderer.domElement)
-  $canvas.attr 'id', 'canvas'
+  $canvas.attr 'id', 'visualization'
 
-  $canvas.appendTo '#canvas-container'
+  $canvas.appendTo '#visualization-container'
 
   callback renderer, scene, camera
 

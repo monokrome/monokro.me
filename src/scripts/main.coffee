@@ -9,7 +9,7 @@ animation_factory = (renderer, scene, camera) ->
     if not animation_state.active
       jQuery(animation_state).trigger 'deactivate'
     else
-      jQuery(animation_state).trigger 'animate'
+      jQuery(animation_state).trigger 'frame'
 
       requestAnimationFrame animate
       animation_state.renderer.render animation_state.scene, animation_state.camera

@@ -5,6 +5,7 @@ styles/*
 scripts/*
 !scripts/bootstrap.js
 !scripts/jquery.js
+!scripts/three.js
 
 index.html
 

@@ -21,9 +21,18 @@ verify_exists jade
 
 mkdir -p scripts styles
 
-coffee -o "${project_root}/scripts/" -c "${project_root}/src/scripts/"
-stylus -o "${project_root}/styles"      "${project_root}/src/styles" 
-jade   -O "${project_root}/"            "${project_root}/src/"                     &
+coffee -wo "${project_root}/scripts/" -c "${project_root}/src/scripts/" &
+coffee_pid = $!
+
+stylus -wo "${project_root}/styles"      "${project_root}/src/styles"   &
+stylus_pid = $!
+
+jade   -wO "${project_root}/"            "${project_root}/src/"         &
+jade_pid = $!
+
+wait ${coffee_pid}
+wait ${stylus_pid}
+wait ${jade_pid}
 
 # Restore original state. Why? WHY NOT?!
 cd "${initial_working_directory}"

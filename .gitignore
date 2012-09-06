@@ -6,6 +6,8 @@ scripts/*
 !scripts/bootstrap.js
 !scripts/jquery.js
 
+index.html
+
 .*
 !.gitignore
 !.gitmodules

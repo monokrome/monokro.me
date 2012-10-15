@@ -1,0 +1,5 @@
+.*
+!.gitslave
+!.gitignore
+!.gitmodules
+

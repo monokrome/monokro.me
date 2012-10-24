@@ -47,8 +47,13 @@ class World
 		@animate()
 
 	resize: ->
+		console.dir 'Size!'
 		@renderer.setSize window.innerWidth * @pixelRatio, window.innerHeight * @pixelRatio
 
 jQuery ->
 	$container = jQuery '#viewport-container'
 	world = new World $container
+
+	$window = jQuery window
+	$window.on 'resize', ->
+		world.resize.apply world, []

@@ -12,7 +12,9 @@ class World
 
 	constructor: ($container) ->
 		@viewportRatio = window.innerWidth / window.innerHeight
-		@pixelRatio = window.devicePixelRatio or 1
+		# TODO: Retina.
+		# @pixelRatio = window.devicePixelRatio or 1
+		@pixelRatio = 1
 
 		@scene = new THREE.Scene
 

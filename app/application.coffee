@@ -10,11 +10,10 @@ class World
 	animate: ->
 		requestAnimationFrame animator @
 
-		@mesh.rotation.x += 0.01
-		@mesh.rotation.y += 0.01
-
 	constructor: ($container) ->
 		@viewportRatio = window.innerWidth / window.innerHeight
+		@pixelRatio = window.devicePixelRatio or 1
+
 		@scene = new THREE.Scene
 
 		if Modernizr.webgl
@@ -23,9 +22,18 @@ class World
 			@renderer = new THREE.CanvasRenderer
 
 		@camera = new THREE.PerspectiveCamera 75, @viewportRatio, 1, 10000
-		@camera.position.z = 1000
+		@camera.position.z = 400
 
-		@geometry = new THREE.CubeGeometry 200, 200, 200
+		@geometry = new THREE.TextGeometry 'MK',
+			size: 72
+			height: 5
+			curveSegments: 6
+			font: 'optimer'
+			weight: 'normal'
+			style: 'normal'
+
+		console.dir @geometry
+
 		@material = new THREE.MeshBasicMaterial
 			color: 0xff0000
 
@@ -39,7 +47,7 @@ class World
 		@animate()
 
 	resize: ->
-		@renderer.setSize window.innerWidth, window.innerHeight
+		@renderer.setSize window.innerWidth * @pixelRatio, window.innerHeight * @pixelRatio
 
 jQuery ->
 	$container = jQuery '#viewport-container'

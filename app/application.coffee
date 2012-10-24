@@ -22,7 +22,7 @@ class World
 			@renderer = new THREE.CanvasRenderer
 
 		@camera = new THREE.PerspectiveCamera 75, @viewportRatio, 1, 10000
-		@camera.position.z = 80
+		@camera.position.z = 180
 
 		@geometry = new THREE.TextGeometry 'monokro.me',
 			size: 16

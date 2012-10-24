@@ -45,7 +45,6 @@ class World
 		@animate()
 
 	resize: ->
-		console.dir 'Size!'
 		@renderer.setSize window.innerWidth * @pixelRatio, window.innerHeight * @pixelRatio
 
 jQuery ->

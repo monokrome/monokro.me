@@ -22,12 +22,12 @@ class World
 			@renderer = new THREE.CanvasRenderer
 
 		@camera = new THREE.PerspectiveCamera 75, @viewportRatio, 1, 10000
-		@camera.position.z = 40
+		@camera.position.z = 80
 
-		@geometry = new THREE.TextGeometry 'MK',
+		@geometry = new THREE.TextGeometry 'monokro.me',
 			size: 16
 			height: 5
-			curveSegments: 6
+			curveSegments: 20
 			font: 'source sans pro'
 			weight: 'normal'
 			style: 'normal'
@@ -36,6 +36,8 @@ class World
 			color: 0x000033
 
 		@mesh = new THREE.Mesh @geometry, @material
+		@mesh.scale.z = 0.05
+
 		@scene.add @mesh
 
 		@resize()

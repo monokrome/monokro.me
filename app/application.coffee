@@ -28,7 +28,7 @@ class World
 			size: 72
 			height: 5
 			curveSegments: 6
-			font: 'Source Sans Pro'
+			font: 'source sans pro'
 			weight: 'normal'
 			style: 'normal'
 

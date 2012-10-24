@@ -21,11 +21,19 @@ class World
 		else
 			@renderer = new THREE.CanvasRenderer
 
-		@camera = new THREE.PerspectiveCamera 75, @viewportRatio, 1, 10000
+		@camera = new THREE.PerspectiveCamera 60, @viewportRatio, 1, 10000
 		@camera.position.z = 180
 
-		@geometry = new THREE.TextGeometry 'monokro.me',
+		@textGeometry = new THREE.TextGeometry 'monokro.me',
 			size: 16
+			height: 5
+			curveSegments: 20
+			font: 'source sans pro'
+			weight: 'normal'
+			style: 'normal'
+
+		@logoGeometry = new THREE.TextGeometry 'MK',
+			size: 64
 			height: 5
 			curveSegments: 20
 			font: 'source sans pro'
@@ -35,10 +43,31 @@ class World
 		@material = new THREE.MeshBasicMaterial
 			color: 0x000033
 
-		@mesh = new THREE.Mesh @geometry, @material
-		@mesh.scale.z = 0.05
+		@textMesh = new THREE.Mesh @textGeometry, @material
+		@textMesh.scale.z = 0.05
 
-		@scene.add @mesh
+		@logoMesh = new THREE.Mesh @logoGeometry, @material
+		@logoMesh.scale.z = 0.05
+
+		for mesh in [@logoMesh, @textMesh]
+			@scene.add mesh
+
+			mesh.position.x -= 80
+
+			mesh.properties.initialPosition =
+				x: mesh.position.x
+				y: mesh.position.y
+				z: mesh.position.z
+
+			mesh.properties.initialRotation =
+				x: mesh.rotation.x
+				y: mesh.rotation.y
+				z: mesh.rotation.z
+
+		@textMesh.position.y -= 16
+		@textMesh.rotation.x += 0.5
+
+		@logoMesh.rotation.x -= 0.5
 
 		@resize()
 

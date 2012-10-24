@@ -19,10 +19,7 @@ exports.config =
           'vendor/scripts/jquery-1.8.2.js',
         ]
         after: [
-          'scripts/optimer_regular.typeface.js',
-          'scripts/optimer_bold.typeface.js',
-          'scripts/optimer_italic.typeface.js',
-          'scripts/optimer_bold_italic.typeface.js',
+          'vendor/scripts/source_sans_pro_regular.typeface',
         ]
 
     stylesheets:

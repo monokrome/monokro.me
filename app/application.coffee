@@ -52,7 +52,7 @@ class World
 		for mesh in [@logoMesh, @textMesh]
 			@scene.add mesh
 
-			mesh.position.x -= 80
+			mesh.position.x -= 68
 
 			mesh.properties.initialPosition =
 				x: mesh.position.x

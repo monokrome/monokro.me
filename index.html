@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset=UTF-8 />
+
+    <meta name="viewport" content="user-scalable=no,width=device-width" />
+
+    <title>monokrome </title>
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+    <style>
+      html {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        background-color: #000;
+        color: #FFF;
+
+        font-family: "Source Sans Pro", "sans-serif";
+
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+
+      #stage {
+        margin: 0px auto -60px;
+        padding: 0px;
+
+        color: #000;
+
+        width: 400px;
+        height: 400px;
+
+        background-color: #FD1313;
+        border-radius: 200px;
+
+        position: relative;
+        top: -80px;
+        left: 0px;
+
+        z-index: 10;
+      }
+
+      #header {
+        padding-left: 0.1em;
+
+        font-size: 22em;
+        letter-spacing: -0.27em;
+
+        font-weight: bold;
+      }
+
+      #shortcuts-container {
+        text-align: center;
+
+        padding 10px;
+
+        position: relative;
+        top: 0px;
+        left: 0px;
+
+        z-index: 20;
+      }
+
+      #shortcuts {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #shortcuts li {
+        display: inline-block;
+      }
+
+      i, li.external {
+        -moz-transition: opacity .25s ease-in-out;
+        -webkit-transition: opacity .25s ease-in-out;
+        -o-transition: opacity .25s ease-in-out;
+        transition: opacity .25s ease-in-out;
+
+        opacity: 0.8;
+      }
+
+      i {
+        width: 32px;
+        height: 32px;
+        display: block;
+      }
+
+      i:hover, li.external:hover {
+        opacity: 1.0;
+        cursor: pointer;
+      }
+
+      i.github { background: url('./images/icons/github.png'); }
+      i.dribbble { background: url('./images/icons/dribbble.png'); }
+      i.twitter { background: url('./images/icons/twitter.png'); }
+      i.linkedin { background: url('./images/icons/linkedin.png'); }
+      i.skype { background: url('./images/icons/skype.png'); }
+      i.last-fm { background: url('./images/icons/last-fm.png'); }
+      i.googleplus { background: url('./images/icons/googleplus.png'); }
+      i.aim { background: url('./images/icons/aim.png'); }
+
+      @media (min-width: 960px) {
+        #shortcuts-container {
+          text-align: right;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #shortcuts-container {
+          margin: 0px auto;
+          width: 200px;
+
+          text-align: center;
+
+          position: relative;
+          top: 0px;
+          right: 0px;
+        }
+
+        #stage {
+          margin-bottom: -25px;
+
+          width: 200px;
+          height: 200px;
+
+          top: -50px;
+        }
+
+        #header {
+          font-size: 11em;
+          letter-spacing: -0.27em;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section id=stage><header id=header>mk</header></section>
+
+    <section id=shortcuts-container>
+      <ul id=shortcuts>
+        <!-- Soundcloud badge -->
+        <li class=external>
+          <iframe
+            allowtransparency="true"
+            scrolling="no"
+            frameborder="no"
+            src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fmonokrome&color=white_transparent&size=32"
+            style="width: 32px; height: 32px;"></iframe>
+        </li>
+        <li>
+          <a target=_github href=https://github.com/monokrome>
+            <i class=github></i>
+          </a>
+        </li>
+        <li>
+          <a target=_twitter href=http://twitter.com/monokrome>
+            <i class=twitter></i>
+          </a>
+        </li>
+        <li>
+          <a target=_linkedin href=http://linkedin.com/in/brandonstoner>
+            <i class=linkedin></i>
+          </a>
+        </li>
+        <li>
+          <a href=skype:brandon-stoner>
+            <i class=skype></i>
+          </a>
+        </li>
+        <li>
+          <a href=aim:goim?screenname=monokromemc>
+            <i class=aim></i>
+          </a>
+        </li>
+
+        <li>
+          <a target=_dribbble href=http://dribbble.com/monokrome>
+            <i class=dribbble></i>
+          </a>
+        </li>
+        <li>
+          <a target=_last-fm href=http://last.fm/music/monokrome>
+            <i class=last-fm></i>
+          </a>
+        </li>
+        <li>
+          <a target=googleplus href=https://plus.google.com/113006510220726203989>
+            <i class=googleplus></i>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

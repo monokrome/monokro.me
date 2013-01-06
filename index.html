@@ -14,6 +14,20 @@
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css' />
 
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37462317-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
     <style>
       html {
         margin: 0px;
@@ -59,6 +73,18 @@
         letter-spacing: -0.27em;
 
         font-weight: bold;
+      }
+
+      #audio-player {
+        margin: 1ex auto 0px;
+        width: 285px;
+        text-align: right;
+
+        position: relative;
+        top: 0px;
+        left: 0px;
+
+        z-index: 16;
       }
 
       #shortcuts-container {
@@ -145,12 +171,20 @@
           font-size: 11em;
           letter-spacing: -0.27em;
         }
+
+        #audio-player {
+          width: 163px;
+        }
       }
     </style>
   </head>
 
   <body>
     <section id=stage><header id=header>mk</header></section>
+
+    <section id=audio-player>
+      <object height="18" width="100%"><param name="movie" value="https://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Fusers%2F752428&amp;color=ffffff&amp;auto_play=false&amp;player_type=tiny&amp;font=Arial"></param><param name="allowscriptaccess" value="always"></param><param name="wmode" value="transparent"></param><embed wmode="transparent" allowscriptaccess="always" height="18" width="100%" src="https://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Fusers%2F752428&amp;color=ffffff&amp;auto_play=false&amp;player_type=tiny&amp;font=Arial"></embed></object>
+    </section>
 
     <section id=shortcuts-container>
       <ul id=shortcuts>

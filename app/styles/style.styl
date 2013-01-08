@@ -102,11 +102,23 @@ i.aim
   background url(/images/icons/aim.png)
 
 #github-ribbon
+  opacity 0.3
+
   position absolute
+
   top 0
   left 0
   border 0
+
   z-index 30
+
+#github-ribbon:hover
+  -moz-transition opacity .25s ease-in-out
+  -webkit-transition opacity .25s ease-in-out
+  -o-transition opacity .25s ease-in-out
+  transition opacity .25s ease-in-out
+
+  opacity 0.8
 
 @media (max-width: 720px)
   #github-ribbon

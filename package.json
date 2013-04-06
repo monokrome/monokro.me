@@ -21,6 +21,9 @@
   },
 
   "dependencies": {
+    "jade-brunch": ">= 1.0 < 1.7",
+    "static-jade-brunch": ">= 1.0 < 1.7",
+
     "javascript-brunch": ">= 1.0 < 1.7",
     "coffee-script-brunch": ">= 1.0 < 1.7",
 

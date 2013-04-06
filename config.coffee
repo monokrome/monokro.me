@@ -1,4 +1,12 @@
 exports.config =
+  plugins:
+    jade:
+      options:
+        pretty: yes
+
+    static_jade:
+      extension: '.static.jade'
+
   # See http://brunch.readthedocs.org/en/latest/config.html for documentation.
   files:
     javascripts:

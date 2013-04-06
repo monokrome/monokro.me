@@ -9,11 +9,10 @@ exports.config =
         'test/javascripts/test-vendor.js': /^test(\/|\\)(?=vendor)/
       order:
         before: [
-          'vendor/scripts/modernizr.js',
-          'vendor/scripts/jquery-1.8.2.js',
-          'vendor/scripts/underscore.js',
+          'vendor/scripts/jquery-1.9.1.js',
+          'vendor/scripts/lodash.underscore.js',
           'vendor/scripts/backbone.js',
-          'vendor/scripts/backbone.marionette.js'
+          'vendor/scripts/backbone.marionette.js',
         ]
 
     stylesheets:

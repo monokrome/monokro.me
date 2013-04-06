@@ -3,14 +3,19 @@ html
   padding 0px
 
 body
+  margin 0px
+  padding 0px
+
   background-color #000
   color #FFF
   font-family "Source Sans Pro", "sans-serif"
+
+  user-select none
+
   -moz-user-select none
   -webkit-user-select none
   -ms-user-select none
   -o-user-select none
-  user-select none
 
 #stage
   margin 0px auto -60px
@@ -37,13 +42,32 @@ body
   font-weight bold
 
 #audio-player
-  margin 1ex auto 0px
-  width 290px
-  text-align right
-  position relative
-  top 0px
+  width 100%
+  background-color #CECECE
+
+  position fixed
+  bottom 0px
   left 0px
-  z-index 16
+
+  z-index 999
+
+  color #333
+
+  .song-status, .song-title
+    display inline-block
+    padding-top 5px
+
+  .song-status
+    margin 0px 1ex
+
+  .song-title
+    font-weight bold
+
+  .btn-group
+    .btn
+      background-color transparent
+      background-image none
+      border 0px
 
 #shortcuts-container
   text-align center
@@ -146,7 +170,4 @@ i.aim
   #header
     font-size 11em
     letter-spacing -0.27em
-
-  #audio-player
-    width 163px
 

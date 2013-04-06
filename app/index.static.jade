@@ -5,6 +5,10 @@ html
     meta(name='viewport', content='user-scalable=no,width=device-width')
     title monokrome 
 
+    script
+      window.brunch = window.brunch || {};
+      window.brunch['auto-reload'] = {enabled: true};
+    
     link(rel='icon', href='/images/icons/favicon.ico')
     link(rel='apple-touch-icon', href='/images/icons/apple-touch-icon.svg')
 
@@ -27,47 +31,54 @@ html
     script require('initialize')
 
   body
-    section#stage
-      header#header mk
+    .container-fluid
+      section#stage
+        header#header mk
 
-    section#shortcuts-container
-      ul#shortcuts
-        // Soundcloud badge
-        li.external
-          iframe(allowtransparency='true', scrolling='no', frameborder='no', src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fmonokrome&color=white_transparent&size=32', style='width: 32px; height: 32px;')
-        li
-          a(target='_github', href='https://github.com/monokrome')
-            i.github
-        li
-          a(target='_twitter', href='http://twitter.com/monokrome')
-            i.twitter
-        li
-          a(target='_linkedin', href='http://linkedin.com/in/brandonstoner')
-            i.linkedin
-        li
-          a(href='skype:brandon-stoner')
-            i.skype
-        li
-          a(href='aim:goim?screenname=monokromemc')
-            i.aim
-        li
-          a(target='_dribbble', href='http://dribbble.com/monokrome')
-            i.dribbble
-        li
-          a(target='_last-fm', href='http://last.fm/music/monokrome')
-            i.last-fm
-        li
-          a(target='googleplus', href='https://plus.google.com/113006510220726203989')
-            i.googleplus
+      section#shortcuts-container
+        ul#shortcuts
+          // Soundcloud badge
+          li.external
+            iframe(allowtransparency='true', scrolling='no', frameborder='no', src='https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fmonokrome&color=white_transparent&size=32', style='width: 32px; height: 32px;')
+          li
+            a(target='_github', href='https://github.com/monokrome')
+              i.github
+          li
+            a(target='_twitter', href='http://twitter.com/monokrome')
+              i.twitter
+          li
+            a(target='_linkedin', href='http://linkedin.com/in/brandonstoner')
+              i.linkedin
+          li
+            a(href='skype:brandon-stoner')
+              i.skype
+          li
+            a(href='aim:goim?screenname=monokromemc')
+              i.aim
+          li
+            a(target='_dribbble', href='http://dribbble.com/monokrome')
+              i.dribbble
+          li
+            a(target='_last-fm', href='http://last.fm/music/monokrome')
+              i.last-fm
+          li
+            a(target='googleplus', href='https://plus.google.com/113006510220726203989')
+              i.googleplus
 
-    section#audio-player
-      object(height='18', width='100%')
-        param(name='movie', value='https://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Fusers%2F752428&color=ffffff&auto_play=false&player_type=tiny&font=Arial')
-        param(name='allowscriptaccess', value='always')
-        param(name='wmode', value='transparent')
-        embed(wmode='transparent', allowscriptaccess='always', height='18', width='100%', src='https://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Fusers%2F752428&color=ffffff&auto_play=false&player_type=tiny&font=Arial')
+      section#github-ribbon
+        a(target='_github', href='https://github.com/monokrome/monokro.me')
+          img(src='https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png', alt='Fork me on GitHub')
 
-    section#github-ribbon
-      a(target='_github', href='https://github.com/monokrome/monokro.me')
-        img(src='https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png', alt='Fork me on GitHub')
+      section#audio-player
+        div.song-status now playing:
+        div.song-title monokrome - Pah!
+
+        .controls.pull-right
+          .btn-group
+            a.btn
+              i.icon.icon-backward
+            a.btn
+              i.icon.icon-play
+            a.btn
+              b.icon.icon-forward
 

@@ -1,5 +1,7 @@
 public/*
 
+app/assets/*.html
+
 node_modules/*
 
 .*

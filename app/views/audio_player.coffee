@@ -33,7 +33,8 @@ class AudioPlayerView extends Marionette.Layout
     tracks.fetch()
 
   setCurrentTrack: (track) ->
-    @currenTrack = track
+    if @currentTrack? and @currentTrack is track
+      return
 
     @nowPlaying.show new NowPlayingView
       model: track

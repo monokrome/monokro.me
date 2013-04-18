@@ -21,6 +21,7 @@
   },
 
   "dependencies": {
+    "markdown-brunch": ">= 1.0 < 1.7",
     "jade-brunch": ">= 1.0 < 1.7",
     "static-jade-brunch": ">= 1.0 < 1.7",
 

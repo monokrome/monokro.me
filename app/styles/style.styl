@@ -41,12 +41,6 @@ body
   letter-spacing -0.27em
   font-weight bold
 
-#audio-player
-  display none
-
-#audio-player.active
-  display block
-
 #track-selection
   color #333
 
@@ -101,10 +95,6 @@ body
   a
     text-overflow ellipsis
 
-#audio-player
-  .song-artist:after
-    content: ' - '
-
 #audio-player-current-track
   width 100%
   background-color #CECECE
@@ -128,6 +118,8 @@ body
       border 0px
 
 #audio-player
+  display none
+
   &.playing
     .btn-play
       display none
@@ -137,6 +129,12 @@ body
 
   .btn-pause
     display none
+
+  .song-artist:after
+    content: ' - '
+
+#audio-player.active
+  display block
 
 #now-playing
   padding 0.5ex 1em

@@ -32,7 +32,9 @@
     "stylus-brunch": ">= 1.0 < 1.7",
 
     "uglify-js-brunch": ">= 1.0 < 1.7",
-    "clean-css-brunch": ">= 1.0 < 1.7"
+    "clean-css-brunch": ">= 1.0 < 1.7",
+
+    "json-brunch": ">= 1.5.4"
   },
 
   "devDependencies": {

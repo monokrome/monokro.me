@@ -46,11 +46,11 @@ class BlogHandler
         console.error "Could not create file at #{currentFilename}"
         process.exit 110
 
-      todaysDate = (new Date).toString()
-      underline = Array(todaysDate.length + 1).join '='
+      titleString = @argv.title or @argv.t or (new Date).toString()
+      underline = Array(titleString.length + 1).join '='
 
       f = fs.openSync currentFilename, 'w'
-      fs.writeSync f, "#{todaysDate}\n#{underline}\n"
+      fs.writeSync f, "#{titleString}\n#{underline}\n"
       fs.close f
 
       console.info "#{currentFilename}"

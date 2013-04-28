@@ -1,8 +1,6 @@
 span.song-artist
-  a(href=user.permalink_url)=user.username
+  a(href=user.permalink_url, target='_soundcloud')=user.username
 
 span.song-title
-  a(href=permalink_url)=title
-
-audio(src="#{stream_url}?client_id=c5c77f52385776590f11e7546f2c3c87", autoplay)
+  a(href=permalink_url, target='_soundcloud')=title
 

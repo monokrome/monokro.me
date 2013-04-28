@@ -12,7 +12,7 @@ class Application extends Backbone.Marionette.Application
 
   initializeAudioPlayer: =>
     @addRegions
-      audioPlayer: '#audio-player'
+      audioPlayer: '#audio-player-container'
 
     @audioPlayer.show new AudioPlayerView
 

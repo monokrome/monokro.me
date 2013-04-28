@@ -42,8 +42,55 @@ body
   font-weight bold
 
 #audio-player
+  display none
+
+#audio-player.active
+  display block
+
+#track-selection
+  color #333
+
+  background-color #CCC
+
+  position fixed
+  right 10%
+  bottom 2em
+
+  z-index 990
+
+  min-width 160px
+
+  border-radius 0.6em 0.6em 0 0
+
+  max-height 30%
+
+  overflow scroll
+
+  display none
+
+  &.active
+    display block
+
+  h4
+    padding 0 1em
+    text-transform capitalize
+
+  li
+    a
+      padding 0 1em
+
+  a:link, a:active, a:visited, a:hover
+    color: #000
+
+#audio-player
+  .song-artist:after
+    content: ' - '
+
+#audio-player-current-track
   width 100%
   background-color #CECECE
+
+  height 2em
 
   position fixed
   bottom 0px
@@ -53,23 +100,32 @@ body
 
   color #333
 
-  #now-playing
-    padding 0.5ex 1em
-
-    a
-      color: inherit
-
-    .song-artist:after
-      content: ' - '
-
-    .song-title
-      font-weight bold
+  box-shadow 0px 0px 7px #000
 
   .btn-group
     .btn
       background-color transparent
       background-image none
       border 0px
+
+  &.playing
+    .btn-play
+      display none
+    
+    .btn-pause
+      display inline-block
+
+  .btn-pause
+    display none
+
+#now-playing
+  padding 0.5ex 1em
+
+  a
+    color: inherit
+
+  .song-title
+    font-weight bold
 
 #shortcuts-container
   text-align center

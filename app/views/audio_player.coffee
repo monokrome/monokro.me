@@ -51,6 +51,8 @@ class AudioPlayerView extends Marionette.Layout
     'click #track-selection .btn-close': 'closePlaylist'
 
   initialize: ->
+    @audioElement.bind 'ended', => @shiftCurrentTrack 1
+
     @collection = new TrackCollection
 
     @collection.on 'sync', (e) =>

@@ -47,7 +47,7 @@ class AudioPlayerView extends Marionette.Layout
     'click .btn-pause': 'pause'
     'click .btn-forward': 'forward'
     'click .btn-backward': 'backward'
-    'click .btn-playlist': 'displayPlaylist'
+    'click .btn-playlist': 'togglePlaylist'
     'click #track-selection .btn-close': 'closePlaylist'
 
   initialize: ->
@@ -132,6 +132,16 @@ class AudioPlayerView extends Marionette.Layout
 
     if @trackList.currentView?
       @trackList.currentView.close()
+
+    # This needs manually unset for togglePlaylist to work properly
+    @trackList.currentView = undefined
+
+  togglePlaylist: ->
+    if @trackList.currentView?
+      @closePlaylist()
+
+    else
+      @displayPlaylist()
 
 module.exports = {
   AudioPlayerView

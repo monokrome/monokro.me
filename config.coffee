@@ -2,7 +2,7 @@ exports.config =
   plugins:
     jade:
       options:
-        pretty: yes
+        pretty: no
 
     static_jade:
       extension: '.static.jade'

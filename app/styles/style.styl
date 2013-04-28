@@ -135,12 +135,7 @@ body
 
 #now-playing
   padding 0.5ex 1em
-  overflow hidden
   white-space nowrap
-
-  .song-artist
-    a
-      max-width 10px
 
   a
     color: inherit
@@ -249,4 +244,16 @@ i.aim
   #header
     font-size 11em
     letter-spacing -0.27em
+
+  #now-playing
+    white-space nowrap
+
+    .song-artist
+      display none
+
+    a
+      overflow hidden
+      text-overflow ellipsis
+      display inline-block
+      max-width 140px
 

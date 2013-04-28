@@ -130,14 +130,17 @@ body
   .btn-pause
     display none
 
-  .song-artist:after
-    content: ' - '
-
 #audio-player.active
   display block
 
 #now-playing
   padding 0.5ex 1em
+  overflow hidden
+  white-space nowrap
+
+  .song-artist
+    a
+      max-width 10px
 
   a
     color: inherit

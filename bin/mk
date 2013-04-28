@@ -24,11 +24,13 @@ class BlogHandler
   currentFilename: ->
     date = new Date
 
+    console.log date.getYear()
+
     segments = [
       @articlesDirectory,
-      date.getYear().toString(),
-      date.getMonth().toString(),
-      (date.getDay() + 1).toString() + '.md'
+      date.getFullYear().toString(),
+      (date.getMonth() + 1).toString(),
+      (date.getDate() + 1).toString() + '.md'
     ]
 
     path.join.apply @, segments
@@ -48,7 +50,7 @@ class BlogHandler
 
       f = fs.openSync currentFilename, 'w'
       fs.writeSync f, ''
-      f.close()
+      fs.close f
 
       console.info "#{currentFilename}"
 

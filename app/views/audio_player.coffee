@@ -88,8 +88,6 @@ class AudioPlayerView extends Marionette.Layout
 
     position = (position + 1) + amount
 
-    console.dir position
-
     if position > length
       position = 1
 

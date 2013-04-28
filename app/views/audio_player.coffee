@@ -70,6 +70,8 @@ class AudioPlayerView extends Marionette.Layout
     if @currentTrack? and @currentTrack is track
       return
 
+    @currentTrack = track
+
     @nowPlaying.show new NowPlayingView
       model: track
 
@@ -79,10 +81,12 @@ class AudioPlayerView extends Marionette.Layout
       @audioElement.get(0).play()
 
   shiftCurrentTrack: (amount) ->
-    position = @trackList.currentView.collection.models.indexOf @currentTrack
-    length = @trackList.currentView.collection.models.length
+    position = @collection.models.indexOf @currentTrack
+    length = @collection.models.length
 
-    position += amount
+    position = (position + 1) + amount
+
+    console.dir position
 
     if position > length
       position = 1
@@ -90,31 +94,36 @@ class AudioPlayerView extends Marionette.Layout
     if position < 1
       position = length
 
-    @setCurrentTrack @trackList.currentView.collection.models[position - 1]
+    @setCurrentTrack @collection.models[position - 1]
 
   forward: -> @shiftCurrentTrack 1
-  backward: -> @shoftCurrentTrack -1
+  backward: -> @shiftCurrentTrack -1
 
-  play: ->
-    @$el.addClass 'playing'
+  play: =>
     @$el.removeClass 'paused'
+    @$el.addClass 'playing'
 
     if @audioElement.get(0).paused
       @audioElement.get(0).play()
 
-  pause: ->
+  pause: =>
     @$el.removeClass 'playing'
     @$el.addClass 'paused'
 
     if not @audioElement.get(0).paused
-      @audioElement.get(0).play()
+      @audioElement.get(0).pause()
+
+  trackChanged: (trackView) =>
+    @setCurrentTrack trackView.model
+
+    if not @audioElement.get(0).playing
+      @play()
 
   displayPlaylist: ->
     @trackList.show new TrackListView
       collection: @collection
 
-    @trackList.currentView.on 'itemview:selected', (trackView) =>
-      @setCurrentTrack trackView.model
+    @trackList.currentView.on 'itemview:selected', @trackChanged
 
     @ui.playlist.addClass 'active'
 

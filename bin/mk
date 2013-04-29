@@ -11,7 +11,7 @@ path = require 'path'
 mkdirp = require 'mkdirp'
 
 class BlogHandler
-  indexFileName: './public/articles.json'
+  indexFileName: './public/api/blog/articles.json'
   articlesDirectory: './partials/articles'
 
   constructor: (@argv) ->
@@ -81,14 +81,22 @@ class BlogHandler
     promise = @_listFiles()
 
     promise.done (fileNames) =>
-      _(fileNames).sort().reverse()
+      directoryName = path.dirname @indexFileName
 
-      output.articles = fileNames
-      output.count = fileNames.length
+      mkdirp directoryName, (err) =>
+        if err
+          console.error "Could not create directory: #{directoryName}"
+          process.exit 210
 
-      f = fs.openSync @indexFileName, 'w'
-      fs.writeSync f, JSON.stringify output
-      fs.close f
+        # TODO: Verify that this is being sorted properly
+        _(fileNames).sort().reverse()
+
+        output.articles = fileNames
+        output.count = fileNames.length
+
+        f = fs.openSync @indexFileName, 'w'
+        fs.writeSync f, JSON.stringify output
+        fs.close f
 
 subjects =
   blog: BlogHandler

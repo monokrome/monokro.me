@@ -1,12 +1,17 @@
 #!/usr/bin/env coffee
 
 {argv} = require 'optimist'
+{find} = require 'findit'
 
-path = require 'path'
+Q = require 'q'
+
 fs = require 'fs'
+_ = require 'lodash'
+path = require 'path'
 mkdirp = require 'mkdirp'
 
 class BlogHandler
+  indexFileName: './public/articles.json'
   articlesDirectory: './partials/articles'
 
   constructor: (@argv) ->
@@ -15,7 +20,7 @@ class BlogHandler
 
     commandHandler = @[argv._[0]]
 
-    if not commandHandler?
+    if not commandHandler? or argv._[0][0] == '_'
       process.stderr.write "No blog command found for #{argv._[0]}"
       process.exit 100
 
@@ -34,6 +39,8 @@ class BlogHandler
     path.join.apply @, segments
 
   create: ->
+    # Create a new blog entry. This is the default when no commands are
+    # provided to the handler.
     currentFilename = @currentFilename()
     directory = path.dirname currentFilename
 
@@ -54,6 +61,34 @@ class BlogHandler
       fs.close f
 
       console.info "#{currentFilename}"
+
+  _listFiles: ->
+    results = []
+    deferred = Q.defer()
+
+    finder = find @articlesDirectory
+
+    finder.on 'file', (fileName, stat) -> results.push fileName
+    finder.on 'end', -> deferred.resolve results
+
+    return deferred.promise
+
+  index: ->
+    # Index all blog entries into a JSON file which can be used by the
+    # webapp to create a collection of articles.
+    
+    output = {}
+    promise = @_listFiles()
+
+    promise.done (fileNames) =>
+      _(fileNames).sort().reverse()
+
+      output.articles = fileNames
+      output.count = fileNames.length
+
+      f = fs.openSync @indexFileName, 'w'
+      fs.writeSync f, JSON.stringify output
+      fs.close f
 
 subjects =
   blog: BlogHandler

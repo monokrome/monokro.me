@@ -1,3 +1,17 @@
+transition()
+  -webkit-transition arguments
+  -moz-transition n 
+  -o-transition arguments
+  -ms-transition arguments
+  transition arguments
+
+user-select()
+  -moz-user-select arguments
+  -webkit-user-select arguments
+  -ms-user-select arguments
+  -o-user-select arguments
+  user-select arguments
+
 html
   margin 0px
   padding 0px
@@ -6,40 +20,63 @@ body
   margin 0px
   padding 0px 0px 4em 0px
 
-  background-color #000
+  background-color #FFF
+
   color #FFF
   font-family "Source Sans Pro", "sans-serif"
 
-  user-select none
+  #github-ribbon
+    display none
 
-  -moz-user-select none
-  -webkit-user-select none
-  -ms-user-select none
-  -o-user-select none
+  &.promo
+    user-select none
+    background-color #000
+
+    #stage
+      width 400px
+      height 400px
+
+      color #000
+
+      top -80px
+      left 0
+
+    #header
+      font-size 4.23em
+
+      padding-top 0.7em
+      padding-left 0.1em
+
+    #github-ribbon
+      display block
 
 #stage
   margin 0px auto -60px
   padding 0px
-  width 400px
-  height 400px
 
-  color #000
   background-color #FD1313
-
   border-radius 200px
 
+  width 100px
+  height 100px
+
+  font-size 5.2em
+
+  user-select none
+
   position relative
-  top -80px
-  left 0px
+
+  top -10px
+  left 40%
 
   z-index 10
 
 #header
-  padding-top 0.7em
-  padding-left 0.1em
-  font-size 22em
-  letter-spacing -0.27em
+  padding-top 0.64em
+  padding-left 0.13em
+
   font-weight bold
+  letter-spacing -0.27em
 
 #track-selection
   color #333
@@ -164,9 +201,6 @@ body
   display inline-block
 
 i, li.external
-  -moz-transition opacity .25s ease-in-out
-  -webkit-transition opacity .25s ease-in-out
-  -o-transition opacity .25s ease-in-out
   transition opacity .25s ease-in-out
   opacity 0.8
 
@@ -212,9 +246,6 @@ i.aim
 
   z-index 30
 
-  -moz-transition opacity .25s ease-in-out
-  -webkit-transition opacity .25s ease-in-out
-  -o-transition opacity .25s ease-in-out
   transition opacity .25s ease-in-out
 
   opacity 0.3

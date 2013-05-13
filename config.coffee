@@ -1,7 +1,7 @@
 exports.config =
   plugins:
-    jade:
-      options:
+    jaded:
+      jade:
         pretty: no
 
     static_jade:

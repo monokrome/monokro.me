@@ -33,7 +33,7 @@ class BlogHandler
       @articlesDirectory,
       date.getFullYear().toString(),
       (date.getMonth() + 1).toString(),
-      (date.getDate() + 1).toString() + '.md'
+      date.getDate().toString() + '.md'
     ]
 
     path.join.apply @, segments
@@ -54,6 +54,9 @@ class BlogHandler
         process.exit 110
 
       titleString = @argv.title or @argv.t or (new Date).toString()
+      titleString = titleString.toLowerCase().replace /(?:^|\s)\S/g, (char) ->
+        char.toUpperCase()
+
       underline = Array(titleString.length + 1).join '='
 
       f = fs.openSync currentFilename, 'w'

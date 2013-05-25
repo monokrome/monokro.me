@@ -79,7 +79,7 @@ class BlogHandler
   index: ->
     # Index all blog entries into a JSON file which can be used by the
     # webapp to create a collection of articles.
-    
+
     output = {}
     promise = @_listFiles()
 
@@ -105,8 +105,7 @@ subjects =
   blog: BlogHandler
 
 if argv._.length is 0
-  process.stderr.write 'Must provide at least one argument.'
-  console.error 'Format: mk command'
+  process.stderr.write 'Usage: mk command\n'
   process.exit 1
 
 subject = argv._.shift()

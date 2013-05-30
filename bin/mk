@@ -63,6 +63,8 @@ class BlogHandler
       fs.writeSync f, "#{titleString}\n#{underline}\n"
       fs.close f
 
+      @index()
+
       console.info "#{currentFilename}"
 
   _listFiles: ->
@@ -94,7 +96,18 @@ class BlogHandler
         # TODO: Verify that this is being sorted properly
         _(fileNames).sort().reverse()
 
-        output.articles = fileNames
+        output.articles = _.map fileNames, (filename) =>
+          relativeFilename = filename[@articlesDirectory.length..]
+
+          dateString = relativeFilename[1..relativeFilename.indexOf('.')-1]
+
+          pathSegments = _.filter relativeFilename.split path.sep
+
+          # TODO: How to just replace os.sep with -?
+          result =
+            date: dateString.split(path.sep).join('-')
+            filename: relativeFilename
+
         output.count = fileNames.length
 
         f = fs.openSync @indexFileName, 'w'

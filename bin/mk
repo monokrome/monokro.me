@@ -99,13 +99,13 @@ class BlogHandler
         output.articles = _.map fileNames, (filename) =>
           relativeFilename = filename[@articlesDirectory.length..]
 
-          dateString = relativeFilename[1..relativeFilename.indexOf('.')-1]
+          datePattern = new RegExp path.sep, 'g'
+          dateString = relativeFilename[1..relativeFilename.indexOf('.')-1].replace(datePattern, '-')
 
           pathSegments = _.filter relativeFilename.split path.sep
 
-          # TODO: How to just replace os.sep with -?
           result =
-            date: dateString.split(path.sep).join('-')
+            date: dateString
             filename: relativeFilename
 
         output.count = fileNames.length

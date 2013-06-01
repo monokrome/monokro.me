@@ -1,6 +1,7 @@
 exports.config =
   plugins:
     jaded:
+      staticPatterns: /^app(\/|\\)static(\/|\\)(.+)\.jade$/
       jade:
         pretty: no
 

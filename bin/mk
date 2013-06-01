@@ -73,7 +73,7 @@ class BlogHandler
 
     finder = find @articlesDirectory
 
-    finder.on 'file', (fileName, stat) -> results.push fileName
+    finder.on 'file', (fileName) -> results.push fileName
     finder.on 'end', -> deferred.resolve results
 
     return deferred.promise
@@ -98,20 +98,23 @@ class BlogHandler
 
         output.articles = _.map fileNames, (filename) =>
           relativeFilename = filename[@articlesDirectory.length..]
+          dotPosition = relativeFilename.indexOf '.'
 
           datePattern = new RegExp path.sep, 'g'
           dateString = relativeFilename[1..relativeFilename.indexOf('.')-1].replace(datePattern, '-')
 
-          pathSegments = _.filter relativeFilename.split path.sep
+          templateFilename = relativeFilename[..dotPosition-1]
 
           result =
             date: dateString
-            filename: relativeFilename
+            filename: templateFilename
+
+          return result
 
         output.count = fileNames.length
 
         f = fs.openSync @indexFileName, 'w'
-        fs.writeSync f, JSON.stringify output
+        fs.writeSync f, JSON.stringify output.articles
         fs.close f
 
 subjects =

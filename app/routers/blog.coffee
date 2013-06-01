@@ -1,5 +1,3 @@
-{BlogController} = require 'controllers/blog'
-
 class BlogRouter extends Marionette.AppRouter
   appRoutes:
     '': 'index'

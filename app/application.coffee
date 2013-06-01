@@ -1,7 +1,7 @@
 {AudioPlayerView} = require 'views/audio_player'
 
 class Application extends Backbone.Marionette.Application
-  components: []
+  components: ['blog']
 
   initialize: =>
     @addInitializer @initializeRegions

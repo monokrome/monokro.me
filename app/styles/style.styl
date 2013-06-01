@@ -15,6 +15,8 @@ body
 
   font-family "Source Sans Pro", "sans-serif"
 
+  min-width 480px
+
   #github-ribbon
     display none
 
@@ -102,16 +104,15 @@ body
 
     article
         header
-            padding-left 0.2em
-            margin-left 0.8em
-            margin-bottom 0.4ex
+          margin 0em 33.333% 0.4ex 0.8em
+          padding-left 0.4em
 
-            color #232323
-            border-bottom 1px solid #B3B3B3
+          color #232323
+          border-bottom 1px solid #B3B3B3
 
-            font-size 1.8em
+          font-size 1.8em
 
-            text-transform capitalize
+          text-transform capitalize
 
 #track-selection
   color #333
@@ -310,36 +311,37 @@ i.aim
     display none
 
 @media (max-width: 480px)
-  #shortcuts-container
-    margin 0px auto
-    width 200px
+  body.promo
+    #shortcuts-container
+      margin 0px auto
+      width 200px
 
-    text-align center
+      text-align center
 
-    position relative
-    top 0px
-    right 0px
+      position relative
+      top 0px
+      right 0px
 
-  #stage
-    margin-bottom -25px
-    width 200px
-    height 200px
+    #stage
+      margin-bottom -25px
+      width 200px
+      height 200px
 
-    top -50px
+      top -50px
 
-  #header
-    font-size 11em
-    letter-spacing -0.27em
+    #header
+      font-size 11em
+      letter-spacing -0.27em
 
-  #now-playing
-    white-space nowrap
+    #now-playing
+      white-space nowrap
 
-    .song-artist
-      display none
+      .song-artist
+        display none
 
-    a
-      overflow hidden
-      text-overflow ellipsis
-      display inline-block
-      max-width 140px
+      a
+        overflow hidden
+        text-overflow ellipsis
+        display inline-block
+        max-width 140px
 

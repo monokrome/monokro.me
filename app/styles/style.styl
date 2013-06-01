@@ -11,7 +11,8 @@ body
   background-color #FCFCFC
   transition background-color 333ms ease-in
 
-  color #FFF
+  color #131313
+
   font-family "Source Sans Pro", "sans-serif"
 
   #github-ribbon
@@ -43,9 +44,14 @@ body
 
     #shortcuts-container
       padding-top 10px
+      margin-top 0px
       background-color transparent
 
+    #content-container
+      display none
+
 #stage
+  color #FFF
   margin 0px auto -60px
   padding 0px
 
@@ -194,7 +200,7 @@ body
 
 #shortcuts-container
   padding-top 0.4ex
-  margin 0px auto
+  margin 4ex auto 0px
   text-align center
 
   background-color #5A5A6A
@@ -208,7 +214,8 @@ body
 
   z-index 20
 
-  transition background-color 333ms ease-in
+  transition background-color 333ms ease-in,
+             margin-top 333ms ease-in
 
 #shortcuts
   margin 0px

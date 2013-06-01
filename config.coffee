@@ -35,4 +35,6 @@ exports.config =
         after: []
 
     templates:
-      joinTo: 'javascripts/app.js'
+      joinTo:
+        'javascripts/articles.js': /^app(\/|\\)articles(\/||\\).+/
+        'javascripts/templates.js': /^app(\/|\\)templates(\/||\\).+/

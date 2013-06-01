@@ -12,7 +12,7 @@ mkdirp = require 'mkdirp'
 
 class BlogHandler
   indexFileName: './public/api/blog/articles.json'
-  articlesDirectory: './partials/articles'
+  articlesDirectory: './app/articles'
 
   constructor: (@argv) ->
     if argv._.length is 0

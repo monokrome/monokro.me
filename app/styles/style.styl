@@ -24,6 +24,8 @@ body
     user-select none
     background-color #000
 
+    min-width 240px
+
     #stage
       width 400px
       height 400px
@@ -48,6 +50,9 @@ body
       padding-top 10px
       margin-top 0px
       background-color transparent
+
+      i[class*='icon-']
+        color #DADADD
 
     #content-container
       display none
@@ -138,10 +143,12 @@ body
     display block
 
   .btn-close
-    padding 3px
+    padding 0.2em
+    font-size 1.2em
+    text-align right
 
   h4
-    padding 0 1em
+    padding-left 1em
     text-transform capitalize
 
   li
@@ -224,9 +231,6 @@ body
   margin 4ex auto 0px
   text-align center
 
-  background-color #5A5A6A
-  border-radius 1em
-
   width 40%
 
   position relative
@@ -237,6 +241,19 @@ body
 
   transition background-color 333ms ease-in,
              margin-top 333ms ease-in
+
+  a
+    transition font-size 60ms ease-in
+
+    &:hover
+      text-decoration none
+      font-size 1.3em
+
+  i[class*='icon-']
+    font-size 1.9em
+    letter-spacing 1ex
+    color #3E3E3E
+    transition color 333ms ease-in
 
 #shortcuts
   margin 0px
@@ -257,30 +274,6 @@ i
 i:hover, li.external:hover
   opacity 1.0
   cursor pointer
-
-i.github
-  background url(/images/icons/github.png)
-
-i.dribbble
-  background url(/images/icons/dribbble.png)
-
-i.twitter
-  background url(/images/icons/twitter.png)
-
-i.linkedin
-  background url(/images/icons/linkedin.png)
-
-i.skype
-  background url(/images/icons/skype.png)
-
-i.last-fm
-  background url(/images/icons/last-fm.png)
-
-i.googleplus
-  background url(/images/icons/googleplus.png)
-
-i.aim
-  background url(/images/icons/aim.png)
 
 #github-ribbon
   position absolute
@@ -307,8 +300,9 @@ i.aim
     opacity 0
 
 @media (max-width: 720px)
-  #github-ribbon
-    display none
+  body.promo
+    #github-ribbon
+      display none
 
 @media (max-width: 480px)
   body.promo
@@ -330,7 +324,7 @@ i.aim
       top -50px
 
     #header
-      font-size 11em
+      font-size 2em
       letter-spacing -0.27em
 
     #now-playing

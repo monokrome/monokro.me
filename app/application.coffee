@@ -11,6 +11,7 @@ class Application extends Backbone.Marionette.Application
     @on 'initialize:after', @startHistory
 
     @start()
+    @freeze?()
 
   startHistory: => Backbone.history.start()
 

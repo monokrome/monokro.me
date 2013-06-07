@@ -5,9 +5,6 @@ exports.config =
       jade:
         pretty: no
 
-    static_jade:
-      extension: '.static.jade'
-
   # See http://brunch.readthedocs.org/en/latest/config.html for documentation.
   files:
     javascripts:

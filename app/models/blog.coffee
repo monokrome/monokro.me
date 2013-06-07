@@ -6,7 +6,7 @@ class ArticleModel extends Backbone.Model
 
     content = getContent()
 
-    date = response.date
+    date = Date(response.date)
 
     if content[0..3] == '<h1>'
       contentParts = content[4..].split '</h1>'

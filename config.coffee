@@ -15,7 +15,7 @@ exports.config =
         'test/javascripts/test-vendor.js': /^test(\/|\\)(?=vendor)/
       order:
         before: [
-          'vendor/scripts/jquery-1.9.1.js'
+          'vendor/scripts/jquery-1.10.1.js'
           'vendor/scripts/lodash.underscore.js'
           'vendor/scripts/backbone.js'
           'vendor/scripts/backbone.marionette.js'

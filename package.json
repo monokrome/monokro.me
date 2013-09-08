@@ -1,0 +1,24 @@
+{
+  "name": "monokro.me",
+  "version": "0.4.0",
+  "description": "Exposing my website, one hacker at a time.",
+  "main": " ",
+  "dependencies": {
+    "moment": "2.x",
+    "underscore": "1.4.x",
+    "typogr": "0.5.x"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monokrome/monokro.me"
+  },
+  "author": "Brandon R. Stoner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monokrome/monokro.me/issues"
+  }
+}

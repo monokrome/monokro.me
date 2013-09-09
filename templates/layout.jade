@@ -10,6 +10,9 @@ html(lang='en')
         block title
           = locals.name
 
+      link(rel='icon', href='/images/icons/favicon.ico')
+      link(rel='apple-touch-icon', href='/images/icons/apple-touch-icon.svg')
+
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
       link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet', type='text/css')
 

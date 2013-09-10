@@ -1,8 +1,7 @@
 {
   "locals": {
     "name": "monokro.me",
-    "owner": "Brandon R. Stoner",
-    "description": ""
+    "owner": "Brandon R. Stoner"
   },
   "plugins": [
     "./plugins/paginator.coffee",

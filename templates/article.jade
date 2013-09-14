@@ -8,9 +8,6 @@ block content
 
   h1=page.title
 
-  p.author Written by 
-    mixin author(page.metadata.author)
-
   article.article
     section.content!=typogr(page.html).typogrify()
 

@@ -65,5 +65,5 @@ plugins, read the `README.md` file from [the repository][jdb].
 [jb]: http://github.com/brunch/jade-brunch "Jade Plugin"
 [jdb]: http://github.com/monokrome/jaded-brunch "Jaded Brunch Plugin"
 [sjb]: https://github.com/ilkosta/static-jade-brunch "Static Jade Plugin"
-[arb]: http://github.com/brunch/auto-reload-brunch "Auto Reloade Plugin"
+[arb]: https://github.com/brunch/auto-reload-brunch "Auto Reloade Plugin"
 [557]: https://github.com/brunch/brunch/issues/557 "Brunch Issue #557"

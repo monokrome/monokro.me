@@ -1,5 +1,5 @@
 ---
-title: brunch & jade
+title: Brunch & Jade
 author: monokrome
 date: 2013-06-01
 template: article.jade

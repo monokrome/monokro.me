@@ -12,6 +12,13 @@ require './vendor/marionette.appliances.js'
 
 class Application extends Backbone.Marionette.ApplianceManager
   appliances: []
+  modules: {}
+
+  require: (appliance, type) ->
+    if @modules?[appliance]?[type]?
+      return @modules[appliance][type]
+
+    return {}
 
 
 application = new Application

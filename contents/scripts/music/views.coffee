@@ -1,13 +1,13 @@
-{Tracks} = require './models.coffee'
+models = require './models.coffee'
 
 
 class NowPlayingView extends Backbone.Marionette.ItemView
-  template: 'templates/track'
+  template: require './templates/track.jade'
 
 
 class TrackView extends Backbone.Marionette.ItemView
   tagName: 'li'
-  template: 'templates/tracklist_track'
+  template: require './templates/tracklist_track.jade'
 
   events:
     'click a': 'selected'
@@ -26,7 +26,7 @@ class TracksView extends Backbone.Marionette.CollectionView
 
 
 class AudioPlayerView extends Backbone.Marionette.Layout
-  template: 'templates/audio_player'
+  template: require './templates/audio_player.jade'
 
   id: 'audio-player'
   tagName: 'section'
@@ -57,7 +57,7 @@ class AudioPlayerView extends Backbone.Marionette.Layout
   initialize: ->
     @audioElement.bind 'ended', => @shiftCurrentTrack 1
 
-    @collection = new Tracks
+    @collection = new models.Tracks
 
     @collection.on 'sync', (e) =>
       if !@currentTrack? and @collection.length > 0

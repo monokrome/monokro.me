@@ -1,5 +1,5 @@
 /*
-marionette-appliances 0.2.0
+marionette-appliances 0.3.0
 License: MIT
 */
 
@@ -16,10 +16,10 @@ License: MIT
       this.on('initialize:before', this.initializeAppliances);
     }
 
-    ApplianceManager.prototype.require = function(module) {
+    ApplianceManager.prototype.require = function(appliance, module) {
       var err, result;
       try {
-        result = require(module);
+        result = require(appliance + '/' + module);
         return result;
       } catch (_error) {
         err = _error;
@@ -35,7 +35,7 @@ License: MIT
       for (_i = 0, _len = appliances.length; _i < _len; _i++) {
         appliance = appliances[_i];
         this.appliances[appliance] = {};
-        Controller = this.require("" + appliance + "/controller").Controller;
+        Controller = this.require(appliance, 'controller').Controller;
         if (Controller == null) {
           continue;
         }
@@ -43,7 +43,7 @@ License: MIT
           application: this
         });
         this.appliances[appliance].controller = controller;
-        Router = this.require("" + appliance + "/router").Router;
+        Router = this.require(appliance, 'router').Router;
         if (Router == null) {
           continue;
         }

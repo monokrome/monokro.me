@@ -24,6 +24,3 @@ class Tracks extends Backbone.Collection
 
 
 module.exports = {Track, Tracks}
-
-
-module.exports = {}

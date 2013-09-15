@@ -10,7 +10,7 @@
     "wintersmith-coffee": "~0.2.0",
     "wintersmith-stylus": "~0.4.0",
     "wintersmith": "~2.0.6",
-    "wintersmith-jsbundler": "~0.1.0"
+    "wintersmith-browserify": "~0.2.2"
   },
   "devDependencies": {},
   "scripts": {

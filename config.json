@@ -7,7 +7,7 @@
     "./plugins/paginator.coffee",
     "./node_modules/wintersmith-coffee/",
     "./node_modules/wintersmith-stylus/",
-    "./node_modules/wintersmith-jsbundler/"
+    "./node_modules/wintersmith-browserify/"
   ],
   "require": {
     "moment": "moment",

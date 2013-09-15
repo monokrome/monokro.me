@@ -11,8 +11,13 @@ require './vendor/marionette.appliances.js'
 
 
 class Application extends Backbone.Marionette.ApplianceManager
-  appliances: []
-  modules: {}
+  appliances: [
+    'music'
+  ]
+
+  modules:
+    music:
+      controller: require('./music/controller.coffee')
 
   require: (appliance, type) ->
     if @modules?[appliance]?[type]?

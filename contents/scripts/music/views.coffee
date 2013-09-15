@@ -1,11 +1,11 @@
 {Tracks} = require './models.coffee'
 
 
-class NowPlayingView extends Marionette.ItemView
+class NowPlayingView extends Backbone.Marionette.ItemView
   template: 'templates/track'
 
 
-class TrackView extends Marionette.ItemView
+class TrackView extends Backbone.Marionette.ItemView
   tagName: 'li'
   template: 'templates/tracklist_track'
 
@@ -16,7 +16,7 @@ class TrackView extends Marionette.ItemView
     @trigger 'selected'
 
 
-class TracksView extends Marionette.CollectionView
+class TracksView extends Backbone.Marionette.CollectionView
   itemView: TrackView
   tagName: 'ul'
 
@@ -25,7 +25,7 @@ class TracksView extends Marionette.CollectionView
     @$el.addClass 'nav-stacked'
 
 
-class AudioPlayerView extends Marionette.Layout
+class AudioPlayerView extends Backbone.Marionette.Layout
   template: 'templates/audio_player'
 
   id: 'audio-player'

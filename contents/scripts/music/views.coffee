@@ -1,13 +1,13 @@
-{TrackCollection} = require 'models/audio_player'
+{Tracks} = require './models.coffee'
 
 
 class NowPlayingView extends Marionette.ItemView
-  template: require 'templates/track'
+  template: 'templates/track'
 
 
-class TrackListItemView extends Marionette.ItemView
+class TrackView extends Marionette.ItemView
   tagName: 'li'
-  template: require 'templates/tracklist_track'
+  template: 'templates/tracklist_track'
 
   events:
     'click a': 'selected'
@@ -16,8 +16,8 @@ class TrackListItemView extends Marionette.ItemView
     @trigger 'selected'
 
 
-class TrackListView extends Marionette.CollectionView
-  itemView: TrackListItemView
+class TracksView extends Marionette.CollectionView
+  itemView: TrackView
   tagName: 'ul'
 
   onRender: ->
@@ -26,7 +26,7 @@ class TrackListView extends Marionette.CollectionView
 
 
 class AudioPlayerView extends Marionette.Layout
-  template: require 'templates/audio_player'
+  template: 'templates/audio_player'
 
   id: 'audio-player'
   tagName: 'section'
@@ -57,7 +57,7 @@ class AudioPlayerView extends Marionette.Layout
   initialize: ->
     @audioElement.bind 'ended', => @shiftCurrentTrack 1
 
-    @collection = new TrackCollection
+    @collection = new Tracks
 
     @collection.on 'sync', (e) =>
       if !@currentTrack? and @collection.length > 0
@@ -124,7 +124,7 @@ class AudioPlayerView extends Marionette.Layout
       @play()
 
   displayPlaylist: ->
-    @trackList.show new TrackListView
+    @trackList.show new TracksView
       collection: @collection
 
     @trackList.currentView.on 'itemview:selected', @trackChanged

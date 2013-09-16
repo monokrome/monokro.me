@@ -23,5 +23,10 @@
   },
   "paginator": {
     "perPage": 3
+  },
+  "browserify": {
+    "transform": [
+      "browserify-jade"
+    ]
   }
 }

@@ -2,12 +2,12 @@ models = require './models.coffee'
 
 
 class NowPlayingView extends Backbone.Marionette.ItemView
-  template: require './templates/track.js'
+  template: require './templates/track.jade'
 
 
 class TrackView extends Backbone.Marionette.ItemView
   tagName: 'li'
-  template: require './templates/tracklist_track.js'
+  template: require './templates/tracklist_track.jade'
 
   events:
     'click a': 'selected'
@@ -26,7 +26,7 @@ class TracksView extends Backbone.Marionette.CollectionView
 
 
 class AudioPlayerView extends Backbone.Marionette.Layout
-  template: require './templates/audio_player.js'
+  template: require './templates/audio_player.jade'
 
   id: 'audio-player'
   tagName: 'section'

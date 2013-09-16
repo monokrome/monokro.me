@@ -6,9 +6,12 @@ block prepend title
 block content
   include author
 
-  h1=page.title
-
   article.article
+    header
+      p.date
+        span=moment(page.date).format('MMMM DD, YYYY')
+      h1=page.title
+
     section.content!=typogr(page.html).typogrify()
 
 block prepend footer

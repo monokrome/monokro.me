@@ -3,7 +3,6 @@ window._ = require './vendor/lodash.js'
 window.Backbone = require './vendor/backbone.js'
 window.Backbone.$ = window.jQuery
 
-require './vendor/jade.js'
 require './vendor/backbone.marionette.js'
 require './vendor/marionette.appliances.js'
 require './vendor/bootstrap.js'

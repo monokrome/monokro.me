@@ -19,7 +19,7 @@ class Application extends Backbone.Marionette.ApplianceManager
 
   modules:
     music:
-      controller: require('./music/controller.coffee')
+      controller: require './music/controller.coffee'
 
   require: (appliance, type) ->
     if @modules?[appliance]?[type]?

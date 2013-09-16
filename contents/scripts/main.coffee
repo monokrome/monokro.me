@@ -1,3 +1,5 @@
+require './vendor/jade.js'
+
 require './vendor/jquery.js'
 require './vendor/bootstrap.js'
 

@@ -25,7 +25,8 @@
     "perPage": 3
   },
   "browserify": {
-    "transform": [
+    "transforms": [
+      "coffeeify",
       "browserify-jade"
     ]
   }

@@ -1,6 +1,9 @@
 # Build outut
 /build/*
 
+# Compiled templates
+/contents/scripts/*/templates/*.js
+
 # Non-vendor JavaScript
 /contents/scripts/*.js
 !/contents/scripts/vendor/*.js

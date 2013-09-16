@@ -1,15 +1,12 @@
-require './vendor/jade.js'
-
-require './vendor/jquery.js'
-require './vendor/bootstrap.js'
-
+window.jQuery = require './vendor/jquery.js'
 window._ = require './vendor/lodash.js'
-
 window.Backbone = require './vendor/backbone.js'
-window.Backbone.$ = jQuery
+window.Backbone.$ = window.jQuery
 
+require './vendor/jade.js'
 require './vendor/backbone.marionette.js'
 require './vendor/marionette.appliances.js'
+require './vendor/bootstrap.js'
 
 
 class Application extends Backbone.Marionette.ApplianceManager

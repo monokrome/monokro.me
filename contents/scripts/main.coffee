@@ -25,4 +25,4 @@ class Application extends Backbone.Marionette.ApplianceManager
 
 
 application = new Application
-application.start()
+jQuery -> application.start()

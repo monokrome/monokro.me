@@ -9,8 +9,7 @@ class MusicController extends Backbone.Marionette.Controller
     application.addRegions
       audioPlayer: '#audio-player-container'
 
-    _.defer ->
-      application.audioPlayer.show new views.AudioPlayerView
+    application.audioPlayer.show new views.AudioPlayerView
 
 
 module.exports = {

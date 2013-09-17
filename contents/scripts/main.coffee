@@ -1,4 +1,4 @@
-window.jQuery = require './vendor/jquery.js'
+window.$ = window.jQuery = require './vendor/jquery.js'
 window._ = require './vendor/lodash.js'
 window.Backbone = require './vendor/backbone.js'
 window.Backbone.$ = window.jQuery

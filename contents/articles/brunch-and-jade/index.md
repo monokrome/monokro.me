@@ -1,8 +1,10 @@
-```
+``` metadata
+
 title: Brunch & Jade
 author: monokrome
 date: 2013-06-01
 template: article.jade
+
 ```
 
 For the last year or so, I've been using a great project called [brunch][br] to

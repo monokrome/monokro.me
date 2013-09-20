@@ -1,9 +1,10 @@
-```metadata
+---
 title: Github & Vulnerabilities
 author: monokrome
 date: 2013-06-02
 template: article.jade
-```
+
+---
 
 There's a new search on [GitHub][gh] which [has been floating around][lulz] for a few
 days now. This specific search happens to have the neat effect that pretty much

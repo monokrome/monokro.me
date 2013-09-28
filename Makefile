@@ -1,7 +1,9 @@
 BIN_PATH := ./node_modules/.bin/
 PUBLIC_PATH := ./public/
 BUILD_PATH := ./build/
-MINIFIER := $(BIN_PATH)uglifyjs
+
+SCRIPT_COMPRESSOR := $(BIN_PATH)uglifyjs
+STYLE_COMPRESSOR := $(BIN_PATH)sqwish
 
 
 OBJECTS := scripts/main.js \
@@ -27,12 +29,16 @@ targets := $(foreach object,$(OBJECTS),$(target_name))
 # I'd like to find a way around this, but don't want to spend too much time on
 # the problem. This works for now.
 all: $(PUBLIC_PATH)index.html $(targets)
-	@echo $(targets)
+
+
+$(PUBLIC_PATH)%.css: $(BUILD_PATH)%.css
+	$(MKDIR) $(@D)
+	$(STYLE_COMPRESSOR) $< -o $@
 
 
 $(PUBLIC_PATH)%.js: $(BUILD_PATH)%.js
 	$(MKDIR) $(@D)
-	$(MINIFIER) $< -o $@
+	$(SCRIPT_COMPRESSOR) $< -o $@
 
 
 $(PUBLIC_PATH)%: $(BUILD_PATH)%

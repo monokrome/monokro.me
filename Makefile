@@ -7,10 +7,12 @@ STYLE_COMPRESSOR := $(BIN_PATH)sqwish
 
 
 OBJECTS := scripts/main.js \
+           articles/* \
            feed.xml \
            index.html \
-           stylesheets/*.css \
-           fonts/entypo.*
+           stylesheets/* \
+           fonts/* \
+           images/*
 
 
 MKDIR := mkdir -p
@@ -43,7 +45,7 @@ $(PUBLIC_PATH)%.js: $(BUILD_PATH)%.js
 
 $(PUBLIC_PATH)%: $(BUILD_PATH)%
 	$(MKDIR) $(@D)
-	cp $< $@
+	cp -R $< $@
 
 
 $(BUILD_PATH)%:

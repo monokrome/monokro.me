@@ -14,9 +14,6 @@
     "_": "underscore",
     "typogr": "typogr"
   },
-  "jade": {
-    "pretty": true
-  },
   "markdown": {
     "smartLists": true,
     "smartypants": true

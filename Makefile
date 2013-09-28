@@ -5,15 +5,15 @@ MINIFIER := $(BIN_PATH)uglifyjs
 
 
 OBJECTS := scripts/main.js \
-  				 feed.xml \
-  				 index.html \
-  				 stylesheets/bootstrap.css \
-  				 stylesheets/entypo.css \
-  				 stylesheets/main.css \
-  				 fonts/entypo.eot \
-  				 fonts/entypo.svg \
-  				 fonts/entypo.ttf \
-  				 fonts/entypo.woff
+           feed.xml \
+           index.html \
+           stylesheets/bootstrap.css \
+           stylesheets/entypo.css \
+           stylesheets/main.css \
+           fonts/entypo.eot \
+           fonts/entypo.svg \
+           fonts/entypo.ttf \
+           fonts/entypo.woff
 
 
 MKDIR := mkdir -p

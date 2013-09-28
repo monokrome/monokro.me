@@ -18,7 +18,7 @@ MKDIR=mkdir -p
 all: ${TARGETS}
 
 
-${PUBLIC_PATH}scripts/main.js: ${BUILD_PATH}scripts/main.js
+${PUBLIC_PATH}%.js: ${BUILD_PATH}%.js
 	${MKDIR} $(@D)
 	${MINIFIER} $< -o $@
 

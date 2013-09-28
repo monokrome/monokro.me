@@ -22,15 +22,12 @@ target_name = $(subst $(BUILD_PATH),$(PUBLIC_PATH),$(call source_name,$(object))
 targets := $(foreach object,$(OBJECTS),$(target_name))
 
 
-# One file must be manually depended in order to trigger the initial build
-# process. This comes with weird issue which can occur, regardless. We can't
-# run the `wildcard` function on a specific path if the path has not been built
-# yet, so it is possible that some files expected to be found by the wildcard
-# will not be built unless 'index.html' changes.
-#
-# I'd like to find a way around this, but don't want to spend too much time on
-# the problem. This works for now.
-all: $(PUBLIC_PATH)index.html $(targets)
+all: $(PUBLIC_PATH)index.html application
+	# This has to be done as a separate process in order to prevent the wildcard
+	# from not working, because `wintersmith build` has to have occured before we
+	# have expanded $(targets) or else it wont expand to any files which have not
+	# been created by the build yet. Any better solutions are welcome.
+	${MAKE} $(targets) 
 
 
 $(PUBLIC_PATH)%.css: $(BUILD_PATH)%.css
@@ -57,4 +54,4 @@ clean:
 	@rm -rf "$(BUILD_PATH)" "$(PUBLIC_PATH)"
 
 
-.PHONY: all clean build
+.PHONY: all clean application

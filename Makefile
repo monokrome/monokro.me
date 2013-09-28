@@ -1,21 +1,40 @@
-minifier=node_modules/.bin/uglifyjs
-script=build/scripts/main
+BIN_PATH=./node_modules/.bin/
+PUBLIC_PATH=./public/
+BUILD_PATH=./build/
+MINIFIER=${BIN_PATH}uglifyjs
 
 
-all: minify
+TARGETS=${PUBLIC_PATH}scripts/main.js \
+				${PUBLIC_PATH}feed.xml \
+				${PUBLIC_PATH}index.html \
+				${PUBLIC_PATH}stylesheets/bootstrap.css \
+				${PUBLIC_PATH}stylesheets/entypo.css \
+				${PUBLIC_PATH}stylesheets/main.css
 
 
-minify: application
-	${minifier} ${script}.js -o ${script}.min.js
+MKDIR=mkdir -p
 
 
-application:
+all: ${TARGETS}
+
+
+${PUBLIC_PATH}scripts/main.js: ${BUILD_PATH}scripts/main.js
+	${MKDIR} $(@D)
+	${MINIFIER} $< -o $@
+
+
+${PUBLIC_PATH}%: ${BUILD_PATH}%
+	${MKDIR} $(@D)
+	cp $< $@
+
+
+${BUILD_PATH}%:
 	npm install
-	wintersmith build
+	${BIN_PATH}wintersmith build --quiet
 
 
 clean:
-	rm -rf build
+	rm -rf "${BUILD_PATH}" "${PUBLIC_PATH}"
 
 
-.PHONY: minify application clean
+.PHONY: all clean

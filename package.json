@@ -13,7 +13,8 @@
     "wintersmith-browserify": "~0.2.2",
     "uglify-js": "~2.4.0",
     "browserify-jade": "0.0.5",
-    "coffeeify": "~0.5.1"
+    "coffeeify": "~0.5.1",
+    "jade": "~0.35.0"
   },
   "devDependencies": {},
   "scripts": {

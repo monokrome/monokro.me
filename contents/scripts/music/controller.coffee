@@ -14,6 +14,7 @@ class MusicController extends Backbone.Marionette.Controller
         collection: @playlist
 
       @player.ui.playlist.sidebar 'setting', 'overlay', true
+      @player.trackList.currentView.on 'track:selected', @trackChanged
 
     else
       @$el.removeClass 'active'
@@ -51,6 +52,7 @@ class MusicController extends Backbone.Marionette.Controller
       @audioElement.get(0).play()
 
   trackChanged: (trackView) =>
+    console.log trackView.model.get 'name'
     @setCurrentTrack trackView.model
 
     if not @audioElement.get(0).playing
@@ -84,9 +86,7 @@ class MusicController extends Backbone.Marionette.Controller
 
   togglePlaylist: =>
     @player.ui.playlistButton.toggleClass 'active'
-
-    @player.ui.playlist.sidebar 'toggle', =>
-      @player.trackList.currentView.on 'itemview:selected', @trackChanged
+    @player.ui.playlist.sidebar 'toggle'
 
   shouldVisualize: ->
     local = localStorage.getItem 'music.visualize'

@@ -6,23 +6,17 @@ class NowPlayingView extends Backbone.Marionette.ItemView
 
 class TrackView extends Backbone.Marionette.ItemView
   tagName: 'li'
-  className: 'item'
+  className: 'item link'
   template: require './templates/tracklist_track.jade'
 
-  events:
+  triggers:
     'click a': 'selected'
-
-  selected: (item) ->
-    @trigger 'selected'
 
 
 class TracksView extends Backbone.Marionette.CollectionView
-  itemView: TrackView
   tagName: 'ul'
-
-  onRender: ->
-    @$el.addClass 'nav'
-    @$el.addClass 'nav-stacked'
+  itemView: TrackView
+  itemViewEventPrefix: 'track'
 
 
 class MusicPlayerView extends Backbone.Marionette.Layout

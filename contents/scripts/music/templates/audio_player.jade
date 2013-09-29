@@ -1,29 +1,15 @@
-#track-selection.pull-right
-  .pull-right.btn-close
-    i.icon-cancel-circled
+#track-selection.ui.right.sidebar
+  #track-list.ui.compact.vertical.menu
 
-  h4 playlist
+#music-player-current-track.ui.two.column.grid
+  .column
+    #now-playing
 
-  #track-list
-
-#audio-player-current-track
-  #audio-controls
-    .controls.pull-right
-      .btn-group
-        a.btn.btn-backward
-          i.icon-to-start
-
-        a.btn.btn-play
-          i.icon-play
-
-        a.btn.btn-pause
-          i.icon-pause
-
-        a.btn.btn-forward
-          i.icon-to-end
-
-        a.btn.btn-playlist
-          i.icon-list
-
-  #now-playing
-
+  .column
+    #music-controls
+      .ui.buttons
+        .ui.mini.button.backward: i.icon.backward
+        .ui.mini.button.play: i.icon.play
+        .ui.mini.button.pause: i.icon.pause
+        .ui.mini.button.forward: i.icon.forward
+        .ui.mini.button.playlist: i.icon.list

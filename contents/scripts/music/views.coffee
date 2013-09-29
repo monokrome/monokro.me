@@ -6,6 +6,7 @@ class NowPlayingView extends Backbone.Marionette.ItemView
 
 class TrackView extends Backbone.Marionette.ItemView
   tagName: 'li'
+  className: 'item'
   template: require './templates/tracklist_track.jade'
 
   events:
@@ -24,10 +25,10 @@ class TracksView extends Backbone.Marionette.CollectionView
     @$el.addClass 'nav-stacked'
 
 
-class AudioPlayerView extends Backbone.Marionette.Layout
+class MusicPlayerView extends Backbone.Marionette.Layout
   template: require './templates/audio_player.jade'
 
-  id: 'audio-player'
+  id: 'music-player'
   tagName: 'section'
 
   regions:
@@ -36,23 +37,22 @@ class AudioPlayerView extends Backbone.Marionette.Layout
 
   ui:
     playlist: '#track-selection'
-    playButton: '.btn-play'
-    pauseButton: '.btn-pause'
-    forwardButton: '.btn-forward'
-    backwardButton: '.btn-backward'
-    playlistButton: '.btn-playlist'
+    playButton: '.button.play'
+    pauseButton: '.button.pause'
+    forwardButton: '.button.forward'
+    backwardButton: '.button.backward'
+    playlistButton: '.button.playlist'
 
   triggers:
-    'click .btn-play': 'play'
-    'click .btn-pause': 'pause'
-    'click .btn-forward': 'forward'
-    'click .btn-backward': 'backward'
-    'click .btn-playlist': 'togglePlaylist'
-    'click #track-selection .btn-close': 'closePlaylist'
+    'click .button.play': 'play'
+    'click .button.pause': 'pause'
+    'click .button.forward': 'forward'
+    'click .button.backward': 'backward'
+    'click .button.playlist': 'togglePlaylist'
 
 
 module.exports = {
-  AudioPlayerView
+  MusicPlayerView
   NowPlayingView
 
   TrackView

@@ -5,6 +5,7 @@ window.Backbone.$ = window.jQuery
 
 require './vendor/backbone.marionette.js'
 require './vendor/marionette.appliances.js'
+require './vendor/semantic.js'
 
 
 class Application extends Backbone.Marionette.ApplianceManager

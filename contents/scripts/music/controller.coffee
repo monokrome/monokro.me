@@ -10,6 +10,11 @@ class MusicController extends Backbone.Marionette.Controller
       @player.$el.addClass 'active'
       @setCurrentTrack @playlist.at 0
 
+      @player.trackList.show new views.TracksView
+        collection: @playlist
+
+      @player.ui.playlist.sidebar 'setting', 'overlay', true
+
     else
       @$el.removeClass 'active'
 
@@ -40,7 +45,7 @@ class MusicController extends Backbone.Marionette.Controller
     @player.nowPlaying.show new views.NowPlayingView
       model: track
 
-    @audioElement.attr 'src', @getAudioSource track
+    @audioElement.attr 'src', @getMusicSource track
 
     if @player.$el.hasClass 'playing'
       @audioElement.get(0).play()
@@ -51,7 +56,7 @@ class MusicController extends Backbone.Marionette.Controller
     if not @audioElement.get(0).playing
       @play()
 
-  getAudioSource: (track) ->
+  getMusicSource: (track) ->
     baseUrl = track.get "stream_url"
     return baseUrl + '?client_id=c5c77f52385776590f11e7546f2c3c87'
 
@@ -78,27 +83,10 @@ class MusicController extends Backbone.Marionette.Controller
   backward: => @shiftCurrentTrack -1
 
   togglePlaylist: =>
-    if @player.trackList.currentView?
-      @closePlaylist()
+    @player.ui.playlistButton.toggleClass 'active'
 
-    else
-      @displayPlaylist()
-
-  displayPlaylist: ->
-    @player.trackList.show new views.TracksView
-      collection: @playlist
-
-    @player.trackList.currentView.on 'itemview:selected', @trackChanged
-    @player.ui.playlist.addClass 'active'
-
-  closePlaylist: =>
-    @player.ui.playlist.removeClass 'active'
-
-    if @player.trackList.currentView?
-      @player.trackList.currentView.close()
-
-    # This needs manually unset for togglePlaylist to work properly
-    delete @player.trackList.currentView
+    @player.ui.playlist.sidebar 'toggle', =>
+      @player.trackList.currentView.on 'itemview:selected', @trackChanged
 
   shouldVisualize: ->
     local = localStorage.getItem 'music.visualize'
@@ -117,7 +105,7 @@ class MusicController extends Backbone.Marionette.Controller
 
     @playlist = new models.Tracks
 
-    @player = new views.AudioPlayerView
+    @player = new views.MusicPlayerView
       collection: @playlist
 
     @playlist.on 'sync', @playlistLoaded

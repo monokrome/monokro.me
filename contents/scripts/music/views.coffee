@@ -1,5 +1,12 @@
 models = require './models.coffee'
 
+
+class DimmerView extends Backbone.View
+  tagName: 'div'
+  id: 'body-dimmer'
+  className: 'ui dimmer'
+
+
 class NowPlayingView extends Backbone.Marionette.ItemView
   template: require './templates/track.jade'
 
@@ -13,19 +20,33 @@ class TrackView extends Backbone.Marionette.ItemView
     'click a': 'selected'
 
 
+
 class TracksView extends Backbone.Marionette.CollectionView
   tagName: 'ul'
   itemView: TrackView
   itemViewEventPrefix: 'track'
 
-  initialize: ->
-    @$body = jQuery document.body
-    @$body.dimmer 'setting', 'onHide', =>
+  initializeDimming: ->
+    @$dimmer = jQuery '#body-dimmer'
+
+    unless @$dimmer.length > 0
+      dimmer = new DimmerView
+      dimmer.render()
+
+      $body = jQuery document.body
+      $body.append dimmer.$el
+
+      @$dimmer = dimmer.$el
+
+    @$dimmer.dimmer 'setting', 'onHide', =>
       unless @isClosed
         @close()
 
-  onShow: -> @$body.dimmer 'show'
-  onClose: -> @$body.dimmer 'hide'
+  initialize: ->
+    @initializeDimming()
+
+  onShow: -> @$dimmer.dimmer 'show'
+  onClose: -> @$dimmer.dimmer 'hide'
 
 
 class MusicPlayerView extends Backbone.Marionette.Layout

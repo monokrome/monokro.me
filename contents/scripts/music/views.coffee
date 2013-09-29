@@ -18,6 +18,15 @@ class TracksView extends Backbone.Marionette.CollectionView
   itemView: TrackView
   itemViewEventPrefix: 'track'
 
+  initialize: ->
+    @$body = jQuery document.body
+    @$body.dimmer 'setting', 'onHide', =>
+      unless @isClosed
+        @close()
+
+  onShow: -> @$body.dimmer 'show'
+  onClose: -> @$body.dimmer 'hide'
+
 
 class MusicPlayerView extends Backbone.Marionette.Layout
   template: require './templates/audio_player.jade'
@@ -27,7 +36,7 @@ class MusicPlayerView extends Backbone.Marionette.Layout
 
   regions:
     nowPlaying: '#now-playing'
-    trackList: '#track-list'
+    playlist: '#track-list'
 
   ui:
     playlist: '#track-selection'

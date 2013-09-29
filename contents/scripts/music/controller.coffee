@@ -10,12 +10,6 @@ class MusicController extends Backbone.Marionette.Controller
       @player.$el.addClass 'active'
       @setCurrentTrack @playlist.at 0
 
-      @player.trackList.show new views.TracksView
-        collection: @playlist
-
-      @player.ui.playlist.sidebar 'setting', 'overlay', true
-      @player.trackList.currentView.on 'track:selected', @trackChanged
-
     else
       @$el.removeClass 'active'
 
@@ -84,8 +78,35 @@ class MusicController extends Backbone.Marionette.Controller
   forward: => @shiftCurrentTrack 1
   backward: => @shiftCurrentTrack -1
 
+  showPlaylist: ->
+    view = new views.TracksView
+      collection: @playlist
+
+    view.once 'close', @togglePlaylist
+
+    @player.playlist.show view
+
+    @player.ui.playlist.sidebar 'setting', 'overlay', true
+    @player.playlist.currentView.on 'track:selected', @trackChanged
+
+  closePlaylist: ->
+    view = @player.playlist.currentView
+
+    if view?
+      view.off 'close', @togglePlaylist
+
+      unless view.isClosed
+        @player.playlist.close()
+
   togglePlaylist: =>
-    @player.ui.playlistButton.toggleClass 'active'
+    if @playlistVisible is true
+      @closePlaylist()
+
+    else
+      @showPlaylist()
+
+    @playlistVisible = not @playlistVisible
+
     @player.ui.playlist.sidebar 'toggle'
 
   shouldVisualize: ->
@@ -99,6 +120,8 @@ class MusicController extends Backbone.Marionette.Controller
   initialize: ->
     @$body = jQuery document.body
     @audioElement.bind 'ended', @forward
+
+    @playlistVisible = false
 
     @options.application.addRegions
       audioPlayer: '#audio-player-container'

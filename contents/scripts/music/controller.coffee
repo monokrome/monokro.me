@@ -4,7 +4,6 @@ views = require './views.coffee'
 
 class MusicController extends Backbone.Marionette.Controller
   audioElement: jQuery '<audio>'
-  visualize: false
 
   playlistLoaded: =>
     if !@currentTrack? and @playlist.length > 0
@@ -15,7 +14,7 @@ class MusicController extends Backbone.Marionette.Controller
       @$el.removeClass 'active'
 
   play: =>
-    @$body.addClass 'visualizer' if @visualize
+    @$body.addClass 'visualizer' if @shouldVisualize()
 
     @player.$el.removeClass 'paused'
     @player.$el.addClass 'playing'
@@ -24,7 +23,7 @@ class MusicController extends Backbone.Marionette.Controller
       @audioElement.get(0).play()
 
   pause: =>
-    @$body.removeClass 'promo' if @visualize
+    @$body.removeClass 'visualizer'
 
     @player.$el.removeClass 'playing'
     @player.$el.addClass 'paused'
@@ -104,16 +103,14 @@ class MusicController extends Backbone.Marionette.Controller
   shouldVisualize: ->
     local = localStorage.getItem 'music.visualize'
 
-    unless local
+    unless local is 'true'
       local = sessionStorage.getItem 'music.visualize'
 
-    return local or @visualize
+    return local
 
   initialize: ->
     @$body = jQuery document.body
     @audioElement.bind 'ended', @forward
-
-    @visualize = @shouldVisualize()
 
     @options.application.addRegions
       audioPlayer: '#audio-player-container'

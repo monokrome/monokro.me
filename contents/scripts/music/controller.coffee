@@ -2,9 +2,6 @@ models = require './models.coffee'
 views = require './views.coffee'
 
 
-$body = jQuery 'body'
-
-
 class MusicController extends Backbone.Marionette.Controller
   audioElement: jQuery '<audio>'
 
@@ -17,7 +14,7 @@ class MusicController extends Backbone.Marionette.Controller
       @$el.removeClass 'active'
 
   play: =>
-    $body.addClass 'promo'
+    @$body.addClass 'promo'
 
     @player.$el.removeClass 'paused'
     @player.$el.addClass 'playing'
@@ -26,7 +23,7 @@ class MusicController extends Backbone.Marionette.Controller
       @audioElement.get(0).play()
 
   pause: =>
-    $body.removeClass 'promo'
+    @$body.removeClass 'promo'
 
     @player.$el.removeClass 'playing'
     @player.$el.addClass 'paused'
@@ -104,6 +101,8 @@ class MusicController extends Backbone.Marionette.Controller
     delete @player.trackList.currentView
 
   initialize: ->
+    @$body = jQuery document.body
+
     @audioElement.bind 'ended', @forward
 
     @options.application.addRegions

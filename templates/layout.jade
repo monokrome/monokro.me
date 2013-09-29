@@ -30,6 +30,9 @@ html(lang='en')
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
+      // Provides CSS injection and reloading on change in preview mode.
+      env.helpers.livereload()
+
       script(src='/scripts/main.js')
 
   body

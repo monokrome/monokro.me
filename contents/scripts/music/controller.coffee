@@ -4,6 +4,7 @@ views = require './views.coffee'
 
 class MusicController extends Backbone.Marionette.Controller
   audioElement: jQuery '<audio>'
+  visualize: false
 
   playlistLoaded: =>
     if !@currentTrack? and @playlist.length > 0
@@ -14,7 +15,7 @@ class MusicController extends Backbone.Marionette.Controller
       @$el.removeClass 'active'
 
   play: =>
-    @$body.addClass 'promo'
+    @$body.addClass 'visualizer' if @visualize
 
     @player.$el.removeClass 'paused'
     @player.$el.addClass 'playing'
@@ -23,7 +24,7 @@ class MusicController extends Backbone.Marionette.Controller
       @audioElement.get(0).play()
 
   pause: =>
-    @$body.removeClass 'promo'
+    @$body.removeClass 'promo' if @visualize
 
     @player.$el.removeClass 'playing'
     @player.$el.addClass 'paused'
@@ -100,10 +101,19 @@ class MusicController extends Backbone.Marionette.Controller
     # This needs manually unset for togglePlaylist to work properly
     delete @player.trackList.currentView
 
+  shouldVisualize: ->
+    local = localStorage.getItem 'music.visualize'
+
+    unless local
+      local = sessionStorage.getItem 'music.visualize'
+
+    return local or @visualize
+
   initialize: ->
     @$body = jQuery document.body
-
     @audioElement.bind 'ended', @forward
+
+    @visualize = @shouldVisualize()
 
     @options.application.addRegions
       audioPlayer: '#audio-player-container'

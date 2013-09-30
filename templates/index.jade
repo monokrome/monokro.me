@@ -18,7 +18,8 @@ block content
           p.more
             a(href=article.url) more
 
-    .ui.divider
+    if article !== _.last(articles)
+      .ui.divider
 
 block prepend footer
   div.nav

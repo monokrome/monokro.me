@@ -6,8 +6,8 @@ block content
   each article in articles
     article.article.intro
       header
-        p.date
-          span= moment(article.date).format('MMMM DD, YYYY')
+        .date=moment(article.date).format('MMMM DD, YYYY')
+
         h2
           a(href=article.url)= article.title
 
@@ -17,6 +17,8 @@ block content
         if article.hasMore
           p.more
             a(href=article.url) more
+
+    .ui.divider
 
 block prepend footer
   div.nav

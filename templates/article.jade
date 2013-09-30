@@ -8,9 +8,9 @@ block content
 
   article.article
     header
-      p.date
-        span=moment(page.date).format('MMMM DD, YYYY')
-      h1=page.title
+      span.date Posted #{ moment(page.date).format('MMMM DD, YYYY') }
+
+      h2=page.title
 
     section.content!=typogr(page.html).typogrify()
 

@@ -17,6 +17,7 @@ OBJECTS := scripts/main.js \
 
 MKDIR := mkdir -p
 CP := cp -R
+RM := rm -rf
 
 source_name = $(wildcard $(BUILD_PATH)$(object))
 target_name = $(subst $(BUILD_PATH),$(PUBLIC_PATH),$(call source_name,$(object)))
@@ -52,7 +53,7 @@ $(BUILD_PATH)%:
 
 
 clean:
-	@rm -rf "$(BUILD_PATH)" "$(PUBLIC_PATH)"
+	@${RM} "$(BUILD_PATH)" "$(PUBLIC_PATH)"
 
 
 .PHONY: all clean application

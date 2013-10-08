@@ -24,12 +24,11 @@ target_name = $(subst $(BUILD_PATH),$(PUBLIC_PATH),$(call source_name,$(object))
 targets := $(foreach object,$(OBJECTS),$(target_name))
 
 
+# This has to be done as a separate process in order to prevent the wild card
+# from not working, because `wintersmith build` has to have occurred before we
+# have expanded $(targets) or else it wont expand to any files which have not
+# been created by the build yet. Any better solutions are welcome.
 all: $(PUBLIC_PATH)index.html application
-	# This has to be done as a separate process in order to prevent the
-	# wild card from not working, because `wintersmith build` has to have
-	# occurred before we have expanded $(targets) or else it wont expand to
-	# any files which have not been created by the build yet. Any better
-	# solutions are welcome.
 	${MAKE} $(targets) 
 
 

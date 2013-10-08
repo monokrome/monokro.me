@@ -19,6 +19,7 @@ MKDIR := mkdir -p
 CP := cp -R
 RM := rm -rf
 
+
 source_name = $(wildcard $(BUILD_PATH)$(object))
 target_name = $(subst $(BUILD_PATH),$(PUBLIC_PATH),$(call source_name,$(object)))
 targets := $(foreach object,$(OBJECTS),$(target_name))

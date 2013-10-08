@@ -16,6 +16,7 @@ OBJECTS := scripts/main.js \
 
 
 MKDIR := mkdir -p
+CP := cp -R
 
 source_name = $(wildcard $(BUILD_PATH)$(object))
 target_name = $(subst $(BUILD_PATH),$(PUBLIC_PATH),$(call source_name,$(object)))
@@ -42,7 +43,7 @@ $(PUBLIC_PATH)%.js: $(BUILD_PATH)%.js
 
 $(PUBLIC_PATH)%: $(BUILD_PATH)%
 	$(MKDIR) $(@D)
-	cp -R $< $@
+	$(CP) $< $@
 
 
 $(BUILD_PATH)%:

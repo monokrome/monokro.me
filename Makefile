@@ -29,7 +29,7 @@ targets := $(foreach object,$(OBJECTS),$(target_name))
 # from not working, because `wintersmith build` has to have occurred before we
 # have expanded $(targets) or else it wont expand to any files which have not
 # been created by the build yet. Any better solutions are welcome.
-all: $(PUBLIC_PATH)index.html application
+all: $(PUBLIC_PATH)index.html
 	${MAKE} $(targets) 
 
 
@@ -57,4 +57,4 @@ clean:
 	@${RM} "$(BUILD_PATH)" "$(PUBLIC_PATH)"
 
 
-.PHONY: all clean application
+.PHONY: all clean

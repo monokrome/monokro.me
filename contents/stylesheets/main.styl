@@ -171,21 +171,21 @@ body
   margin 0px
   padding 0px
 
-#shortcuts li
-  display inline-block
+  li
+    display inline-block
 
-i, li.external
-  transition opacity .25s ease-in-out
-  opacity 0.8
+  i, li.external
+    transition opacity .25s ease-in-out
+    opacity 0.8
 
-i
-  width 32px
-  height 32px
-  display block
+  i
+    width 32px
+    height 32px
+    display block
 
-i:hover, li.external:hover
-  opacity 1.0
-  cursor pointer
+  i:hover, li.external:hover
+    opacity 1.0
+    cursor pointer
 
 #github-ribbon
   position absolute
@@ -210,6 +210,8 @@ i:hover, li.external:hover
   a
     color #9A9A9A
 
+#body-dimmer
+  z-index 800
 
 @media (max-width: 1024px)
   body.visualizer
@@ -255,6 +257,3 @@ i:hover, li.external:hover
         text-overflow ellipsis
         display inline-block
         max-width 140px
-
-#body-dimmer
-  z-index 800

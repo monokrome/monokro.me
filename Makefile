@@ -25,7 +25,7 @@ target_name = $(subst $(BUILD_PATH),$(PUBLIC_PATH),$(call source_name,$(object))
 targets := $(foreach object,$(OBJECTS),$(target_name))
 
 
-all: $(PUBLIC_PATH)index.html
+all: clean $(PUBLIC_PATH)index.html
 	${MAKE} application
 
 

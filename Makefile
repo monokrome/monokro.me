@@ -54,7 +54,7 @@ $(BUILD_PATH)%:
 
 
 clean:
-	@${RM} "$(BUILD_PATH)" "$(PUBLIC_PATH)"
+	${RM} "$(BUILD_PATH)" "$(PUBLIC_PATH)"
 
 
 .PHONY: all clean

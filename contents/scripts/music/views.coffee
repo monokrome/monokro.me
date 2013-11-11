@@ -20,7 +20,6 @@ class TrackView extends Backbone.Marionette.ItemView
     'click a': 'selected'
 
 
-
 class TracksView extends Backbone.Marionette.CollectionView
   tagName: 'ul'
   itemView: TrackView

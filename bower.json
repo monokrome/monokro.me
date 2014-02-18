@@ -1,0 +1,20 @@
+{
+  "name": "monokro.me",
+  "version": "0.6.0",
+  "authors": [
+    "Brandon R. Stoner <monokrome@limpidtech.com>"
+  ],
+  "description": "Exposing my website; one hacker at a time.",
+  "keywords": [
+    "blog"
+  ],
+  "license": "MIT",
+  "homepage": "http://monokro.me",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

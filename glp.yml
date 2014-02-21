@@ -1,0 +1,28 @@
+plugins:
+  stylus:
+    use:
+      - 'nib'
+
+liveReload:
+  port: 35729
+  enabled: yes
+  inject: yes
+  types:
+    - 'stylesheets'
+    - 'templates'
+    - 'scripts'
+
+files:
+  scripts:
+    lib/scripts/:
+      - 'bower_components/requirejs/require.js'
+      - 'bower_components/angular/angular.js'
+      - 'app/**/*.js'
+      - 'app/**/*.coffee'
+
+  stylesheets:
+    lib/stylesheets/application:
+      - 'app/*/styles/main.styl'
+
+  templates:
+    lib/: 'templates/index.jade'

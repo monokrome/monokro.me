@@ -1,0 +1,276 @@
+@import '../../../bower_components/bootstrap-stylus/stylus/bootstrap.styl'
+
+@import 'nib'
+
+@import 'util.styl'
+@import 'audio.styl'
+
+
+html
+  margin 0px
+  padding 0px
+
+
+body
+  margin 0px
+  padding 0px 0px 4em 0px
+
+  background-color #FCFCFC
+  transition background-color 333ms ease-in
+
+  color #131313
+
+  font-family "Source Sans Pro", "sans-serif"
+
+  min-width 480px
+
+  #github-ribbon
+    display none
+
+  &.visualizer
+    user-select none
+    background-color #000
+
+    min-width 240px
+
+    #stage
+      width 400px
+      height 400px
+
+      color #000
+
+      top -80px
+      left 0
+
+    #header
+      color #000
+
+      font-size 4.23em
+
+    #github-ribbon
+      display block
+
+    #shortcuts-container
+      padding-top 10px
+      margin-top 0px
+      background-color transparent
+
+      i[class*='icon-']
+        color #DADADD
+
+    #content-container
+      display none
+
+
+#stage
+  color #FFF
+  margin 0px auto -60px
+  padding 0px
+
+  background-color #FD1313
+  border-radius 200px
+
+  width 100px
+  height 100px
+
+  font-size 5.2em
+
+  user-select none
+
+  position relative
+
+  top -30px
+
+  left 40%
+
+  z-index 10
+
+  transition height 333ms ease-in,
+             width 333ms ease-in,
+             top 333ms ease-in,
+             left 333ms ease-in,
+             color 333ms ease-in
+
+
+#header
+  padding-top 0.07em
+  padding-left 0.14em
+
+  font-weight bold
+  letter-spacing -0.27em
+
+  color #FCFCFC
+
+  transition padding-top 333ms ease-in,
+             padding-left 333ms ease-in,
+             font-size 333ms ease-in,
+             letter-spacing 333ms ease-in
+
+
+#content-container
+  padding 0ex 3ex
+  margin 0.4em auto 0px
+
+  max-width 720px
+  min-width 420px
+
+  a
+    text-decoration underline
+    color #3A3A4A
+
+  article
+    margin-bottom 3em
+
+    header
+      padding-left 0.4em
+
+      .date
+        margin-right 15%
+        padding-top 0.8em
+
+        color #9A9A9A
+        float right
+
+  h2
+    font-size 1.8em
+
+  h1, h2, h3, h4
+    margin 0em 33.333% 0.4ex 0.8em
+
+    color #232323
+
+    text-transform capitalize
+
+    a
+      text-decoration none
+      color #3A3A4A
+
+    footer
+      text-align right
+
+
+#shortcuts-container
+  padding-top 0.4ex
+  margin 4ex auto 0px
+  text-align center
+
+  width 40%
+
+  position relative
+  top 0px
+  left 0px
+
+  z-index 20
+
+  transition background-color 333ms ease-in,
+             margin-top 333ms ease-in
+
+  a
+    transition font-size 60ms ease-in
+
+    &:hover
+      text-decoration none
+
+  i[class*='icon-']
+    font-size 1.9em
+    letter-spacing 1ex
+    color #3E3E3E
+    transition color 333ms ease-in
+
+
+#shortcuts
+  margin 0px
+  padding 0px
+
+  li
+    display inline-block
+
+  i, li.external
+    transition opacity .25s ease-in-out
+    opacity 0.8
+
+  i
+    width 32px
+    height 32px
+    display block
+
+  i:hover, li.external:hover
+    opacity 1.0
+    cursor pointer
+
+
+#github-ribbon
+  position absolute
+
+  top 0
+  left 0
+  border 0
+
+  z-index 30
+
+  transition opacity .25s ease-in-out
+
+  opacity 0.3
+
+  &:hover
+    opacity: 0.8
+
+
+#footer
+  text-align center
+  color #9A9A9A
+
+  a
+    color #9A9A9A
+
+
+#body-dimmer
+  z-index 800
+
+
+@media (max-width: 1024px)
+  body.visualizer
+    #stage
+        opacity 1
+
+
+@media (max-width: 720px)
+  body.visualizer
+    #github-ribbon
+      display none
+
+
+@media (max-width: 480px)
+  body.visualizer
+    #shortcuts-container
+      margin 0px auto
+      width 200px
+
+      text-align center
+
+      position relative
+      top 0px
+      right 0px
+
+    #stage
+      margin-bottom -25px
+      width 200px
+      height 200px
+
+      top -50px
+
+    #header
+      font-size 2em
+      letter-spacing -0.27em
+
+    #now-playing
+      white-space nowrap
+
+      .song-artist
+        display none
+
+      a
+        overflow hidden
+        text-overflow ellipsis
+        display inline-block
+        max-width 140px

@@ -21,8 +21,10 @@ files:
       - 'app/**/*.coffee'
 
   stylesheets:
-    lib/stylesheets/application:
-      - 'app/*/styles/main.styl'
+    lib/stylesheets/application: 'app/*/styles/main.styl'
 
   templates:
     lib/: 'templates/index.jade'
+
+  static:
+    lib/: 'app/static/**'

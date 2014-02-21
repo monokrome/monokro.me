@@ -1,1 +1,1 @@
-define ['angular'], (angular) ->
+define 'initialize', ['audio/module'], ->

@@ -1,0 +1,32 @@
+{
+  "name": "monokro.me",
+  "version": "0.6.0",
+  "description": "Exposing my website; one hacker at a time.",
+  "main": " ",
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "~1.7.1",
+    "chai": "~1.9.0",
+    "mocha": "~1.17.1",
+    "sinon": "~1.8.2",
+    "gulp": "~3.5.2",
+    "glp": "0.0.3",
+    "nib": "~1.0.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com:monokrome/monokro.me"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Brandon R. Stoner <monokrome@limpidtech.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monokrome/monokro.me/issues"
+  },
+  "homepage": "https://github.com/monokrome/monokro.me"
+}

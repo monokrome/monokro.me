@@ -1,0 +1,14 @@
+# Log files
+*.log
+
+# Build output
+/lib/*
+
+# Generated dependencies
+/node_modules/*
+/bower_components/*
+
+# Non-project hidden files
+/.*
+!/.git*
+!/.npm*

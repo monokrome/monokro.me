@@ -2,7 +2,7 @@
 *.log
 
 # Build output
-/lib/*
+/dist/*
 
 # Generated dependencies
 /node_modules/*

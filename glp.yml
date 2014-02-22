@@ -3,6 +3,10 @@ plugins:
     use:
       - 'nib'
 
+static:
+  port: 3333
+  path: './dist'
+
 liveReload:
   port: 35729
   enabled: yes
@@ -14,17 +18,21 @@ liveReload:
 
 files:
   scripts:
-    lib/scripts/:
+    dist/scripts/:
       - 'bower_components/requirejs/require.js'
       - 'bower_components/angular/angular.js'
+      - 'lib/scripts/*.js'
+      - 'lib/scripts/*.coffee'
       - 'app/**/*.js'
       - 'app/**/*.coffee'
 
   stylesheets:
-    lib/stylesheets/application: 'app/*/styles/main.styl'
+    dist/stylesheets/application: 'app/*/styles/main.styl'
 
   templates:
-    lib/: 'templates/index.jade'
+    dist/:
+      - 'templates/index.jade'
+      - 'templates/blog.jade'
 
   static:
-    lib/: 'app/static/**'
+    dist/: 'app/static/**'

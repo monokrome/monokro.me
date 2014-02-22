@@ -45,7 +45,6 @@ body
 
     #header
       color #000
-
       font-size 4.23em
 
     #github-ribbon
@@ -79,9 +78,7 @@ body
   user-select none
 
   position relative
-
   top -30px
-
   left 40%
 
   z-index 10
@@ -98,14 +95,18 @@ body
   padding-left 0.14em
 
   font-weight bold
-  letter-spacing -0.27em
+  letter-spacing -0.25em
 
   color #FCFCFC
+  speak none
 
   transition padding-top 333ms ease-in,
              padding-left 333ms ease-in,
              font-size 333ms ease-in,
              letter-spacing 333ms ease-in
+
+  &:before
+    content: 'mk'
 
 
 #content-container

@@ -20,10 +20,11 @@ block append stylesheets
 
 block layout
   section#stage
-    header#header mk
+    header#header
 
   section#content-container
-    main#content: block content
+    main#content(data-ui-view)
+      block content
 
   section#github-ribbon
     a(target='_github', href='https://github.com/monokrome/monokro.me')

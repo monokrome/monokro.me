@@ -38,7 +38,6 @@
 
 #now-playing
   padding 0.2em 0.4em
-
   white-space nowrap
 
   a
@@ -50,12 +49,39 @@
 
 
 #track-selection
+  background-color #FCFCFC
+
+  width 300px
+
+  position fixed
+  top 0px
+  right 0px
+  bottom 0px
+
+  z-index 50
+
   white-space nowrap
   overflow-x hidden
   text-overflow ellipsis
+
+  border-left 1px solid #CCC
+  padding-left 1em
 
   .item
     cursor pointer
 
   ul
     padding-left 0
+
+
+#audio-controls
+  margin-right 40px
+  float right
+
+  font-size 1.3em
+
+  ul
+    list-style none
+
+  li
+    display inline-block

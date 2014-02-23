@@ -1,20 +1,31 @@
-#track-selection.ui.right.floating.sidebar
-  #track-list.ui.compact.vertical.fluid.menu
-    a(ng-click='play(track)', ng-repeat="track in tracks track by track.id") {{ track.user.username }} - {{ track.title }}
+#track-selection(data-ng-if='isVisible()')
+  ul#track-list
+    li(data-ng-repeat='track in tracks track by track.id')
+      a(data-ng-click='setCurrent(track)') {{ track.user.username }} - {{ track.title }}
 
-#audio-player-current-track.ui.two.column.grid
-  .column
-    #now-playing
-      span.song-title
-        a(href=permalink_url, target='_soundcloud')=title
+#audio-player-current-track(data-ng-if='hasTracks()')
+  #audio-controls
+    ul
+      li: i.icon-fast-backward
 
-      span.song-artist  by 
-        a(href=user.permalink_url, target='_soundcloud')=user.username
+      li(data-ng-hide='isPlaying()',
+        data-ng-click='play()'
+      ): i.icon-play
 
-  .column
-    #audio-controls
-      .ui.buttons
-        .ui.mini.button.backward: i.icon.backward
-        .ui.mini.button.play: i.icon.play
-        .ui.mini.button.pause: i.icon.pause
-        .ui.mini.button.forward: i.icon.forward
+      li(data-ng-show='isPlaying()',
+         data-ng-click='pause()'
+      ): i.icon-pause
+
+      li: i.icon-fast-forward
+      li(data-ng-click='toggle()'): i.icon-list
+
+  #now-playing
+    span.song-title
+      a(href='{{ currentTrack.permalink_url }}',
+      target='_soundcloud') {{ currentTrack.title }}
+
+    span.song-artist=' by ' 
+      a(href='{{ currentTrack.user.permalink_url }}',
+        target='_soundcloud') {{ currentTrack.user.username }}
+
+  audio(data-ng-if='hasCurrentTrack()', data-ng-src='{{getStreamURL()}}')

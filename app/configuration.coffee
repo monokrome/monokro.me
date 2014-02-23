@@ -3,4 +3,6 @@ define [], -> ($stateProvider, $urlRouterProvider) ->
 
   $stateProvider.state 'blog',
     url: '/blog/'
-    templateUrl: 'blog.html'
+    views:
+      primary:
+        templateUrl: '/blog.html'

@@ -1,16 +1,18 @@
 define 'application', [
-    'ready'
     'angular'
-    'routes'
+    'configuration'
+
+    'angular-sanitize'
     'angular-ui-router'
-  ], (domReady, angular, routes) ->
 
-    application = angular.module 'mk', ['ui.router']
+    'audio/manifest'
 
-    # I'm pretty sure that this wont be required, but only beecause
-    # I think that the DOM will always win the race. :D
-    domReady ->
-      application.config ['$stateProvider', '$urlRouterProvider', routes]
-      angular.bootstrap document, ['mk']
+  ], (angular, configuration) ->
+    application = angular.module 'mk', [
+      'ngSanitize'
+      'ui.router'
+      'mk.audio'
+    ]
 
+    application.config ['$stateProvider', '$urlRouterProvider', configuration]
     return application

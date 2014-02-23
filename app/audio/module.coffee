@@ -1,1 +1,3 @@
-define ['angular'], (angular) -> angular.module 'audio', []
+define 'audio/module', [
+  'angular'
+], (angular) -> angular.module 'mk.audio', []

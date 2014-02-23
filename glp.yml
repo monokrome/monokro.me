@@ -5,11 +5,10 @@ plugins:
 
 static:
   port: 3333
-  path: './dist'
 
 liveReload:
   port: 35729
-  enabled: yes
+  enabled: no
   inject: yes
   types:
     - 'stylesheets'
@@ -21,18 +20,21 @@ files:
     dist/scripts/:
       - 'bower_components/requirejs/require.js'
       - 'bower_components/angular/angular.js'
+      - 'bower_components/angular-sanitize/angular-sanitize.js'
       - 'lib/scripts/*.js'
       - 'lib/scripts/*.coffee'
       - 'app/**/*.js'
       - 'app/**/*.coffee'
 
   stylesheets:
-    dist/stylesheets/application: 'app/*/styles/main.styl'
+    dist/stylesheets/application:
+      - 'app/**/styles/main.styl'
 
   templates:
     dist/:
       - 'templates/index.jade'
       - 'templates/blog.jade'
+      - 'app/*/partials/**'
 
   static:
     dist/: 'app/static/**'

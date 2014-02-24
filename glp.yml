@@ -4,6 +4,7 @@ plugins:
       - 'nib'
 
 static:
+  path: './dist'
   port: 3333
 
 liveReload:

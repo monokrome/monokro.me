@@ -7,9 +7,7 @@ require.config
       exports: 'angular'
     
     'angular-sanitize':
-      exports: 'angular-sanitize'
       deps: ['angular']
 
     'angular-ui-router':
-      exports: 'angular-ui-router'
       deps: ['angular']

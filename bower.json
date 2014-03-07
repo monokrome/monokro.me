@@ -19,7 +19,6 @@
   ],
   "devDependencies": {
     "angular": "~1.2.13",
-    "requirejs": "~2.1.11",
     "bootstrap-stylus": "~3.0.0",
     "angular-sanitize": "~1.2.13"
   }

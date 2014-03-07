@@ -1,9 +1,9 @@
-define [
-  '../module',
-  '../services/soundcloud'
-], (audio, soundcloud) ->
+audio = angular.module 'mk.audio'
 
-  directive = ($sce, soundcloud) ->
+audio.directive 'mkAudioPlayer', [
+    '$sce'
+    'mk.audio.services.soundcloud'
+  ].concat ($sce, soundcloud) ->
     scope: yes
     replace: no
     restrict: 'A'
@@ -80,9 +80,3 @@ define [
         $scope.tracks = []
         $scope.currentTrack = null
 
-  directive['$inject'] = [
-    '$sce'
-    'mk.audio.services.soundcloud'
-  ]
-
-  audio.directive 'mkAudioPlayer', directive

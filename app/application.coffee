@@ -1,18 +1,17 @@
-define 'application', [
-    'angular'
-    'configuration'
+application = angular.module 'mk', [
+  'ngSanitize'
+  'ui.router'
+  'mk.audio'
+]
 
-    'angular-sanitize'
-    'angular-ui-router'
+application.config [
+  '$stateProvider'
+  '$urlRouterProvider'
+].concat ($stateProvider, $urlRouterProvider) ->
+  $urlRouterProvider.otherwise '/blog/'
 
-    'audio/manifest'
-
-  ], (angular, configuration) ->
-    application = angular.module 'mk', [
-      'ngSanitize'
-      'ui.router'
-      'mk.audio'
-    ]
-
-    application.config ['$stateProvider', '$urlRouterProvider', configuration]
-    return application
+  $stateProvider.state 'blog',
+    url: '/blog/'
+    views:
+      primary:
+        templateUrl: '/blog.html'

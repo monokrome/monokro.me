@@ -3,7 +3,10 @@
   "version": "0.6.0",
   "description": "Exposing my website; one hacker at a time.",
   "main": " ",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-angular-templatecache": "^1.1.0",
+    "glp": "^0.1.4"
+  },
   "devDependencies": {
     "coffee-script": "~1.7.1",
     "chai": "~1.9.0",

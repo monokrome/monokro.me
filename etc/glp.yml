@@ -1,6 +1,28 @@
+plugins:
+  angular-templatecache:
+    root: '/'
+    module: 'templates'
+    standalone: true
+
+
+filters:
+  partials:
+    jade:
+      options:
+        client: true
+
+
+concatenators:
+  partials: 'angular-templatecache'
+
+
+extensions:
+  partials: 'js'
+
+
 files:
   scripts:
-    scripts/application:
+    /scripts/application:
       - 'bower_components/angular/angular.js'
       - 'bower_components/angular-sanitize/angular-sanitize.js'
       - 'lib/scripts/*.js'
@@ -10,14 +32,15 @@ files:
       - 'app/application.coffee'
 
   stylesheets:
-    stylesheets/application:
+    /stylesheets/application:
       - 'app/**/styles/main.styl'
 
-  templates:
-    /:
-      - 'templates/index.jade'
-      - 'templates/blog.jade'
+  partials:
+    /scripts/partials:
       - 'app/*/partials/**'
+
+  templates:
+    /: 'templates/**/*.jade'
 
   static:
     /: 'app/static/**'

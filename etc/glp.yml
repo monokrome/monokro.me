@@ -4,12 +4,18 @@ plugins:
     module: 'templates'
     standalone: true
 
+  wintersmith: 'build'
+
 
 filters:
   partials:
     jade:
       options:
         client: true
+
+  static:
+    wintersmith:
+      matches: '**/wintersmith.json'
 
 
 concatenators:
@@ -39,8 +45,8 @@ files:
     /scripts/partials:
       - 'app/*/partials/**'
 
-  templates:
-    /: 'templates/**/*.jade'
+  images:
+    /fonts/: 'app/static/fonts/**/*'
 
   static:
-    /: 'app/static/**'
+    /: 'etc/wintersmith.json'

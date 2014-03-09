@@ -1,0 +1,24 @@
+{
+  "contents": "../static/content/",
+  "templates": "../static/templates/",
+  "output": "../public/",
+
+  "baseUrl": "/",
+
+  "plugins": [
+    "../static/plugins/blog.coffee"
+  ],
+
+  "locals": {},
+  "ignore": [],
+
+  "blog": {
+    "template": "blog/index.jade",
+    "articles": "articles",
+    "articlesPerPage": 3,
+    "pages": {
+      "initial": "index.html",
+      "consecutive": "%d.html"
+    }
+  }
+}

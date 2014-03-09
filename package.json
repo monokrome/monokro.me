@@ -5,7 +5,9 @@
   "main": " ",
   "dependencies": {
     "gulp-angular-templatecache": "^1.1.0",
-    "glp": "^0.1.4"
+    "glp": "^0.1.4",
+    "gulp-wintersmith": "0.0.4",
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "coffee-script": "~1.7.1",

@@ -1,0 +1,36 @@
+extends ../index
+
+
+block bodyClass
+  - bodyClass = 'blog index'
+
+
+block title
+  title blog - monokro.me
+
+
+block content
+  each article in articles
+    article.article.intro
+      header
+        p.date
+          span= article.date
+        h2
+          a(href=article.url)= article.title
+
+      | !{ article.intro }
+
+      if article.hasMore
+        p.more
+          a(href=article.url) more
+
+block prepend footer
+  div.nav
+    if prevPage
+      a(href=prevPage.url) « Newer
+
+    else
+      a(href='/archive.html') « Archives
+
+    if nextPage
+      a(href=nextPage.url) Next page »

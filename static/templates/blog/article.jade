@@ -1,0 +1,21 @@
+extends ../index
+
+
+block bodyClass
+  - bodyClass = 'blog article detail'
+
+
+block title
+  title=page.title + ' - monokro.me'
+
+
+block content
+  h2=page.title
+
+  article
+    section!=page.html
+
+
+block prepend footer
+  div.nav
+    a(href='/') « Back to index

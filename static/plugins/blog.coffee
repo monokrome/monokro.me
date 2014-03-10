@@ -64,7 +64,9 @@ module.exports = (env, callback) ->
     pageCount = Math.ceil articles.length / configuration.articlesPerPage
 
     lastPage = null
-    tree = pages: {}
+    tree =
+      blog:
+        pages: {}
 
     for index in [0..pageCount]
       pageNumber = index + 1
@@ -80,9 +82,9 @@ module.exports = (env, callback) ->
         page.previous = lastPage
         lastPage.next = page
       else
-        tree.pages['index.page'] = page
+        tree.blog['index.page'] = page
 
-      tree.pages[page.number + '.page'] = page
+      tree.blog.pages[page.number + '.page'] = page
       lastPage = page
 
     callback null, tree

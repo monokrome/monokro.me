@@ -34,5 +34,10 @@
 
   "jade": {
     "pretty": true
+  },
+
+  "markdown": {
+    "smartLsits": true,
+    "smartypants": true
   }
 }

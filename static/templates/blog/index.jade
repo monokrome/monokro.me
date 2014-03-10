@@ -16,7 +16,7 @@ block content
         h2: a(href=article.url)= article.title
         p.date= moment(article.date).format('MM/DD/YYYY')
 
-      section!=article.intro
+      section!=typogr(article.intro).typogrify()
 
       if article.hasMore
         p.more

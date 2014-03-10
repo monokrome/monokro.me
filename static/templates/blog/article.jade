@@ -10,10 +10,12 @@ block title
 
 
 block content
-  h2=page.title
-
   article
-    section!=page.html
+    header
+      h2: a(href=page.url)= page.title
+      p.date= moment(page.date).format('MM/DD/YYYY')
+
+    section!=typogr(page.html).typogrify()
 
 
 block prepend footer

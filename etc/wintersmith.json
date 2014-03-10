@@ -9,7 +9,17 @@
     "../static/plugins/blog.coffee"
   ],
 
-  "locals": {},
+  "require": {
+    "moment": "moment",
+    "lodash": "lodash",
+    "typogr": "typogr"
+  },
+
+  "locals": {
+    "url": "http://monokro.me",
+    "description": "Personal website for Brandon R. Stoner"
+  },
+
   "ignore": [],
 
   "blog": {

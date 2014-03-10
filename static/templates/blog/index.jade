@@ -13,10 +13,8 @@ block content
   each article in articles
     article.article.intro
       header
-        p.date
-          span= article.date
-        h2
-          a(href=article.url)= article.title
+        h2: a(href=article.url)= article.title
+        p.date= moment(article.date).format('MM/DD/YYYY')
 
       section!=article.intro
 
@@ -28,9 +26,6 @@ block prepend footer
   div.nav
     if prevPage
       a(href=prevPage.url) « Newer
-
-    else
-      a(href='/archive.html') « Archives
 
     if nextPage
       a(href=nextPage.url) Next page »

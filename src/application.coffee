@@ -2,6 +2,7 @@ angular
   .module 'mk', [
     'ngSanitize'
     'ui.router'
+
     'templates'
     'mk.audio'
   ]

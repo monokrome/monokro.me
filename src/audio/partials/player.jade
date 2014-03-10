@@ -3,6 +3,7 @@
     li(data-ng-repeat='track in tracks track by track.id')
       a(data-ng-click='setCurrent(track)') {{ track.user.username }} - {{ track.title }}
 
+
 #audio-player-current-track(data-ng-if='hasTracks()')
   #audio-controls
     ul
@@ -20,12 +21,17 @@
       li(data-ng-click='toggle()'): i.icon-list
 
   #now-playing
-    span.song-title
+    span.track-title
       a(href='{{ currentTrack.permalink_url }}',
       target='_soundcloud') {{ currentTrack.title }}
 
-    span.song-artist=' by ' 
-      a(href='{{ currentTrack.user.permalink_url }}',
-        target='_soundcloud') {{ currentTrack.user.username }}
+    span.track-artist=' by ' 
+      a(
+        href='{{ currentTrack.user.permalink_url }}',
+        target='_soundcloud'
+      ) {{ currentTrack.user.username }}
 
-  audio(data-ng-if='hasCurrentTrack()', data-ng-src='{{getStreamURL()}}')
+  audio(
+    data-ng-if='hasCurrentTrack()',
+    data-ng-src='{{ getStreamURL() }}'
+  )

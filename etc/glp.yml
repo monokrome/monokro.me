@@ -10,6 +10,7 @@ plugins:
 static:
   catchAll: 'index.html'
 
+
 filters:
   partials:
     jade:
@@ -39,17 +40,15 @@ files:
       - 'lib/scripts/*.js'
       - 'lib/scripts/*.coffee'
 
-      - 'src/**/*.js'
+      - 'src/**/module.coffee'
       - 'src/**/*.coffee'
-      - 'src/application.coffee'
 
   stylesheets:
     /stylesheets/application:
       - 'src/**/styles/main.styl'
 
   partials:
-    /scripts/partials:
-      - 'src/*/partials/**'
+    /scripts/partials: 'src/**/*.jade'
 
   images:
     /fonts/: 'src/static/fonts/**'

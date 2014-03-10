@@ -1,10 +1,12 @@
-audio = angular.module 'mk.audio'
-
-audio.directive 'mkAudioPlayer', [
+angular.module 'mk.audio'
+  .directive 'mkAudioPlayer', [
     '$sce'
     'mk.audio.services.soundcloud'
+
   ].concat ($sce, soundcloud) ->
-    scope: yes
+    scope:
+      tracks: '=tracks'
+
     replace: no
     restrict: 'A'
     templateUrl: '/audio/partials/player.html'
@@ -15,10 +17,7 @@ audio.directive 'mkAudioPlayer', [
         return audioElements[0] if audioElements.length > 0
 
       $scope = angular.extend $scope,
-        tracks: []
-
         visible: no
-
         currentTrack: null
 
         hasCurrentTrack: -> $scope.currentTrack?
@@ -39,14 +38,14 @@ audio.directive 'mkAudioPlayer', [
             wasPlaying = $scope.isPlaying()
             $scope.currentTrack = track
 
-            # if wasPlaying
-              # TODO: How do I play the new song?
-              # Data binding needs to cause the src to uddate,
-              # but I need to mark the element for playback
-              # before this $digest cycle finishes. You can't
-              # re-call $apply during a $digest cycle, so
-              # what do I do?... :/
-              
+            audioElement = getAudioElement()
+
+            if audioElement? and wasPlaying
+              element = angular.element audioElement
+
+              element.bind 'canplaythrough', ->
+                audioElement.play()
+                element.unbind 'canplaythrough'
 
         play: ->
           audioElement = getAudioElement()
@@ -69,14 +68,8 @@ audio.directive 'mkAudioPlayer', [
 
             return $sce.trustAsResourceUrl streamUrl
 
-      # Gets our track list from SoundCloud
-      future = soundcloud.track.list 'monokrome'
+      $scope.$watchCollection 'tracks', ->
+        return if $scope.currentTrack in $scope.tracks
+        return if $scope.tracks.length is 0
 
-      future.success (tracks) ->
-        $scope.tracks = tracks
-        $scope.currentTrack = $scope.tracks[0] if tracks.length > 0
-
-      future.error ->
-        $scope.tracks = []
-        $scope.currentTrack = null
-
+        $scope.currentTrack = $scope.tracks[0]

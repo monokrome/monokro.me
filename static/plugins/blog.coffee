@@ -1,8 +1,5 @@
-winston = require 'winston'
-
-
 discoverArticles = (configuration) -> (contents) ->
-  articles = contents[configuration.articles]._.directories.map (item) -> item.index
+  articles = contents.blog[configuration.articles]._.directories.map (item) -> item.index
   articles.sort (a, b) -> b.date - a.date
   return articles
 

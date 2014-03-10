@@ -1,6 +1,9 @@
 discoverArticles = (configuration) -> (contents) ->
-  articles = contents.blog[configuration.articles]._.directories.map (item) -> item.index
+  articlesRoot = contents.blog[configuration.articles]._
+
+  articles = articlesRoot.directories.map (item) -> item.index
   articles.sort (a, b) -> b.date - a.date
+
   return articles
 
 

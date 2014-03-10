@@ -10,17 +10,7 @@ block title
 
 
 block content
-  each article in articles
-    article.article.intro
-      header
-        h2: a(href=article.url)= article.title
-        p.date= moment(article.date).format('MM/DD/YYYY')
-
-      section!=typogr(article.intro).typogrify()
-
-      if article.hasMore
-        p.more
-          a(href=article.url) more
+  include articles
 
 
 block prepend footer

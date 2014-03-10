@@ -17,4 +17,4 @@ angular
       url: '/blog/'
       views:
         primary:
-          templateUrl: '/blog.html'
+          templateUrl: '/blog/articles.html'

@@ -9,12 +9,8 @@ angular
   .config [
     '$stateProvider'
     '$urlRouterProvider'
+    '$locationProvider'
 
-  ].concat ($stateProvider, $urlRouterProvider) ->
+  ].concat ($stateProvider, $urlRouterProvider, $locationProvider) ->
+    $locationProvider.html5Mode true
     $urlRouterProvider.otherwise '/blog/'
-
-    $stateProvider.state 'blog',
-      url: '/blog/'
-      views:
-        primary:
-          templateUrl: '/blog/articles.html'

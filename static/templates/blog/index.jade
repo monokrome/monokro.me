@@ -2,7 +2,7 @@ extends ../index
 
 
 block bodyClass
-  - bodyClass = 'blog index'
+  - bodyClass = 'blog index';
 
 
 block title
@@ -18,7 +18,7 @@ block content
         h2
           a(href=article.url)= article.title
 
-      | !{ article.intro }
+      section!=article.intro
 
       if article.hasMore
         p.more

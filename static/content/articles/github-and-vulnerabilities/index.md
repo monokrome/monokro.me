@@ -22,6 +22,7 @@ with a method much similar to how projects like [Travis][tci] leverage
 I'd probably prefer the second option since [GitHub][gh] is notoriously
 unstable.
 
+
 [gh]: http://github.com "GitHub - Social Coding"
 [tci]: http://travis-ci.org "Travis Continuous Integration"
 [lulz]: http://goo.gl/PX5zP "Potential MySQL Injection Attacks"

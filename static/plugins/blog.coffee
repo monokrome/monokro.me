@@ -1,3 +1,6 @@
+winston = require 'winston'
+
+
 discoverArticles = (configuration) -> (contents) ->
   articles = contents[configuration.articles]._.directories.map (item) -> item.index
   articles.sort (a, b) -> b.date - a.date
@@ -26,21 +29,18 @@ defaults =
 
 
 module.exports = (env, callback) ->
-  configuration = env.config.blog or {}
-  configuration = merge {}, defaults, configuration
-
   class BlogPage extends env.plugins.Page
     previous: null
     next: null
 
-    constructor: (@number, @articles) ->
+    constructor: (@configuration, @number, @articles) ->
 
     getFilename: ->
-      return configuration.pages.initial?.replace '%d', @number
-      return configuration.pages.consecutive.replace '%d', @number
+      return @configuration.pages.initial?.replace '%d', @number
+      return @configuration.pages.consecutive.replace '%d', @number
 
     getView: -> (env, locals, contents, templates, callback) ->
-      template = templates[configuration.template]
+      template = templates[@configuration.template]
 
       unless template?
         throw new Error "Template #{ configuration.template } does not exist."
@@ -53,6 +53,9 @@ module.exports = (env, callback) ->
 
       env.utils.extend context, locals
       template.render context, callback
+
+  configuration = env.config.blog or {}
+  configuration = merge {}, defaults, configuration
 
   discover = discoverArticles configuration
 
@@ -69,13 +72,15 @@ module.exports = (env, callback) ->
       first = index * configuration.articlesPerPage
       last = pageNumber * configuration.articlesPerPage
 
-      page = new BlogPage pageNumber, articles.slice first, last
+      break if first >= articles.length
+
+      page = new BlogPage configuration, pageNumber, articles.slice first, last
 
       if lastPage?
         page.previous = lastPage
         lastPage.next = page
-
-      tree.pages['index.page'] = page unless lastPage?
+      else
+        tree.pages['index.page'] = page
 
       tree.pages[page.number + '.page'] = page
       lastPage = page

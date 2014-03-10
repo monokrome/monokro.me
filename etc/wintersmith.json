@@ -20,5 +20,9 @@
       "initial": "index.html",
       "consecutive": "%d.html"
     }
+  },
+
+  "jade": {
+    "pretty": true
   }
 }

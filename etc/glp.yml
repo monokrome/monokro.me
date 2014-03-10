@@ -33,20 +33,20 @@ files:
       - 'bower_components/angular-sanitize/angular-sanitize.js'
       - 'lib/scripts/*.js'
       - 'lib/scripts/*.coffee'
-      - 'app/**/*.js'
-      - 'app/**/*.coffee'
-      - 'app/application.coffee'
+      - 'src/**/*.js'
+      - 'src/**/*.coffee'
+      - 'src/application.coffee'
 
   stylesheets:
     /stylesheets/application:
-      - 'app/**/styles/main.styl'
+      - 'src/**/styles/main.styl'
 
   partials:
     /scripts/partials:
-      - 'app/*/partials/**'
+      - 'src/*/partials/**'
 
   images:
-    /fonts/: 'app/static/fonts/**/*'
+    /fonts/: 'src/static/fonts'
 
   static:
     /: 'etc/wintersmith.json'

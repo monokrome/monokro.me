@@ -23,6 +23,8 @@
     "angular-sanitize": "~1.2.13"
   },
   "dependencies": {
-    "angular-ui-router": "~0.2.9"
+    "angular-ui-router": "~0.2.9",
+    "angular-audio-player": "~0.0.10",
+    "angular-audio-playlist": "~0.2.1"
   }
 }

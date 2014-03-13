@@ -1,6 +1,8 @@
 angular
   .module 'mk', [
+    'audioPlayer'
     'ngSanitize'
+
     'ui.router'
 
     'templates'

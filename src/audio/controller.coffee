@@ -1,11 +1,20 @@
 angular.module 'mk.audio'
   .controller 'mk.audio.controller', [
     '$scope'
+    '$sce'
     'mk.audio.services.soundcloud'
 
-  ].concat ($scope, soundcloud) ->
+  ].concat ($scope, $sce, soundcloud) ->
       angular.extend $scope,
+        viewingTracks: no
+        toggleTrackView: -> $scope.viewingTracks = not $scope.viewingTracks
+
         tracks: []
+
+        hasTracks: -> $scope.tracks.length > 0
+        getStream: (track) ->
+          baseUrl = track.stream_url + '?client_id=' + soundcloud.clientId
+          return $sce.trustAsResourceUrl baseUrl
 
       # Gets our track list from SoundCloud
       future = soundcloud.track.list 'monokrome'
@@ -13,9 +22,13 @@ angular.module 'mk.audio'
       future.success (tracks) ->
         $scope.tracks = tracks
 
-        if tracks.length > 0
-          $scope.currentTrack = $scope.tracks[0]
+        $scope.playlist = tracks.map (track, i) ->
+          src: $scope.getStream track
+          track: track
+          type: 'audio/mp3'
 
       future.error ->
         $scope.tracks = []
-        $scope.currentTrack = null
+
+      $scope.$watch 'player', (changed) ->
+        console.log changed

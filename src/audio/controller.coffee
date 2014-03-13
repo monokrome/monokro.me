@@ -29,6 +29,3 @@ angular.module 'mk.audio'
 
       future.error ->
         $scope.tracks = []
-
-      $scope.$watch 'player', (changed) ->
-        console.log changed

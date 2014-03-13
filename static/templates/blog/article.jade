@@ -20,17 +20,17 @@ block content
 
     section!=typogr(page.html).typogrify()
 
-    //- #discus-thread
-    //-   script
-    //-     | (function() {
-    //-     |     var shortname = 'monokrome',
-    //-     |         dsq = document.createElement('script');
-    //-     |         dsq.type = 'text/javascript';
-    //-     |         dsq.async = true,
-    //-     |         container = (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
-    //-     |     dsq.src = '//' + shortname + '.disqus.com/embed.js';
-    //-     |     container.appendChild(dsq);
-    //-     | })();
+    #discus-thread
+      script
+        | (function() {
+        |     var shortname = 'monokrome',
+        |         dsq = document.createElement('script');
+        |         dsq.type = 'text/javascript';
+        |         dsq.async = true,
+        |         container = (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
+        |     dsq.src = '//' + shortname + '.disqus.com/embed.js';
+        |     container.appendChild(dsq);
+        | })();
 
 
 block prepend footer

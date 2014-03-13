@@ -24,7 +24,7 @@ div(data-ng-controller='mk.audio.controller')
 
           li(data-ng-click='toggleTrackView()'): i.icon-list
 
-      #now-playing
+      #now-playing(data-ng-if='player.currentTrack')
         span.track-title
           a(href='{{ playlist[player.currentTrack-1].track.permalink_url }}',
           target='_soundcloud') {{ playlist[player.currentTrack-1].track.title }}

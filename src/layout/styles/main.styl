@@ -74,8 +74,6 @@ body
 
   font-size 5.2em
 
-  user-select none
-
   position relative
   top -30px
   left 40%
@@ -141,7 +139,6 @@ body
 #shortcuts-container
   padding-top 0.4ex
   margin 4ex auto 0px
-  text-align center
 
   width 40%
 
@@ -154,6 +151,8 @@ body
   transition background-color 333ms ease-in,
              margin-top 333ms ease-in
 
+  user-select none
+
   a
     transition font-size 60ms ease-in
 
@@ -162,7 +161,6 @@ body
 
   i[class*='icon-']
     font-size 1.9em
-    letter-spacing 1ex
     color #3E3E3E
     transition color 333ms ease-in
 
@@ -259,7 +257,8 @@ body
         display none
 
       a
+        max-width 140px
+
         overflow hidden
         text-overflow ellipsis
         display inline-block
-        max-width 140px

@@ -16,7 +16,7 @@ block content
 block prepend footer
   div.nav
     if prevPage
-      a(href=prevPage.url) « Newer
+      a(href=prevPage.url, target='_self') « Newer
 
     if nextPage
-      a(href=nextPage.url) Next page »
+      a(href=nextPage.url, target='_self') Next page »

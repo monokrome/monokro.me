@@ -11,15 +11,16 @@ block title
 
 block content
   article
-    header
-      h2: a(href=page.url)= page.title
-      p.date= moment(page.date).format('MM/DD/YYYY')
+    header.row
+      .col-xs-8
+        h2: a(href=page.url, target='_self')= page.title
+
+      .col-xs-4
+        p.date= moment(page.date).format('MM/DD/YYYY')
 
     section!=typogr(page.html).typogrify()
 
-    #discus-thread
-
-    //- TODO: Get Disqus script to stop throwing errors.
+    //- #discus-thread
     //-   script
     //-     | (function() {
     //-     |     var shortname = 'monokrome',
@@ -34,4 +35,4 @@ block content
 
 block prepend footer
   div.nav
-    a(href='/') « Back to index
+    a(href='/', target='_self') « Back to index

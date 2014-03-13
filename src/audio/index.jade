@@ -4,8 +4,12 @@ div(data-ng-controller='mk.audio.controller')
 
     #track-selection(data-ng-if='viewingTracks')
       ul#track-list.list-unstyled
-        li(data-ng-repeat='(index, source) in playlist track by source.src')
-          a(data-ng-click='player.play(index)') {{ source.track.user.username }} - {{ source.track.title }}
+        li(
+          data-ng-repeat='(index, source) in playlist track by source.src'
+          data-ng-click='player.play(index)'
+        )
+
+          a {{ source.track.title }}
 
     #audio-player-current-track
       #audio-controls
@@ -22,11 +26,11 @@ div(data-ng-controller='mk.audio.controller')
 
       #now-playing
         span.track-title
-          a(href='{{ currentTrack.permalink_url }}',
-          target='_soundcloud') {{ currentTrack.title }}
+          a(href='{{ playlist[player.currentTrack-1].track.permalink_url }}',
+          target='_soundcloud') {{ playlist[player.currentTrack-1].track.title }}
 
         span.track-artist=' by ' 
           a(
-            href='{{ currentTrack.user.permalink_url }}',
+            href='{{ playlist[player.currentTrack-1].track.user.permalink_url }}',
             target='_soundcloud'
-          ) {{ currentTrack.user.username }}
+          ) {{ playlist[player.currentTrack-1].track.user.username }}

@@ -22,7 +22,7 @@ angular.module 'mk.audio'
       future.success (tracks) ->
         $scope.tracks = tracks
 
-        $scope.playlist = tracks.map (track, i) ->
+        $scope.playlist = tracks.map (track) ->
           src: $scope.getStream track
           track: track
           type: 'audio/mp3'

@@ -19,6 +19,9 @@
 
 
 #audio-player-current-track
+  margin 0
+  padding 0.6em
+
   background-color #EBEBEB
 
   position fixed
@@ -49,9 +52,17 @@
 
 
 #track-selection
-  background-color #FCFCFC
+  margin-bottom 37px
 
-  width 300px
+  width 180px
+
+  border-left 1px solid #CCC
+
+  background-color hsla(0,0%,99%,96%)
+
+  font-size 1.1em
+
+  overflow-x hidden
 
   position fixed
   top 0px
@@ -60,28 +71,40 @@
 
   z-index 50
 
-  white-space nowrap
-  overflow-x hidden
-  text-overflow ellipsis
-
-  border-left 1px solid #CCC
-  padding-left 1em
-
   .item
     cursor pointer
 
   ul
-    padding-left 0
+    padding-left 0px
 
+  li
+    padding-left 1em
+    padding-bottom 0.15em
+
+    border-bottom 1px solid #EEE
+
+    cursor pointer
+
+    white-space nowrap
+    overflow-x hidden
+    text-overflow ellipsis
+
+    &:hover
+      background-color #F6F6F6
+
+    a:hover
+      text-decoration none
 
 #audio-controls
-  margin-right 40px
+  margin-right 0px
   float right
 
   font-size 1.3em
 
   ul
     list-style none
+    padding-left 0
+    margin-bottom 0
 
   li
     display inline-block

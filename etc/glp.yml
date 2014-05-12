@@ -5,6 +5,11 @@ plugins:
     standalone: true
 
 
+minify:
+  enabled: no
+  extension: ''
+
+
 filters:
   partials:
     jade:

@@ -1,0 +1,23 @@
+{{!< default}}
+
+
+{{#foreach posts}}
+    <article class="{{post_class}}">
+        <header class="post-header">
+            <div class=col-xs-8>
+                <h2><a href="{{url}}">{{{title}}}</a></h2>
+            </div>
+            <div class=col-xs-4>
+                <time datetime="{{date format='MM/DD/YYYY'}}">{{date format='MM/DD/YYYY'}}</time>
+            </div>
+        </header>
+
+        <section class="post-excerpt">
+            <p>{{excerpt}}&hellip;</p>
+            <div class=post-meta>{{tags prefix="on " }}</div>
+        </section>
+    </article>
+{{/foreach}}
+
+
+{{pagination}}

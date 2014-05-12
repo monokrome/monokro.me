@@ -4,22 +4,12 @@ plugins:
     module: 'templates'
     standalone: true
 
-  wintersmith: 'build'
-
-
-static:
-  catchAll: 'index.html'
-
 
 filters:
   partials:
     jade:
       options:
         client: true
-
-  static:
-    wintersmith:
-      matches: '**/wintersmith.json'
 
 
 concatenators:
@@ -32,7 +22,7 @@ extensions:
 
 files:
   scripts:
-    /scripts/application:
+    /assets/scripts/application:
       - 'bower_components/angular/angular.js'
       - 'bower_components/angular-sanitize/angular-sanitize.js'
       - 'bower_components/angular-ui-router/release/angular-ui-router.js'
@@ -45,14 +35,16 @@ files:
       - 'src/**/*.coffee'
 
   stylesheets:
-    /stylesheets/application:
+    /assets/stylesheets/application:
       - 'src/**/styles/main.styl'
 
   partials:
-    /scripts/partials: 'src/**/*.jade'
+    /assets/scripts/partials: 'src/**/*.jade'
 
   images:
-    /fonts/: 'src/static/fonts/**'
+    /assets/fonts/: 'templates/assets/fonts/**'
 
   static:
-    /: 'etc/wintersmith.json'
+    /:
+      - 'static/**'
+      - '!static/assets/**'

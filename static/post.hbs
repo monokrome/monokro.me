@@ -1,0 +1,23 @@
+{{!< default}}
+
+
+<article>
+    {{#post}}
+        <header class=row>
+            <div class=col-xs-8>
+                {{#if @blog.logo}}
+                    <a href="{{@blog.url}}">
+                        <img src="{{@blog.logo}}" alt="{{@blog.title}}" />
+                    </a>
+                {{else}}
+                    <div class=col-xs-8>
+                        <h2>{{title}}</h2>
+                    </div>
+                {{/if}}
+            </div>
+        </header>
+
+        <div>{{content}}</div>
+    {{/post}}
+</article>
+ 

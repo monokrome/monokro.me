@@ -1,22 +1,42 @@
 body.blog
+
+  meta-data()
+    padding-top 0.2em
+
+    font-size 0.8em
+    color #9A9A9A
+
+    a:link,
+    a:active,
+    a:visited
+      color #787878
+      text-decoration none
+
   article
     line-height 1.55em
     margin-bottom 3em
     font-size 1.4em
 
-  header
-    .date
-      padding-top 0.2em
+    header
+      time
+        meta-data()
 
-      font-size 0.8em
-      color #9A9A9A
+      h1, h2
+        margin 0em 0 0.4ex 0.8em
+        width 100%
 
-    h1, h2
-      margin 0em 0 0.4ex 0.8em
-      width 100%
+        display inline-block
 
+        overflow hidden
+        white-space nowrap
+      text-overflow ellipsis
+
+    img
+      margin 0 auto
+      max-width 100%
       display inline-block
 
-      overflow hidden
-      white-space nowrap
-      text-overflow ellipsis
+    .post-meta
+      meta-data()
+      text-align right
+      padding-right 2em

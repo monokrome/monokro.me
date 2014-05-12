@@ -42,7 +42,7 @@ files:
     /assets/scripts/partials: 'src/**/*.jade'
 
   images:
-    /assets/fonts/: 'templates/assets/fonts/**'
+    /assets/fonts/: 'static/assets/fonts/**'
 
   static:
     /:

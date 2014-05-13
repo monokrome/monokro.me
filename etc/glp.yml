@@ -31,7 +31,7 @@ files:
       - 'bower_components/angular/angular.js'
       - 'bower_components/angular-sanitize/angular-sanitize.js'
       - 'bower_components/angular-ui-router/release/angular-ui-router.js'
-      - 'bower_components/angular-audio-playlist/dist/angular-audio-player.js'
+      - 'bower_components/angular-media-player/dist/angular-media-player.js'
 
       - 'lib/scripts/*.js'
       - 'lib/scripts/*.coffee'

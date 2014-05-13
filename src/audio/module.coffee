@@ -1,1 +1,1 @@
-angular.module 'mk.audio', []
+angular.module 'mk.audio', ['mediaPlayer']

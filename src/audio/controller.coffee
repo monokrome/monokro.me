@@ -5,27 +5,26 @@ angular.module 'mk.audio'
     'mk.audio.services.soundcloud'
 
   ].concat ($scope, $sce, soundcloud) ->
-      angular.extend $scope,
-        viewingTracks: no
-        toggleTrackView: -> $scope.viewingTracks = not $scope.viewingTracks
+    getStream = (track) ->
+      return track.stream_url + '?client_id=' + soundcloud.clientId
+      return $sce.trustAsResourceUrl baseUrl
 
-        tracks: []
+    angular.extend $scope,
+      player: null
+      playlist: []
 
-        hasTracks: -> $scope.tracks.length > 0
-        getStream: (track) ->
-          baseUrl = track.stream_url + '?client_id=' + soundcloud.clientId
-          return $sce.trustAsResourceUrl baseUrl
+      viewingPlayList: no
+      toggleTrackView: -> $scope.viewingPlayList = not $scope.viewingPlayList
 
-      # Gets our track list from SoundCloud
-      future = soundcloud.track.list 'monokrome'
+      hasTracks: -> $scope.playlist.length > 0
 
-      future.success (tracks) ->
-        $scope.tracks = tracks
+    onSuccess = (response) ->
+      $scope.playlist = response.data.map (track) ->
+        src: getStream track
+        track: track
+        type: 'audio/mp3'
 
-        $scope.playlist = tracks.map (track) ->
-          src: $scope.getStream track
-          track: track
-          type: 'audio/mp3'
+    onError = -> $scope.playlist = []
 
-      future.error ->
-        $scope.tracks = []
+    soundcloud.track.list 'monokrome'
+      .then onSuccess, onError

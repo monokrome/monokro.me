@@ -10,13 +10,8 @@ angular.module 'mk.audio'
       return $sce.trustAsResourceUrl baseUrl
 
     angular.extend $scope,
-      player: null
-      playlist: []
-
-      viewingPlayList: no
-      toggleTrackView: -> $scope.viewingPlayList = not $scope.viewingPlayList
-
       hasTracks: -> $scope.playlist.length > 0
+      viewingPlayList: -> $scope.player?.playing
 
     onSuccess = (response) ->
       $scope.playlist = response.data.map (track) ->
@@ -28,3 +23,6 @@ angular.module 'mk.audio'
 
     soundcloud.track.list 'monokrome'
       .then onSuccess, onError
+
+    $scope.$watch 'player', (player) ->
+      player.$watch 'playing', $scope.updatePlayState if player?

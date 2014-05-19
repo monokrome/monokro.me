@@ -1,0 +1,57 @@
+# Use gulp-angular-templatecache to compile partials into a single module file
+concatenators:
+  partials: 'angular-templatecache'
+
+
+cache:
+  enabled: false
+
+
+extensions:
+  partials: 'js'
+
+
+minify:
+  extension: ''
+
+
+static:
+  port: 2424
+  catchAll: 'index.html'
+
+
+filters:
+  # Allow the jade plugin for static files
+  static:
+    jade: {}
+
+  partials:
+    jade:
+      options:
+        client: true
+
+plugins:
+  # gulp-angular-templatecache should comile standalone modules where each
+  # template is injected into $templateCache with a / prefix.
+  angular-templatecache:
+    module: 'partials'
+    root: '/'
+    standalone: true
+
+
+# Define new file group for our sources
+files:
+  scripts:
+    /scripts/application:
+      - 'bower_components/angular/angular.js'
+      - 'src/**/application.coffee'
+      - 'src/**/*'
+      - '!src/partials/**'
+      - '!src/static/**'
+
+  partials:
+    /scripts/partials: 'src/partials/**/*'
+
+  static:
+    /: 'src/static/**'
+

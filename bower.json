@@ -1,0 +1,16 @@
+{
+  "name": "angular-glp",
+  "version": "0.0.0",
+  "authors": [
+    "Brandon R. Stoner <monokrome@limpidtech.com>"
+  ],
+  "description": "An AngularJS template using GLP",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

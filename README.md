@@ -13,8 +13,9 @@ it globally with:
 
     npm install -g glp
 
-Now install dependencies with npm:
+Now install dependencies with npm and bower:
 
+    bower install
     npm install
 
 

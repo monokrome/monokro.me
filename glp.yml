@@ -16,7 +16,6 @@ minify:
 
 
 static:
-  port: 2424
   catchAll: 'index.html'
 
 

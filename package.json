@@ -1,0 +1,22 @@
+{
+  "name": "monokro.me",
+  "version": "1.0.0",
+  "description": "Exposing my website - one hacker at a time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com:monokrome/monokro.me"
+  },
+  "keywords": [
+    "monokrome"
+  ],
+  "author": "Brandon R. Stoner <monokrome@monokro.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monokrome/monokro.me/issues"
+  },
+  "homepage": "https://github.com/monokrome/monokro.me"
+}

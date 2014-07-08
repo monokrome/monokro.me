@@ -1,0 +1,9 @@
+{
+  "Makefile": {
+    "type": "make",
+    "make": "make clean && make",
+    "dispatch": "make clean && make"
+  },
+  ".projections.json": { "type": "projections" },
+  "README.md": { "type": "documentation" }
+}

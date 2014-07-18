@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "dependencies": {
-    "glp": "^0.1.16",
+    "glp": "^0.1.19",
     "gulp-angular-templatecache": "^1.1.3"
   },
   "devDependencies": {},

@@ -30,6 +30,9 @@ filters:
         client: true
 
 plugins:
+  coffee:
+    sourceMap: false
+
   # gulp-angular-templatecache should comile standalone modules where each
   # template is injected into $templateCache with a / prefix.
   angular-templatecache:

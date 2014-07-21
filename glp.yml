@@ -16,7 +16,7 @@ minify:
 
 
 static:
-  catchAll: 'index.html'
+  catchAll: 'module.html'
 
 
 filters:
@@ -46,14 +46,12 @@ files:
   scripts:
     /scripts/application:
       - 'bower_components/angular/angular.js'
-      - 'src/**/application.coffee'
-      - 'src/**/*'
-      - '!src/partials/**'
-      - '!src/static/**'
+      - 'src/application.coffee'
+      - 'src/**/*.coffee'
 
   partials:
-    /scripts/partials: 'src/partials/**/*'
+    /scripts/partials: 'src/components/**/*.jade'
 
-  static:
-    /: 'src/static/**'
+  templates:
+    /: 'src/*.jade'
 

@@ -1,0 +1,52 @@
+{
+  "src/controllers/*.coffee": {
+    "type": "controller",
+    "alternate": "public/scripts/application.js",
+    "template": [
+      "angular.module 'application'",
+      "  .controller 'controllers.{underscore}', [",
+      "    '$scope'",
+      "",
+      "  ].concat ($scope) ->"
+    ]
+  },
+
+  "src/module.styl": {
+    "type": "style",
+    "alternate": "public/stylesheets/application.css"
+  },
+
+  "src/components/*.styl": {
+    "type": "style",
+    "alternate": "public/stylesheets/application.css",
+    "template": [".{underscore|hyphenate}, [{underscore|hyphenate}]"]
+  },
+
+  "src/module.jade": {
+    "type": "template",
+    "alternate": "public/{}.html"
+  },
+
+  "src/components/*.jade": {
+    "type": "template",
+    "alternate": "public/scripts/partials.js",
+    "template": []
+  },
+
+  "src/components/*.coffee": {
+    "type": "directive",
+    "alternate": "public/scripts/application.js",
+    "template": [
+      "angular.module 'application'",
+      "  .directive '{}', ->",
+      "    scope: no",
+      "    templateUrl: '/{}.html'"
+    ]
+  },
+
+  "glp.yml": { "type": "build" },
+  "README.md": { "type": "doc" },
+  "package.json": { "type": "package" },
+  "bower.json": { "type": "dependencies" },
+  ".projections.json": { "type": "projections" },
+}

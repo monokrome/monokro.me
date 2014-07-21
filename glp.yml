@@ -52,6 +52,9 @@ files:
   partials:
     /scripts/partials: 'src/components/**/*.jade'
 
+  stylesheets:
+    /stylesheets/application: 'src/components/*.styl'
+
   templates:
     /: 'src/*.jade'
 

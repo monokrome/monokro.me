@@ -44,6 +44,16 @@
     ]
   },
 
+  "src/application.coffee": {
+    "type": "source",
+    "alternate": "public/scripts/application.js",
+  },
+
+  "src/**/*.coffee": {
+    "type": "source",
+    "alternate": "public/scripts/application.js",
+  },
+
   "glp.yml": { "type": "build" },
   "README.md": { "type": "doc" },
   "package.json": { "type": "package" },

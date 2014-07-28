@@ -2,7 +2,7 @@ PROJECT=mk
 
 
 JSC=node_modules/.bin/traceur
-JSCFLAGS=--outputLanguage es5 --modules commonjs
+JSCFLAGS=--outputLanguage es5 --modules commonjs --experimental
 
 MARKUPC=node_modules/.bin/jade
 MARKUPCFLAGS=

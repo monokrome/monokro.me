@@ -1,13 +1,28 @@
 doctype html
 
 html(data-ng-app='application')
-    head
-        meta(charset='UTF-8')
-        title Angular for GLP
+  head
+    meta(charset='UTF-8')
+    title Angular for GLP
 
-        script(src='/scripts/application.js')
-        script(src='/scripts/partials.js')
+    script(src='/scripts/application.js')
+    script(src='/scripts/partials.js')
 
     body(data-application-root)
-        There was an error initializing the application. :(
+      h1. Failure Loading Application
 
+      div
+        p.
+          This application requires that you JavaScript. If you do not know
+          what that means, then it may be time to upgrade your browser. Here
+          are some helpful links to get you up-to-date:
+
+        ul
+          li: a(href="https://getfirefox.com") Firefox
+          li: a(href="https://google.com/chrome/") Chrome
+
+          //- Thanks for the massive URL, Microsoft. I didn't want my
+          //- 79-character lines, anyway...
+          li: a(
+              href="http://windows.microsoft.com/en-US/internet-explorer/download-ie"
+            ) Internet Explorer

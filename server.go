@@ -8,7 +8,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	name := html.EscapeString(r.URL.Path)
+	name := html.EscapeString(r.URL.Path)[1:]
 
 	if name == "" {
 		name = "World"

@@ -1,0 +1,37 @@
+{
+  "id": "replication-controller-http",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 2,
+    "replicaSelector": {
+      "role": "http"
+    },
+    "podTemplate": {
+      "desiredState": {
+        "manifest": {
+          "version": "v1beta1",
+          "id": "httpController",
+          "containers": [
+            {
+              "name": "me-monokro-http",
+              "image": "quay.io/monokrome/monokro.me:latest",
+              "ports": [
+                {
+                  "containerPort": 8080,
+                  "hostPort": 80
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "labels": {
+        "role": "http"
+      }
+    }
+  },
+  "labels": {
+    "name": "HTTP"
+  }
+}

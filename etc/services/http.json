@@ -1,0 +1,12 @@
+{
+  "id": "service-http",
+  "kind": "Service",
+  "apiVersion": "v1beta1",
+  "selector": {
+    "role": "http"
+  },
+  "containerPort": 8080,
+  "protocol": "TCP",
+  "port": 80,
+  "createExternalLoadBalancer": true
+}

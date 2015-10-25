@@ -1,0 +1,23 @@
+{
+  "name": "woot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "angular2": "^2.0.0-alpha.44",
+    "babel": "^5.8.29",
+    "browser-sync": "^2.9.11",
+    "flow-bin": "^0.18.1",
+    "jade": "^1.11.0",
+    "node-sass": "^3.4.0",
+    "normalize.css": "^3.0.3",
+    "stylus": "^0.52.4",
+    "tsd": "^0.6.5",
+    "typescript": "^1.6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

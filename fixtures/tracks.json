@@ -1,0 +1,12 @@
+{
+  "count": 1,
+  "data": [
+    {
+      "formats": ["ogg", "flac"],
+      "title": "Mock Track",
+      "url": "/music/albums/2015 Mock/01 Mock"
+    }
+  ],
+  "result": "success",
+  "total": 1
+}

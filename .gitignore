@@ -1,0 +1,10 @@
+# Build output
+/typings/*
+/dist/*
+
+# Dependencies
+/node_modules/*
+
+# Non-git hidden files
+/.*
+!/.git*

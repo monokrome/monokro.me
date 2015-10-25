@@ -1,0 +1,12 @@
+@import 'normalize.css/normalize';
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+* + * {
+  margin: 1.2em 0 0;
+}

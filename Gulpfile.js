@@ -47,7 +47,9 @@ gulp.task('scripts', function () {
     'node_modules/systemjs/dist/system.js',
     'src/components/*.ts',
   ], {base: path.join(__dirname, 'src')})
+    .pipe(tsFilter)
     .pipe(plugins.typescript(tsconfig.compilerOptions))
+    .pipe(tsFilter.restore)
     .pipe(plugins.concat('index.js'))
     .pipe(gulp.dest(publicPath()));
 });

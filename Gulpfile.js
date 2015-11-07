@@ -34,7 +34,7 @@ gulp.task('stylesheets', function () {
 
 gulp.task('scripts', function () {
   gulp.src('src/components/*.ts', {
-    base: path.join(__dirname, 'dist'),
+    base: path.join(__dirname, 'src'),
   })
     .pipe(plugins.typescript(tsconfig.compilerOptions))
     .pipe(plugins.concat('index.js'))

@@ -1,0 +1,23 @@
+{
+    "version": "1.0.0",
+
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+
+    "filesGlob": [
+        "./src/components/.ts",
+        "!./node_modules/**/*.ts"
+    ],
+
+    "files": [
+        "./typings/angular2/angular2.d.ts"
+    ]
+}

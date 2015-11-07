@@ -1,0 +1,19 @@
+{
+  "name": "monokro.me",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "false"
+  },
+  "author": "Brandon R. Stoner",
+  "license": "MIT",
+  "devDependencies": {
+    "angular2": "2.0.0-alpha.44",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-typescript": "^2.9.2",
+    "systemjs": "0.19.2",
+    "tsd": "^0.6.5"
+  }
+}

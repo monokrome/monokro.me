@@ -54,6 +54,9 @@ gulp.task('scripts', ['systemjs:polyfill'], function () {
 
   gulp.src([
     'node_modules/systemjs/dist/system.js',
+    'typings/es6-promise/es6-promise.d.ts',
+    // 'typings/rx/rx.d.ts',
+    // 'typings/rx/rx-lite.d.ts',
     'node_modules/angular2/bundles/typings/angular2/angular2.d.ts',
     'src/components/*.ts',
   ], {

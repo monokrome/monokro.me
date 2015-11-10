@@ -2,10 +2,18 @@ const gulp = require('gulp'),
       path = require('path'),
       tsconfig = require('./tsconfig.json'),
       plugins = require('gulp-load-plugins')(),
+      through2 = require('through2'),
       browserSync = require('browser-sync').create();
 
 
 PUBLIC_PATH = 'dist';
+
+
+function endsWithFactory(str) {
+  return function (file) {
+    return file.relative.indexOf(str) == file.relative.length - str.length;
+  }
+}
 
 
 function makeArray(items) {
@@ -33,20 +41,23 @@ gulp.task('stylesheets', function () {
 });
 
 
-gulp.task('systemjs:crap', function () {
+gulp.task('systemjs:polyfill', function () {
   gulp.src('node_modules/systemjs/dist/system-polyfills.js')
-    .pip(gulp.dest(publicPath()));
+    .pipe(gulp.dest(publicPath()));
 });
+ 
 
-gulp.task('scripts', function () {
-  var tsFilter = plugins.filter('**.ts', {
+gulp.task('scripts', ['systemjs:polyfill'], function () {
+  var tsFilter = plugins.filter(endsWithFactory('.ts'), {
     restore: true,
   });
 
   gulp.src([
     'node_modules/systemjs/dist/system.js',
     'src/components/*.ts',
-  ], {base: path.join(__dirname, 'src')})
+  ], {
+    base: __dirname,
+  })
     .pipe(tsFilter)
     .pipe(plugins.typescript(tsconfig.compilerOptions))
     .pipe(tsFilter.restore)

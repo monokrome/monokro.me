@@ -54,6 +54,7 @@ gulp.task('scripts', ['systemjs:polyfill'], function () {
 
   gulp.src([
     'node_modules/systemjs/dist/system.js',
+    'node_modules/angular2/bundles/typings/angular2/angular2.d.ts',
     'src/components/*.ts',
   ], {
     base: __dirname,

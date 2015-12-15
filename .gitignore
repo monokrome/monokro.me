@@ -2,6 +2,10 @@
 /node_modules/*
 
 
+# Build artifacts
+/dist/*
+
+
 # Non-git hidden files
 /.*
 !/.git*

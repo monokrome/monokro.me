@@ -1,0 +1,7 @@
+# NPM dependencies
+/node_modules/*
+
+
+# Non-git hidden files
+/.*
+!/.git*

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -w src --exec make"
+    "start": "nodemon -w package.json -w src/*.html -w src/*.js -w src/*.styl --exec make"
   },
   "keywords": [],
   "author": "Brandon R. Stoner <monokrome@monokro.me>",

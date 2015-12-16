@@ -5,8 +5,11 @@ SCRIPT_OUT=$(DIST)mk.js
 STYLES_OUT=$(DIST)mk.css
 MARKUP_OUT=$(DIST)index.html
 
-JS_COMPILER=./node_modules/.bin/babel
-CSS_COMPILER=./node_modules/.bin/stylus
+NPM_BIN=./node_modules/.bin/
+JS_COMPILER=$(NPM_BIN)babel
+CSS_COMPILER=$(NPM_BIN)stylus
+
+SERVER=$(NPM_BIN)browser-sync
 
 
 all: $(MARKUP_OUT) $(SCRIPT_OUT) $(STYLES_OUT)
@@ -30,6 +33,14 @@ $(DIST):
 
 clean:
 	rm -r $(DIST)
+
+
+server:
+	$(SERVER) start \
+		--server "$(DIST)" \
+		--startPath index.html \
+		--directory \
+		--files "$(DIST)/*.html,$(DIST)/*.js,$(DIST)/*.css"
 
 
 .PHONY: clean all

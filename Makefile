@@ -12,12 +12,12 @@ CSS_COMPILER=./node_modules/.bin/stylus
 all: $(MARKUP_OUT) $(SCRIPT_OUT) $(STYLES_OUT)
 
 
-$(DIST)%.html: $(DIST)
-	cp $(SRC)$*.html $@
+$(DIST)%.html: $(SRC)%.html $(DIST)
+	cp $< $@
 
 
-$(DIST)%.js: $(DIST)
-	$(JS_COMPILER) $(SRC)$*.js > $@
+$(DIST)%.js: $(SRC)%.js $(DIST)
+	$(JS_COMPILER) $< > $@
 
 
 $(DIST)%.css: $(SRC)%.styl $(DIST)

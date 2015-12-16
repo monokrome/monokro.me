@@ -4,7 +4,6 @@
     <head>
         <meta charset=UTF-8 />
         <title>monokrome</title>
-        <script src=/index.js></script>
 
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
@@ -74,6 +73,7 @@
         </style>
 
         <script>
+            setTimeout(function() {
             var stylesheet = document.createElement('link'),
                 htmlElements = document.getElementsByTagName('html'),
                 headElements = document.getElementsByTagName('html');
@@ -81,8 +81,10 @@
                     throw new Error('This shit is bananas.');
                 htmlElements[0].className = htmlElements[0].className.replace('unscripted', '');
                 headElements[0].innerHTML += '<link rel=stylesheet type=text/css href=/mk.css />';
+            }, 0);
         </script>
 
+        <script src=/vendor.js></script>
         <script src=/mk.js></script>
     </head>
 

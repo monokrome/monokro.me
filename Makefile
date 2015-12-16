@@ -6,6 +6,7 @@ STYLES_OUT=$(DIST)mk.css
 MARKUP_OUT=$(DIST)index.html
 
 JS_COMPILER=./node_modules/.bin/babel
+CSS_COMPILER=./node_modules/.bin/stylus
 
 
 all: $(MARKUP_OUT) $(SCRIPT_OUT) $(STYLES_OUT)
@@ -19,8 +20,8 @@ $(DIST)%.js: $(DIST)
 	$(JS_COMPILER) $(SRC)$*.js > $@
 
 
-$(DIST)%.css: $(DIST)
-	cp $(SRC)$*.css $@
+$(DIST)%.css: $(SRC)%.styl $(DIST)
+	 $(CSS_COMPILER) $< -o $(@D)
 
 
 $(DIST):

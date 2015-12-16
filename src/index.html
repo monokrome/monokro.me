@@ -1,9 +1,143 @@
-<noscript>
-    Hey, I just met you -
-    and this is crazy.
-    But you don't have JavaScript,
-    so install it maybe?
-</noscript>
+<!DOCTYPE html>
 
+<html class=unscripted>
+    <head>
+        <meta charset=UTF-8 />
+        <title>monokrome</title>
+        <script src=/index.js></script>
 
-<script src=/index.js></script>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+        <style>
+            html.unscripted,body {
+                height: 100%;
+                font-family: Merriweather, 'Helvetica Neue', Helvetica, Serif;
+            }
+
+            html.unscripted noscript {
+                font-size: 1.4em;
+                margin: 40vh auto 0;
+                padding: 0.2ex 1em;
+                margin-top: calc(50vh - 7ex);
+                height: 14ex;
+                width: 15em;
+                background-color: hsl(206, 83%, 73%);
+                color: #ECECEC;
+            }
+
+            html.unscripted noscript > p > span {
+                margin: 0 0;
+                padding: 0 0;
+                display: block;
+                -webkit-animation: noscript-first-line 5s 1;
+            }
+
+            html.unscripted noscript > p:nth-child(1) > span ~ span {
+                color: #FAFAFA;
+                padding-left: 1.2em;
+                -webkit-animation: noscript-second-line 5s 1;
+            }
+
+            html.unscripted noscript > p:nth-child(2) > span {
+                -webkit-animation: noscript-third-line 5s 1;
+            }
+
+            html.unscripted noscript > p:nth-child(2) > span ~ span {
+                color: #FCFCFC;
+                padding-left: 1.6em;
+                -webkit-animation: noscript-fourth-line 5s 1;
+            }
+
+            @-webkit-keyframes noscript-first-line {
+                0%  { opacity: 0; }
+                20% { opacity: 0; }
+                60% { opacity: 1; }
+            }
+
+            @-webkit-keyframes noscript-second-line {
+                0%  { opacity: 0; }
+                40% { opacity: 0; }
+                70% { opacity: 1; }
+            }
+
+            @-webkit-keyframes noscript-third-line {
+                0%  { opacity: 0; }
+                60% { opacity: 0; }
+                85% { opacity: 1; }
+            }
+
+            @-webkit-keyframes noscript-fourth-line {
+                0%  { opacity: 0; }
+                70% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+        </style>
+
+        <script>
+            var stylesheet = document.createElement('link'),
+                htmlElements = document.getElementsByTagName('html'),
+                headElements = document.getElementsByTagName('html');
+                if (htmlElements.length === 0 || htmlElements.length > 1 || headElements.length === 0 || headElements.length > 1)
+                    throw new Error('This shit is bananas.');
+                htmlElements[0].className = htmlElements[0].className.replace('unscripted', '');
+                headElements[0].innerHTML += '<link rel=stylesheet type=text/css href=/mk.css />';
+        </script>
+
+        <script src=/mk.js></script>
+    </head>
+
+    <body>
+        <header><h1>mk</h1></header>
+
+        <main>
+          <article>
+            <header>
+              <h3>Story #1</h3>
+            </header>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a tempus metus. Nam fringilla purus velit, sit amet dictum arcu pretium nec. Nullam massa dui, vulputate vel volutpat vitae, vulputate at augue. Nulla malesuada, lacus a tristique lobortis, tellus velit pharetra eros, suscipit vulputate nibh tortor in magna. Ut ut mollis ante, et tincidunt ligula. Suspendisse id arcu magna. Proin maximus diam ac tortor blandit dignissim ac quis augue. Vivamus placerat tortor eget mi cursus, in volutpat erat ultricies. Mauris eget lorem libero. Fusce tellus ligula, mattis nec pretium sed, posuere ac tellus. </p><p>Praesent tristique egestas posuere. Curabitur sed ipsum neque. Proin volutpat enim et enim commodo porta. Nunc imperdiet non neque vel elementum. Integer faucibus arcu erat, et aliquet neque varius nec. In dapibus diam suscipit, efficitur metus ac, scelerisque elit. Suspendisse pulvinar sem ut nisi malesuada, eu consectetur sem vehicula. Cras congue velit at risus placerat, vitae dapibus turpis feugiat. Quisque at justo sit amet odio suscipit suscipit sit amet vel nisl. Sed porta mauris nisl, vel sodales erat fringilla ut. Nam aliquam, nisi in tristique dictum, nisi magna pretium ante, ut dignissim eros tortor id nulla. Nam ac efficitur ipsum. Pellentesque aliquam nulla in est ornare, a ullamcorper enim pellentesque. Duis rhoncus sem ut faucibus pulvinar. Nullam finibus elit in felis aliquet vehicula. Cras ullamcorper odio quis arcu venenatis posuere.</p><p>Cras a fermentum tellus, ac pellentesque odio. Nullam tempus massa in ex eleifend, a fringilla purus venenatis. Phasellus vitae ipsum at nunc dignissim pellentesque non eu tortor. Vestibulum nec feugiat metus. Fusce nisl diam, dignissim sit amet diam vel, vehicula aliquam augue. Cras nec sem commodo nulla finibus fermentum. In interdum mauris erat, a hendrerit tellus pharetra ac. Pellentesque iaculis ligula quam, nec efficitur metus porttitor nec.</p>
+
+            <footer>
+              <h6>Published on Oct 16th, 1986.</h6>
+            </footer>
+          </article>
+
+          <article class=summary>
+            <header>
+              <h3>This story could have been longer if it weren't the exact same length.</h3>
+            </header>
+
+              <p data-continuation-text="But it doesn't end there…">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a tempus metus. Nam fringilla purus velit, sit amet dictum arcu pretium nec. Nullam massa dui, vulputate vel volutpat vitae, vulputate at augue. Nulla malesuada, lacus a tristique lobortis, tellus velit pharetra eros, suscipit vulputate nibh tortor in magna. Ut ut mollis ante, et tincidunt ligula. Suspendisse id arcu magna. Proin maximus diam ac tortor blandit dignissim ac quis augue. Vivamus placerat tortor eget mi cursus, in volutpat erat ultricies. Mauris eget lorem libero. Fusce tellus ligula, mattis nec pretium sed, posuere ac tellus. </p><p>Praesent tristique egestas posuere. Curabitur sed ipsum neque. Proin volutpat enim et enim commodo porta. Nunc imperdiet non neque vel elementum. Integer faucibus arcu erat, et aliquet neque varius nec. In dapibus diam suscipit, efficitur metus ac, scelerisque elit. Suspendisse pulvinar sem ut nisi malesuada, eu consectetur sem vehicula. Cras congue velit at risus placerat, vitae dapibus turpis feugiat. Quisque at justo sit amet odio suscipit suscipit sit amet vel nisl. Sed porta mauris nisl, vel sodales erat fringilla ut. Nam aliquam, nisi in tristique dictum, nisi magna pretium ante, ut dignissim eros tortor id nulla. Nam ac efficitur ipsum. Pellentesque aliquam nulla in est ornare, a ullamcorper enim pellentesque. Duis rhoncus sem ut faucibus pulvinar. Nullam finibus elit in felis aliquet vehicula. Cras ullamcorper odio quis arcu venenatis posuere.</p><p>Cras a fermentum tellus, ac pellentesque odio. Nullam tempus massa in ex eleifend, a fringilla purus venenatis. Phasellus vitae ipsum at nunc dignissim pellentesque non eu tortor. Vestibulum nec feugiat metus. Fusce nisl diam, dignissim sit amet diam vel, vehicula aliquam augue. Cras nec sem commodo nulla finibus fermentum. In interdum mauris erat, a hendrerit tellus pharetra ac. Pellentesque iaculis ligula quam, nec efficitur metus porttitor nec.</p>
+
+            <footer>
+              <h6>Published on Oct 16th, 1986.</h6>
+            </footer>
+          </article>
+
+          <article class=summary>
+            <header>
+              <h3>Story #3</h3>
+            </header>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a tempus metus. Nam fringilla purus velit, sit amet dictum arcu pretium nec. Nullam massa dui, vulputate vel volutpat vitae, vulputate at augue. Nulla malesuada, lacus a tristique lobortis, tellus velit pharetra eros, suscipit vulputate nibh tortor in magna. Ut ut mollis ante, et tincidunt ligula. Suspendisse id arcu magna. Proin maximus diam ac tortor blandit dignissim ac quis augue. Vivamus placerat tortor eget mi cursus, in volutpat erat ultricies. Mauris eget lorem libero. Fusce tellus ligula, mattis nec pretium sed, posuere ac tellus. </p><p>Praesent tristique egestas posuere. Curabitur sed ipsum neque. Proin volutpat enim et enim commodo porta. Nunc imperdiet non neque vel elementum. Integer faucibus arcu erat, et aliquet neque varius nec. In dapibus diam suscipit, efficitur metus ac, scelerisque elit. Suspendisse pulvinar sem ut nisi malesuada, eu consectetur sem vehicula. Cras congue velit at risus placerat, vitae dapibus turpis feugiat. Quisque at justo sit amet odio suscipit suscipit sit amet vel nisl. Sed porta mauris nisl, vel sodales erat fringilla ut. Nam aliquam, nisi in tristique dictum, nisi magna pretium ante, ut dignissim eros tortor id nulla. Nam ac efficitur ipsum. Pellentesque aliquam nulla in est ornare, a ullamcorper enim pellentesque. Duis rhoncus sem ut faucibus pulvinar. Nullam finibus elit in felis aliquet vehicula. Cras ullamcorper odio quis arcu venenatis posuere.</p><p>Cras a fermentum tellus, ac pellentesque odio. Nullam tempus massa in ex eleifend, a fringilla purus venenatis. Phasellus vitae ipsum at nunc dignissim pellentesque non eu tortor. Vestibulum nec feugiat metus. Fusce nisl diam, dignissim sit amet diam vel, vehicula aliquam augue. Cras nec sem commodo nulla finibus fermentum. In interdum mauris erat, a hendrerit tellus pharetra ac. Pellentesque iaculis ligula quam, nec efficitur metus porttitor nec.</p>
+
+            <footer>
+              <h6>Published on Oct 16th, 1986.</h6>
+            </footer>
+          </article>
+        </main>
+
+        <footer>
+          <section data-audio-player>
+            <div data-control></div>
+
+            <span>Now Playing Lite by monokrome</span>
+          </section>
+        </footer>
+
+        <noscript>
+            <p><span>Hey, I just met you -</span><span>and this is crazy.</span></p>
+            <p><span>but you don't have JavaScript,</span><span>so enable it maybe?</span></p>
+        </noscript>
+    </body>
+</html>

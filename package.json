@@ -1,0 +1,11 @@
+{
+  "name": "monokro.me",
+  "version": "1.0.0",
+  "description": "Exposing my website - one hacker at a time.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "B. Stoner <monokrome@monokro.me>",
+  "license": "MIT"
+}

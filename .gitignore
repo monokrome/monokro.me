@@ -1,1 +1,9 @@
+# Build output
+/dist/*
+
+# JavaScript dependencies
 /node_modules/*
+
+# Non-git hidden files
+.*
+!.git*

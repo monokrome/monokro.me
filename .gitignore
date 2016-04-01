@@ -1,0 +1,21 @@
+# Compiled assets
+*.js
+*.map
+
+
+# TypeScript typings files
+/typings/*
+
+
+# Log files (Thanks, NPM!)
+/*.log
+
+
+# NPM-provide dependencies
+/node_modules/*
+
+
+# Non-git hidden files
+/.*
+!/.git*
+

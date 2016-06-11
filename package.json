@@ -3,7 +3,8 @@
   "version": "0.9.0",
   "description": "Exposing my website - one hacker at a time.",
   "scripts": {
-    "test": "echo 'Error: no test specified'"
+    "test": "echo 'Error: no test specified'",
+    "start": "./node_modules/.bin/webpack-dev-server --progress --colors --watch --hot --inline --content-base dist"
   },
   "author": "Bailey Stoner <monokrome@monokro.me>",
   "license": "MIT",

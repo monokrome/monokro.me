@@ -1,8 +1,7 @@
 import ng from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
 
 
-const BodyComponent = ng.Component({
+export const BodyComponent = ng.Component({
   selector: 'body',
   template: `<h1>Hi!</h1>`,
 }).Class({
@@ -10,6 +9,3 @@ const BodyComponent = ng.Component({
     console.log('Body applied.');
   }
 });
-
-
-bootstrap(BodyComponent);

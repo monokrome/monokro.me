@@ -1,5 +1,5 @@
-import 'zone.js/dist/zone.js';
-import 'reflect-metadata/Reflect.js';
+import 'zone.js';
+import 'reflect-metadata';
 
 
 import {BodyComponent} from './components/body';

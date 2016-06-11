@@ -1,4 +1,4 @@
-monokro.me
+monokro.me [![CircleCI](https://circleci.com/gh/monokrome/monokro.me.svg?style=svg)](https://circleci.com/gh/monokrome/monokro.me)
 ==========
 
 

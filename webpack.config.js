@@ -1,7 +1,8 @@
 const path = require('path'),
 
       HtmlWebpackPlugin = require('html-webpack-plugin'),
-      ExtractTextPlugin = require('extract-text-webpack-plugin');
+      ExtractTextPlugin = require('extract-text-webpack-plugin'),
+      LiveReloadPlugin = require('webpack-livereload-plugin');
 
 
 module.exports = require('webpack-validator')({
@@ -42,11 +43,16 @@ module.exports = require('webpack-validator')({
 
   plugins: [
     new ExtractTextPlugin('[hash].css'),
+
     new HtmlWebpackPlugin({
       hash: false,
       inject: 'body',
       template: './src/index.ejs',
       title: 'monokro.me',
+    }),
+
+    new LiveReloadPlugin({
+      appendScriptTag: true,
     }),
   ],
 });

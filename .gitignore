@@ -4,6 +4,9 @@
 # JS dependencies
 /node_modules/*
 
+# Log files
+*.log
+
 # Non-git hidden files
 .*
 !.git*

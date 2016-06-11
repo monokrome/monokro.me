@@ -1,0 +1,9 @@
+# Built project files
+/dist/*
+
+# JS dependencies
+/node_modules/*
+
+# Non-git hidden files
+.*
+!.git*

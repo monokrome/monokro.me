@@ -23,9 +23,7 @@ module.exports = require('webpack-validator')({
         test: /\.js$/,
         loader: 'babel',
         query: {
-          presets: [
-            'es2015',
-          ],
+          presets: ['es2015'],
         },
       },
 

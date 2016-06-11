@@ -1,5 +1,4 @@
-import 'zone.js';
-import 'reflect-metadata';
-
-
-import bootstrap from 'angular2/platform/browser';
+import 'zone.js/dist/zone.js';
+import 'reflect-metadata/Reflect.js';
+import 'rxjs/bundles/Rx.umd.js';
+import './components/body';

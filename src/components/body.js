@@ -1,11 +1,12 @@
-import ng from 'angular2/core';
+import {Component} from 'angular2/core';
 
 
-export const BodyComponent = ng.Component({
+@Component({
   selector: 'body',
   template: `<h1>Hi!</h1>`,
-}).Class({
-  constructor: function () {
+})
+export class BodyComponent {
+  constructor() {
     console.log('Body applied.');
   }
-});
+}

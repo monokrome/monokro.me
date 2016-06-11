@@ -1,8 +1,7 @@
 const path = require('path'),
 
       HtmlWebpackPlugin = require('html-webpack-plugin'),
-      ExtractTextPlugin = require('extract-text-webpack-plugin'),
-      LiveReloadPlugin = require('webpack-livereload-plugin');
+      ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = require('webpack-validator')({
@@ -23,8 +22,14 @@ module.exports = require('webpack-validator')({
         test: /\.js$/,
         loader: 'babel',
         query: {
-          presets: ['es2015'],
-        },
+          presets: [
+            "es2017",
+          ],
+
+          plugins: [
+            "transform-decorators-legacy",
+          ],
+        }
       },
 
       {
@@ -47,10 +52,6 @@ module.exports = require('webpack-validator')({
       inject: 'body',
       template: './src/index.ejs',
       title: 'monokro.me',
-    }),
-
-    new LiveReloadPlugin({
-      appendScriptTag: true,
     }),
   ],
 });

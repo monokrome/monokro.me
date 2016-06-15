@@ -1,11 +1,10 @@
 const path = require('path'),
 
-      HtmlWebpackPlugin = require('html-webpack-plugin'),
       ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = require('webpack-validator')({
-  entry: path.join(__dirname, './src/main.js'),
+  entry: path.join(__dirname, './src/index.pug'),
 
   output: {
     path: path.join(__dirname, 'dist'),
@@ -33,25 +32,21 @@ module.exports = require('webpack-validator')({
       },
 
       {
-        test: path.join(__dirname, 'src', 'main.css'),
+        test: /\.css$/,
         loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
       },
 
       {
-        test: /\.html$/,
-        loader: 'html',
+        test: /\.pug/,
+        loaders: [
+          'html?attrs=img:src&link:href',
+          'pug-html-loader',
+        ],
       },
     ],
   },
 
   plugins: [
     new ExtractTextPlugin('[hash].css'),
-
-    new HtmlWebpackPlugin({
-      hash: false,
-      inject: 'body',
-      template: './src/index.ejs',
-      title: 'monokro.me',
-    }),
   ],
 });

@@ -54,7 +54,7 @@ module.exports = require('webpack-validator')({
 
     new HtmlWebpackPlugin({
       hash: false,
-      inject: 'body',
+      inject: 'head',
       template: './src/index.ejs',
       title: 'monokro.me',
       xhtml: true,

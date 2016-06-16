@@ -29,7 +29,6 @@ WORKDIR /opt/monokro.me
 
 
 RUN npm install
-RUN make
 
 
 RUN apk del git build-base
@@ -37,8 +36,11 @@ RUN apk add libstdc++
 RUN rm -rf /var/cache/apk/*
 
 
+RUN make
+
+
 EXPOSE 8000
 
 
 WORKDIR /opt/monokro.me/dist
-CMD ['python', '-m', 'SimpleHTTPServer']
+CMD ["python", "-m", "SimpleHTTPServer"]

@@ -1,0 +1,161 @@
+$lightGray: #FCFCFC;
+$darkGray: #313131;
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
+* {
+  margin-top: 0;
+}
+
+
+* + * {
+  margin-top: 1.1em;
+}
+
+
+
+html, body {
+  margin: 0;
+}
+
+
+body {
+  background-color: $lightGray;
+  color: $darkGray;
+
+  font-family: Merriweather, Helvetica, sans-serif;
+  font-size: 1.3em;
+  text-rendering: optimizeLegibility;
+}
+
+
+body > header {
+  text-align: center;
+}
+
+
+main {
+  padding: 0 .8em;
+}
+
+
+article {
+  max-width: 39em;
+}
+
+
+article header {
+  white-space: nowrap;
+}
+
+
+article header h3 {
+  width: 100%;
+  padding-left: 2%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+
+article header::after {
+  display: block;
+  margin: -1.45em 0 0;
+  border-top: 2px solid $darkGray;
+  content: "";
+}
+
+
+article footer {
+  text-align: right;
+}
+
+
+.summary p:first-of-type ~ * {
+  display: none;
+}
+
+
+.summary p:first-of-type::after {
+  display: block;
+  margin-top: 1ex;
+  font-size: .9em;
+  text-align: center;
+  content: "Read more…";
+}
+
+
+.summary [data-continuation-text]:first-of-type::after {
+  content: attr(data-continuation-text);
+}
+
+
+@media only screen and (min-width: 766px) {
+  body {
+    font-size: 1.3em;
+  }
+}
+
+
+@media only screen and (min-width: 962px) {
+  body {
+    font-size: 1.8em;
+  }
+
+  article {
+    margin: 0 auto;
+  }
+
+  body > header {
+    margin: 0;
+    padding: 0 2.3em 0 0;
+    text-align: right;
+  }
+}
+
+
+body > footer {
+  width: 90vw;
+  margin: 0 auto;
+  padding: 0.7em 2ex 0.3em;
+  border-radius: 1ex;
+  color: #313131;
+  background-color: #DCDCDC;
+  font-size: 0.7em;
+  user-select: none;
+}
+
+
+body > section + footer {
+  border-radius: 1ex 1ex 0 0;
+}
+
+
+[data-audio-player] {}
+
+
+[data-audio-player] [data-control] {
+  width: 0;
+  height: 0;
+  float: right;
+  border-top: 0.6em solid transparent;
+  border-bottom: 0.6em solid transparent;
+  border-left: 0.6em solid $darkGray;
+  cursor: pointer;
+}
+
+
+[data-audio-player] [data-control].paused {
+  width: 1em;
+  height: 1em;
+  border-top: 0 solid $darkGray;
+  border-right: 0 solid transparent;
+  border-bottom: 0 solid $darkGray;
+  border-left: 0 solid $darkGray;
+  background-color: $darkGray;
+}

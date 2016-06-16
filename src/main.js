@@ -1,3 +1,6 @@
+require('./main.scss');
+
+
 import 'zone.js';
 import 'reflect-metadata';
 

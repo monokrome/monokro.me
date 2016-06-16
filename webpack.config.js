@@ -1,7 +1,9 @@
 const path = require('path'),
 
       HtmlWebpackPlugin = require('html-webpack-plugin'),
-      ExtractTextPlugin = require('extract-text-webpack-plugin');
+      ExtractTextPlugin = require('extract-text-webpack-plugin'),
+
+      extractCSS = new ExtractTextPlugin('main.css');
 
 
 module.exports = require('webpack-validator')({
@@ -33,8 +35,11 @@ module.exports = require('webpack-validator')({
       },
 
       {
-        test: path.join(__dirname, 'src', 'main.css'),
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
+        test: /\.scss$/,
+        loader: extractCSS.extract([
+          'css',
+          'sass',
+        ]),
       },
 
       {
@@ -45,7 +50,7 @@ module.exports = require('webpack-validator')({
   },
 
   plugins: [
-    new ExtractTextPlugin('[hash].css'),
+    extractCSS,
 
     new HtmlWebpackPlugin({
       hash: false,

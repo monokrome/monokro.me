@@ -2,4 +2,4 @@ monokro.me [![CircleCI](https://circleci.com/gh/monokrome/monokro.me.svg?style=s
 ==========
 
 
-Exposing my website - one hacker at a time. https://monokro.me/
+Exposing my website - one hacker at a time. http://monokro.me/

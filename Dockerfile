@@ -24,7 +24,7 @@ RUN apk add python
 RUN apk add nodejs
 
 
-ADD docker.zip /opt/monokro.me
+ADD . /opt/monokro.me
 WORKDIR /opt/monokro.me
 
 

@@ -11,7 +11,6 @@ clean:
 
 
 image:
-	git archive HEAD > docker.zip
 	docker build -t monokrome/monokro.me .
 
 

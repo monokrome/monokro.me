@@ -7,6 +7,9 @@
 # Log files
 *.log
 
+# Docker build archive
+/docker.zip
+
 # Non-git hidden files
 .*
 !.git*

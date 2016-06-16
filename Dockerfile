@@ -29,14 +29,12 @@ WORKDIR /opt/monokro.me
 
 
 RUN npm install
+RUN make
 
 
 RUN apk del git build-base
 RUN apk add libstdc++
 RUN rm -rf /var/cache/apk/*
-
-
-RUN make
 
 
 EXPOSE 8000

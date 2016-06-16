@@ -38,7 +38,7 @@ module.exports = require('webpack-validator')({
       },
 
       {
-        test: /\.html$/,
+        test: /.html$/,
         loader: 'html',
       },
     ],
@@ -52,6 +52,7 @@ module.exports = require('webpack-validator')({
       inject: 'body',
       template: './src/index.ejs',
       title: 'monokro.me',
+      xhtml: true,
     }),
   ],
 });

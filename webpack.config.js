@@ -3,6 +3,8 @@ const path = require('path'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
       ExtractTextPlugin = require('extract-text-webpack-plugin'),
 
+      Joi = require('webpack-validator').Joi,
+
       extractCSS = new ExtractTextPlugin('main.css'),
 
       html = new HtmlWebpackPlugin({
@@ -23,6 +25,7 @@ module.exports = require('webpack-validator')({
   },
 
   resolve: {
+    root: path.join(__dirname, 'src'),
     extensions: ['', '.js'],
   },
 
@@ -70,4 +73,20 @@ module.exports = require('webpack-validator')({
     extractCSS,
     html,
   ],
+
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+  },
+
+  sassLoader: {
+    includePaths: [
+      path.join(__dirname, 'src'),
+    ]
+  },
+
+  devtool: 'source-map',
+}, {
+  schemaExtension: Joi.object({
+    sassLoader: Joi.any(),
+  }),
 });

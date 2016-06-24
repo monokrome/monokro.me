@@ -1,8 +1,11 @@
 import './article.scss';
 
 
-import {Directive} from 'angular2/core';
+import {Component} from 'angular2/core';
 
 
-@Directive({selector: 'article'})
+@Component({
+  selector: 'article',
+  template: require('./article.html'),
+})
 export default class ArticleComponent {}

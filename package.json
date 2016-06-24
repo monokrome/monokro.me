@@ -4,12 +4,13 @@
   "description": "Exposing my website - one hacker at a time.",
   "scripts": {
     "test": "echo 'Error: no test specified'",
-    "start": "./node_modules/.bin/webpack-dev-server --progress --colors --watch --hot --inline --content-base dist"
+    "start": "./node_modules/.bin/webpack-dev-server --progress --colors --watch --hot --inline --port 3000 --content-base dist"
   },
   "author": "Bailey Stoner <monokrome@monokro.me>",
   "license": "MIT",
   "devDependencies": {
     "angular2": "^2.0.0-beta.17",
+    "autoprefixer-loader": "^3.2.0",
     "babel": "^6.5.2",
     "babel-cli": "^6.10.1",
     "babel-core": "^6.9.1",
@@ -26,6 +27,7 @@
     "html-webpack-plugin": "^2.20.0",
     "ng-cache-loader": "0.0.15",
     "node-sass": "^3.7.0",
+    "raw-loader": "^0.5.1",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
     "sass-loader": "^3.2.0",

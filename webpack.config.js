@@ -3,7 +3,15 @@ const path = require('path'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
       ExtractTextPlugin = require('extract-text-webpack-plugin'),
 
-      extractCSS = new ExtractTextPlugin('main.css');
+      extractCSS = new ExtractTextPlugin('main.css'),
+
+      html = new HtmlWebpackPlugin({
+        hash: false,
+        inject: true,
+        template: './src/index.ejs',
+        title: 'monokro.me',
+        xhtml: true,
+      });
 
 
 module.exports = require('webpack-validator')({
@@ -23,6 +31,8 @@ module.exports = require('webpack-validator')({
       {
         test: /\.js$/,
         loader: 'babel',
+        exclude: /node_modules/,
+
         query: {
           presets: [
             "es2017",
@@ -36,28 +46,28 @@ module.exports = require('webpack-validator')({
 
       {
         test: /\.scss$/,
+        exclude: /node_modules/,
+
         loader: extractCSS.extract([
           'css',
+          'autoprefixer',
           'sass',
         ]),
       },
 
       {
         test: /.html$/,
-        loader: 'html',
+        exclude: /node_modules/,
+
+        loaders: [
+          'html',
+        ],
       },
     ],
   },
 
   plugins: [
     extractCSS,
-
-    new HtmlWebpackPlugin({
-      hash: false,
-      inject: true,
-      template: './src/index.ejs',
-      title: 'monokro.me',
-      xhtml: true,
-    }),
+    html,
   ],
 });

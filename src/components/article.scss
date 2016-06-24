@@ -1,0 +1,38 @@
+$lightGray: #FCFCFC;
+$darkGray: #313131;
+
+
+article {
+  max-width: 39rem;
+
+  header {
+    white-space: nowrap;
+
+    h3 {
+      width: 100%;
+      padding-left: 2%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    &::after {
+      display: block;
+      margin: -1.45em 0 0;
+      border-top: 2px solid $darkGray;
+      content: "";
+    }
+  }
+
+
+  footer {
+    text-align: right;
+  }
+}
+
+
+@media only screen and (min-width: 962px) {
+  article {
+    margin: 0 auto;
+  }
+}

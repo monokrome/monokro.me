@@ -1,6 +1,9 @@
+import './body.scss';
+
 import {Component} from 'angular2/core';
-import {BackdropDirective} from './backdrop';
-import {World} from '../services/world';
+
+import ArticleComponent from './article.js';
+import AudioPlayerComponent from './audio_player.js';
 
 
 @Component({
@@ -8,11 +11,10 @@ import {World} from '../services/world';
   template: require('./body.html'),
 
   directives: [
-    BackdropDirective,
+    ArticleComponent,
+    AudioPlayerComponent,
   ],
 
-  providers: [
-    World,
-  ]
+  providers: [],
 })
-export class BodyComponent {}
+export default class BodyComponent {}

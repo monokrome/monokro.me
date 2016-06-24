@@ -1,91 +1,54 @@
-@import 'settings.scss';
+@import 'settings';
 
 
 body {
-  background-color: $lightGray;
-  color: $darkGray;
-
-  font-family: Merriweather, Helvetica, sans-serif;
-  font-size: 1.3rem;
+  color: #313131;
+  background-color: #FCFCFC;
   text-rendering: optimizeLegibility;
 
-  header {
-    text-align: center;
-  }
+  font-family: Merriweather, Helvetica, sans-serif;
+  font-size: 1.3em;
 
-
-  main {
-    display: flex;
-    flex-direction: column;
-
-    padding: 0;
-    min-height: 100vh;
-  }
-
-
-  main > header {
-    background-color: $darkGray;
-    color: $lightGray;
-  }
-
-  main > section {
-    padding: 0 0.8rem;
-    flex-grow: 1;
-  }
-
-
-  main > footer {
-    align-self: flex-end;
-  }
-
-
-  .summary p:first-of-type ~ * {
-    display: none;
-  }
-
-
-  .summary p:first-of-type::after {
-    display: block;
-    margin-top: 1ex;
-    font-size: .9rem;
-    text-align: center;
-    content: "Read more…";
-  }
-
-
-  .summary [data-continuation-text]:first-of-type::after {
-    content: attr(data-continuation-text);
-  }
-
-
-  > footer {
-    width: 90vw;
-    margin: 0 auto;
-    padding: 0.7em 2ex 0.3rem;
-    border-radius: 1ex;
-    color: #313131;
-    background-color: #DCDCDC;
-    font-size: 0.7rem;
-    user-select: none;
-  }
-
-
-  > section + footer {
-    border-radius: 1ex 1ex 0 0;
-  }
-
-
-  @media only screen and (min-width: 962px) {
-    font-size: 1.8rem;
+  > main {
+    margin: 0 0.8em;
+    padding: 0.4ex;
 
     > header {
-      margin: 0;
-      padding: 0 2.3em 0 0;
-      text-align: right;
+      text-align: center;
+      font-size: 2.6rem;
+    }
+
+    > footer {
+      margin: 0 auto;
+      padding: 0.7em 2ex 0.3em;
+      width: 90vw;
+      border-radius: 1ex;
+      color: #313131;
+      background-color: #DCDCDC;
+      font-size: 0.7em;
+      user-select: none;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    > section + footer {
+      border-radius: 1ex 1ex 0 0;
     }
   }
 
   @media only screen and (min-width: 766px) {
-    font-size: 1.3rem;
+    font-size: 1.3em;
+  }
+
+  @media only screen and (min-width: 962px) {
+    font-size: 1.8em;
+
+    > main > header {
+      margin: 0;
+      padding: 0 2.3em 0 0;
+      text-align: right;
+    }
   }
 }

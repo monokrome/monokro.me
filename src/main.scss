@@ -1,19 +1,16 @@
-$lightGray: #FCFCFC;
-$darkGray: #313131;
+@import 'settings';
 
+
+* {
+  margin-top: 0;
+}
+
+* + * {
+  margin-top: 1.1rem;
+}
 
 html, body {
   margin: 0;
   padding: 0;
-}
-
-
-* { margin-top: 0; }
-* + * { margin-top: 1.1rem; }
-
-
-
-html, body {
-  margin: 0;
   min-height: 100vh;
 }

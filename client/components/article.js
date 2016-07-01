@@ -1,25 +1,30 @@
 import './article.scss';
 
+import Api from 'services/api';
 
 import {Component, NgZone} from 'angular2/core';
 import {Http} from 'angular2/http';
 
-
 @Component({
   selector: 'article',
   template: require('./article.html'),
-  inputs: ['url'],
-  outputs: ['onUrlChanged'],
+  inputs: [
+    'url',
+  ],
 })
 export default class ArticleComponent {
-  constructor(zone, http) {
+  constructor(zone, api) {
+    this.api = api;
     this.zone = zone;
-    this.http = http;
 
     this.zone.onStable.subscribe(this.update.bind(this));
   }
 
-  onUpdateSuccess(data) { this.resource = data[0]; }
+  onUpdateSuccess(resources) {
+    const resource = resources[0];
+    this.title = resource.title;
+    this.body = resource.body;
+  }
 
   onUpdateFailure(data) {
     this.resource = null;
@@ -27,14 +32,12 @@ export default class ArticleComponent {
   }
 
   update() {
-    this.http.get(this.url)
-      .map(res => res.text())
-      .subscribe(
-        this.onUpdateSuccess.bind(this),
-        this.onUpdateFailure.bind(this)
-      );
+    return this.api.getArticle(this.url).subscribe(
+      this.onUpdateSuccess.bind(this),
+      this.onUpdateFailure.bind(this)
+    );
   }
 }
 
 
-ArticleComponent.parameters = [NgZone, Http];
+ArticleComponent.parameters = [NgZone, Api];

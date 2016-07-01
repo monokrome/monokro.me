@@ -33,14 +33,14 @@ export default class ArticleComponent {
     if (old === url) return;
 
     this._url = url;
-    this.update();
+    this.fetchContent();
   }
 
   get url() {
     return this._url;
   }
 
-  update() {
+  fetchContent() {
     return this.api.getArticle(this.url).subscribe(
       this.onUpdateSuccess.bind(this),
       this.onUpdateFailure.bind(this)

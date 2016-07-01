@@ -10,14 +10,14 @@ const path = require('path'),
       html = new HtmlWebpackPlugin({
         hash: false,
         inject: true,
-        template: './src/index.ejs',
+        template: './client/index.ejs',
         title: 'monokro.me',
         xhtml: true,
       });
 
 
 module.exports = require('webpack-validator')({
-  entry: path.join(__dirname, './src/main.js'),
+  entry: path.join(__dirname, './client/main.js'),
 
   output: {
     path: path.join(__dirname, 'dist'),
@@ -25,7 +25,7 @@ module.exports = require('webpack-validator')({
   },
 
   resolve: {
-    root: path.join(__dirname, 'src'),
+    root: path.join(__dirname, 'client'),
     extensions: ['', '.js'],
   },
 
@@ -80,7 +80,7 @@ module.exports = require('webpack-validator')({
 
   sassLoader: {
     includePaths: [
-      path.join(__dirname, 'src'),
+      path.join(__dirname, 'client'),
     ]
   },
 

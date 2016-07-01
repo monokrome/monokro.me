@@ -10,6 +10,8 @@ import {Http} from 'angular2/http';
   template: require('./article.html'),
   inputs: [
     'url',
+    'title',
+    'body',
   ],
 })
 export default class ArticleComponent {

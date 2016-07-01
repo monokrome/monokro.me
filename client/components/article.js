@@ -2,7 +2,7 @@ import './article.scss';
 
 import Api from 'services/api';
 
-import {Component, NgZone} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {Http} from 'angular2/http';
 
 @Component({
@@ -13,11 +13,8 @@ import {Http} from 'angular2/http';
   ],
 })
 export default class ArticleComponent {
-  constructor(zone, api) {
+  constructor(api) {
     this.api = api;
-    this.zone = zone;
-
-    this.zone.onStable.subscribe(this.update.bind(this));
   }
 
   onUpdateSuccess(resources) {
@@ -31,6 +28,18 @@ export default class ArticleComponent {
     this.error = true;
   }
 
+  set url(url) {
+    var old = this._url;
+    if (old === url) return;
+
+    this._url = url;
+    this.update();
+  }
+
+  get url() {
+    return this._url;
+  }
+
   update() {
     return this.api.getArticle(this.url).subscribe(
       this.onUpdateSuccess.bind(this),
@@ -40,4 +49,4 @@ export default class ArticleComponent {
 }
 
 
-ArticleComponent.parameters = [NgZone, Api];
+ArticleComponent.parameters = [Api];

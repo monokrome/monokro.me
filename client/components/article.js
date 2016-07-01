@@ -12,6 +12,7 @@ import {Http} from 'angular2/http';
     'url',
     'title',
     'body',
+    'summary',
   ],
 })
 export default class ArticleComponent {
@@ -21,8 +22,10 @@ export default class ArticleComponent {
 
   onUpdateSuccess(resources) {
     const resource = resources[0];
+
     this.title = resource.title;
     this.body = resource.body;
+    this.summary = resource.summary;
   }
 
   onUpdateFailure(data) {

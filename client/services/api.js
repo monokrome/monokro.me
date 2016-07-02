@@ -7,7 +7,8 @@ export default class Api {
   }
 
   getArticle(identifier) {
-    return this.http.get(identifier).map(res => JSON.parse(res.text()));
+    return this.http.get(identifier)
+      .map(res => res.json());
   }
 }
 

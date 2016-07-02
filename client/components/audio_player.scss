@@ -2,24 +2,49 @@
 
 
 [data-audio-player] {
-  [data-control] {
-    float: right;
-    width: 0;
-    height: 0;
-    border-top: 0.6em solid transparent;
-    border-bottom: 0.6em solid transparent;
-    border-left: 0.6em solid #313131;
-    cursor: pointer;
+  > section ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      flex-grow: 1;
+      margin: 5vh 5vw;
+      min-width: 10vw;
+      min-height: 30vh;
+      background-color: $darkest;
+      color: $brightest;
+      text-align: center;
+      cursor: pointer;
+
+      span {
+        vertical-align: middle;
+      }
+
+      &:nth-child(2n) {
+        background-color: $dark;
+      }
+    }
   }
 
+  > aside {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-  [data-control].paused {
-    width: 1em;
-    height: 1em;
-    background-color: #313131;
-    border-top: 0 solid #313131;
-    border-right: 0 solid transparent;
-    border-bottom: 0 solid #313131;
-    border-left: 0 solid #313131;
+    background-color: $bright;
+    color: $dark;
+
+    h3 {
+      text-align: center;
+    }
   }
+
 }

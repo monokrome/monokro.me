@@ -8,6 +8,7 @@ import ArticleComponent from './article.js';
 import AudioPlayerComponent from './audio_player.js';
 
 import Api from 'services/api';
+import SoundCloud from 'services/soundcloud';
 
 
 @Component({
@@ -16,11 +17,14 @@ import Api from 'services/api';
 
   directives: [
     ArticleComponent,
+    AudioPlayerComponent,
   ],
 
   providers: [
     HTTP_PROVIDERS,
+
     Api,
+    SoundCloud,
   ],
 })
 export default class BodyComponent {}

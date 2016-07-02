@@ -1,0 +1,12 @@
+<section>
+    <ul>
+        <li *ngFor='let track of tracks' (click)='play(track)'>
+            <span [textContent]=track.title></span>
+        </li>
+    </ul>
+</section>
+
+<aside>
+    <h3 *ngIf='hasTrackPlaying()'>Now playing: {{ currentTrack.title }}</h3>
+    <h3 *ngIf='hasNoTrackPlaying()'>Click a track to play it!</h3>
+</aside>

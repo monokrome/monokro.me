@@ -3,7 +3,7 @@
 
 body {
   color: #313131;
-  background-color: #FCFCFC;
+  background-color: $brightest;
   text-rendering: optimizeLegibility;
 
   font-family: Merriweather, Helvetica, sans-serif;
@@ -23,8 +23,8 @@ body {
       padding: 0.7em 2ex 0.3em;
       width: 90vw;
       border-radius: 1ex;
-      color: #313131;
-      background-color: #DCDCDC;
+      color: $brightest;
+      background-color: $body;
       font-size: 0.7em;
       user-select: none;
 

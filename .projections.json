@@ -1,0 +1,45 @@
+{
+  "src/main/scala/*.scala": {
+    "type": "object",
+    "alternate": "src/test/scala/{dirname}/{basename|camelcase}.scala",
+    "dispatch": "sbt run",
+    "template": [
+      "package me.monokro",
+      "",
+      "",
+      "class {basename|camelcase}() {open}",
+      "{close}",
+      "",
+      "",
+      "object {basename|camelcase} {open}",
+      "  def apply() {open}",
+      "    new {basename|camelcase}()",
+      "  {close}",
+      "{close}"
+    ]
+  },
+
+  "src/test/scala/*.scala": {
+    "type": "test",
+    "dispatch": "sbt test-only me.monokro.{dirname|dot}.{basename|camelcase}",
+    "alternate": "src/main/scala/{dirname}/{basename|camelcase}.scala",
+    "template": [
+      "package me.monokro",
+      "",
+      "",
+      "import org.specs2.mutable.Specification",
+      "",
+      "",
+      "class {basename|camelcase}Spec extends Specification with Specs2RouteTest with {basename|camelcase} {open}",
+      "  def actorRefFactor = system",
+      "",
+      "  \"{basename|camelcase}\" should {open}",
+      "  {close}",
+      "{close}"
+    ]
+  },
+
+  "*": {
+    "dispatch": "sbt run"
+  }
+}

@@ -1,0 +1,9 @@
+# SBT artifacts
+/project/*
+/target/*
+
+
+# Non-git hidden files
+/.*
+!/.git*
+!/.projections.json

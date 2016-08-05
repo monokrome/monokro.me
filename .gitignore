@@ -1,0 +1,9 @@
+# Binary built for the gin proxy
+gin-bin
+
+# Node dependencies
+/node_modules/*
+
+# Non-git hidden file patterns
+/.*
+!/.git*

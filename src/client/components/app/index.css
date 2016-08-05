@@ -1,0 +1,51 @@
+[data-app] {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+[data-app] > header {
+  padding: .5rem 1rem;
+  background-color: steelblue;
+  color: white;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+
+[data-app] > header [data-navigation]::after {
+  padding-top: 0.3em;
+  font-size: 0.7em;
+  opacity: .3;
+  content: 'monokrome';
+}
+
+
+[data-app] > main {
+  flex-grow: 1;
+}
+
+
+[data-app] > footer {
+  padding: .5rem 1rem;
+  font-family: sans-serif;
+  font-size: .8rem;
+  text-align: center;
+  background-color: steelblue;
+  text-transform: lowercase;
+}
+
+
+[data-app] [data-navigation] {
+  padding-top: .2rem;
+  font-size: 1.6rem;
+}
+
+
+@media screen and (max-width: 720px) {
+  [data-app] > header [data-navigation]::after {
+    display: none;
+  }
+}

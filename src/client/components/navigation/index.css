@@ -1,0 +1,15 @@
+ [data-navigation] {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+
+[data-navigation] li {
+  margin-top: 0;
+  flex-grow: 1;
+  text-align: center;
+  padding-right: 1rem;
+}

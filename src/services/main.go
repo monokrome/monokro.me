@@ -28,7 +28,7 @@ func getBindAddress() string {
 
 func createServices() {
 	api := restitude.NewRestApi("/services/")
-	api.RegisterResource(TrackResource{})
+	api.RegisterResource(TracksResource{})
 }
 
 func main() {

@@ -15,7 +15,7 @@ func (track *Track) GetURL() string {
 	return "https://www.google.com/" + track.Identifier
 }
 
-type TrackResource struct{}
+type TracksResource struct{}
 
 func getMockTrack() Track {
 	return Track{
@@ -25,14 +25,10 @@ func getMockTrack() Track {
 	}
 }
 
-func (resource TrackResource) BaseName() string {
-	return "tracks"
-}
-
-func (resource TrackResource) GetCollection(r *http.Request) (interface{}, error) {
+func (resource TracksResource) GetCollection(r *http.Request) (interface{}, error) {
 	return []Track{getMockTrack(), getMockTrack(), getMockTrack()}, nil
 }
 
-func (resource TrackResource) GetItem(r *http.Request) (interface{}, error) {
+func (resource TracksResource) GetItem(r *http.Request) (interface{}, error) {
 	return getMockTrack(), nil
 }

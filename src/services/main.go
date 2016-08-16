@@ -37,7 +37,7 @@ func msgpackSerializer(v interface{}) ([]byte, error) {
 
 func createServices() {
 	api := restitude.NewRestApi("/services/")
-	api.Serializers["binary/octet-stream"] = msgpackSerializer
+	api.Serializers["application/msgpack"] = msgpackSerializer
 	api.RegisterResource(TracksResource{})
 }
 

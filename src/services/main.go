@@ -3,6 +3,7 @@ package main
 import (
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/menghan/msgpack"
 	"github.com/monokrome/restitude"
 	"log"
 	"net/http"
@@ -26,8 +27,17 @@ func getBindAddress() string {
 	return defaultBindAddress
 }
 
+func msgpackSerializer(v interface{}) ([]byte, error) {
+	data, err := msgpack.Marshal(v)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
+}
+
 func createServices() {
 	api := restitude.NewRestApi("/services/")
+	api.Serializers["binary/octet-stream"] = msgpackSerializer
 	api.RegisterResource(TracksResource{})
 }
 

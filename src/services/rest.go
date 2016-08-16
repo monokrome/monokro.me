@@ -67,48 +67,48 @@ type resource interface {
 
 // Interface for resources which are able to work with individual entities
 type getItemResource interface {
-	GetItem(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	GetItem(r *http.Request) (interface{}, error)
 }
 type deleteItemResource interface {
-	DeleteItem(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	DeleteItem(r *http.Request) (interface{}, error)
 }
 type postItemResource interface {
-	PostItem(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	PostItem(r *http.Request) (interface{}, error)
 }
 type putItemResource interface {
-	PutItem(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	PutItem(r *http.Request) (interface{}, error)
 }
 type headItemResource interface {
-	HeadItem(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	HeadItem(r *http.Request) (interface{}, error)
 }
 type patchItemResource interface {
-	PatchItem(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	PatchItem(r *http.Request) (interface{}, error)
 }
 type optionsItemResource interface {
-	OptionsItem(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	OptionsItem(r *http.Request) (interface{}, error)
 }
 
 // Interface for resources which are able to work with collections of entities
 type getCollectionResource interface {
-	GetCollection(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	GetCollection(r *http.Request) (interface{}, error)
 }
 type deleteCollectionResource interface {
-	DeleteCollection(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	DeleteCollection(r *http.Request) (interface{}, error)
 }
 type postCollectionResource interface {
-	PostCollection(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	PostCollection(r *http.Request) (interface{}, error)
 }
 type putCollectionResource interface {
-	PutCollection(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	PutCollection(r *http.Request) (interface{}, error)
 }
 type headCollectionResource interface {
-	HeadCollection(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	HeadCollection(r *http.Request) (interface{}, error)
 }
 type patchCollectionResource interface {
-	PatchCollection(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	PatchCollection(r *http.Request) (interface{}, error)
 }
 type optionsCollectionResource interface {
-	OptionsCollection(w http.ResponseWriter, r *http.Request) (interface{}, error)
+	OptionsCollection(r *http.Request) (interface{}, error)
 }
 
 // Allows registering of resources to specific APIs
@@ -132,59 +132,59 @@ func (api *restApi) RegisterResource(iface interface{}) {
 	}
 }
 
-func (api *restApi) handleList(baseName string, w http.ResponseWriter, r *http.Request) (interface{}, error) {
+func (api *restApi) handleCollection(baseName string, r *http.Request) (interface{}, error) {
 	if r.Method == "GET" {
 		if handler, ok := api.getCollectionResources[baseName]; ok {
-			response, err := handler.GetCollection(w, r)
+			response, err := handler.GetCollection(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "DELETE" {
 		if handler, ok := api.deleteCollectionResources[baseName]; ok {
-			response, err := handler.DeleteCollection(w, r)
+			response, err := handler.DeleteCollection(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "POST" {
 		if handler, ok := api.postCollectionResources[baseName]; ok {
-			response, err := handler.PostCollection(w, r)
+			response, err := handler.PostCollection(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "PUT" {
 		if handler, ok := api.putCollectionResources[baseName]; ok {
-			response, err := handler.PutCollection(w, r)
+			response, err := handler.PutCollection(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "HEAD" {
 		if handler, ok := api.headCollectionResources[baseName]; ok {
-			response, err := handler.HeadCollection(w, r)
+			response, err := handler.HeadCollection(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "OPTIONS" {
 		if handler, ok := api.optionsCollectionResources[baseName]; ok {
-			response, err := handler.OptionsCollection(w, r)
+			response, err := handler.OptionsCollection(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "PATCH" {
 		if handler, ok := api.patchCollectionResources[baseName]; ok {
-			response, err := handler.PatchCollection(w, r)
+			response, err := handler.PatchCollection(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "POST" {
 		if handler, ok := api.postCollectionResources[baseName]; ok {
-			response, err := handler.PostCollection(w, r)
+			response, err := handler.PostCollection(r)
 			return response, err
 		}
 	}
@@ -192,59 +192,59 @@ func (api *restApi) handleList(baseName string, w http.ResponseWriter, r *http.R
 	return nil, errors.New(MatchingResourceNotFound)
 }
 
-func (api *restApi) handleDetail(baseName string, w http.ResponseWriter, r *http.Request) (interface{}, error) {
+func (api *restApi) handleItem(baseName string, r *http.Request) (interface{}, error) {
 	if r.Method == "GET" {
 		if handler, ok := api.getItemResources[baseName]; ok {
-			response, err := handler.GetItem(w, r)
+			response, err := handler.GetItem(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "DELETE" {
 		if handler, ok := api.deleteItemResources[baseName]; ok {
-			response, err := handler.DeleteItem(w, r)
+			response, err := handler.DeleteItem(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "POST" {
 		if handler, ok := api.postItemResources[baseName]; ok {
-			response, err := handler.PostItem(w, r)
+			response, err := handler.PostItem(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "PUT" {
 		if handler, ok := api.putItemResources[baseName]; ok {
-			response, err := handler.PutItem(w, r)
+			response, err := handler.PutItem(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "HEAD" {
 		if handler, ok := api.headItemResources[baseName]; ok {
-			response, err := handler.HeadItem(w, r)
+			response, err := handler.HeadItem(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "OPTIONS" {
 		if handler, ok := api.optionsItemResources[baseName]; ok {
-			response, err := handler.OptionsItem(w, r)
+			response, err := handler.OptionsItem(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "PATCH" {
 		if handler, ok := api.patchItemResources[baseName]; ok {
-			response, err := handler.PatchItem(w, r)
+			response, err := handler.PatchItem(r)
 			return response, err
 		}
 	}
 
 	if r.Method == "POST" {
 		if handler, ok := api.postItemResources[baseName]; ok {
-			response, err := handler.PostItem(w, r)
+			response, err := handler.PostItem(r)
 			return response, err
 		}
 	}
@@ -265,9 +265,9 @@ func (api *restApi) onRequestReceived(w http.ResponseWriter, r *http.Request) {
 	if len(parts) == 0 {
 		// TODO: Show schema
 	} else if len(parts) == 1 {
-		response, err = api.handleList(parts[0], w, r)
+		response, err = api.handleCollection(parts[0], r)
 	} else {
-		response, err = api.handleDetail(parts[0], w, r)
+		response, err = api.handleItem(parts[0], r)
 	}
 
 	if err != nil {

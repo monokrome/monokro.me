@@ -29,10 +29,10 @@ func (resource TrackResource) BaseName() string {
 	return "tracks"
 }
 
-func (resource TrackResource) GetCollection(w http.ResponseWriter, r *http.Request) (interface{}, error) {
+func (resource TrackResource) GetCollection(r *http.Request) (interface{}, error) {
 	return []Track{getMockTrack(), getMockTrack(), getMockTrack()}, nil
 }
 
-func (resource TrackResource) GetItem(w http.ResponseWriter, r *http.Request) (interface{}, error) {
+func (resource TrackResource) GetItem(r *http.Request) (interface{}, error) {
 	return getMockTrack(), nil
 }

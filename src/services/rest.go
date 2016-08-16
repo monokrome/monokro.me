@@ -10,6 +10,8 @@ import (
 
 const MatchingResourceNotFound = "No resource found matching the given request."
 
+var requestMethods = []string{"DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"}
+
 func serializeToResponse(w *http.ResponseWriter, v interface{}) []byte {
 	jsonData, err := json.Marshal(v)
 
@@ -20,39 +22,29 @@ func serializeToResponse(w *http.ResponseWriter, v interface{}) []byte {
 	return jsonData
 }
 
-// Simple wrapper for handling RESTful requests
-// TODO: Should this be an http.Handler or something? It feels hacky right now.
+type restApiHandlerStore map[string]func(r *http.Request) (interface{}, error)
+
 type restApi struct {
-	prefix string
-
-	// Item resources
-	deleteItemResources  map[string]deleteItemResource
-	getItemResources     map[string]getItemResource
-	headItemResources    map[string]headItemResource
-	optionsItemResources map[string]optionsItemResource
-	patchItemResources   map[string]patchItemResource
-	postItemResources    map[string]postItemResource
-	putItemResources     map[string]putItemResource
-
-	// Collection resources
-	deleteCollectionResources  map[string]deleteCollectionResource
-	getCollectionResources     map[string]getCollectionResource
-	headCollectionResources    map[string]headCollectionResource
-	optionsCollectionResources map[string]optionsCollectionResource
-	patchCollectionResources   map[string]patchCollectionResource
-	postCollectionResources    map[string]postCollectionResource
-	putCollectionResources     map[string]putCollectionResource
+	prefix              string
+	itemResources       map[string]restApiHandlerStore
+	collectionResources map[string]restApiHandlerStore
 }
 
 func NewRestApi(prefix string) *restApi {
 	log.Print("Creating new REST API at ", prefix)
 
+	itemResources := make(map[string]restApiHandlerStore)
+	collectionResources := make(map[string]restApiHandlerStore)
+
+	for _, method := range requestMethods {
+		itemResources[method] = make(restApiHandlerStore)
+		collectionResources[method] = make(restApiHandlerStore)
+	}
+
 	api := &restApi{
-		prefix:                    prefix,
-		getCollectionResources:    make(map[string]getCollectionResource),
-		getItemResources:          make(map[string]getItemResource),
-		deleteCollectionResources: make(map[string]deleteCollectionResource),
-		deleteItemResources:       make(map[string]deleteItemResource),
+		prefix:              prefix,
+		itemResources:       itemResources,
+		collectionResources: collectionResources,
 	}
 
 	http.HandleFunc(api.prefix, api.onRequestReceived)
@@ -66,11 +58,20 @@ type resource interface {
 }
 
 // Interface for resources which are able to work with individual entities
+type deleteItemResource interface {
+	DeleteItem(r *http.Request) (interface{}, error)
+}
 type getItemResource interface {
 	GetItem(r *http.Request) (interface{}, error)
 }
-type deleteItemResource interface {
-	DeleteItem(r *http.Request) (interface{}, error)
+type headItemResource interface {
+	HeadItem(r *http.Request) (interface{}, error)
+}
+type optionsItemResource interface {
+	OptionsItem(r *http.Request) (interface{}, error)
+}
+type patchItemResource interface {
+	PatchItem(r *http.Request) (interface{}, error)
 }
 type postItemResource interface {
 	PostItem(r *http.Request) (interface{}, error)
@@ -78,22 +79,22 @@ type postItemResource interface {
 type putItemResource interface {
 	PutItem(r *http.Request) (interface{}, error)
 }
-type headItemResource interface {
-	HeadItem(r *http.Request) (interface{}, error)
-}
-type patchItemResource interface {
-	PatchItem(r *http.Request) (interface{}, error)
-}
-type optionsItemResource interface {
-	OptionsItem(r *http.Request) (interface{}, error)
-}
 
 // Interface for resources which are able to work with collections of entities
+type deleteCollectionResource interface {
+	DeleteCollection(r *http.Request) (interface{}, error)
+}
 type getCollectionResource interface {
 	GetCollection(r *http.Request) (interface{}, error)
 }
-type deleteCollectionResource interface {
-	DeleteCollection(r *http.Request) (interface{}, error)
+type headCollectionResource interface {
+	HeadCollection(r *http.Request) (interface{}, error)
+}
+type optionsCollectionResource interface {
+	OptionsCollection(r *http.Request) (interface{}, error)
+}
+type patchCollectionResource interface {
+	PatchCollection(r *http.Request) (interface{}, error)
 }
 type postCollectionResource interface {
 	PostCollection(r *http.Request) (interface{}, error)
@@ -101,90 +102,64 @@ type postCollectionResource interface {
 type putCollectionResource interface {
 	PutCollection(r *http.Request) (interface{}, error)
 }
-type headCollectionResource interface {
-	HeadCollection(r *http.Request) (interface{}, error)
-}
-type patchCollectionResource interface {
-	PatchCollection(r *http.Request) (interface{}, error)
-}
-type optionsCollectionResource interface {
-	OptionsCollection(r *http.Request) (interface{}, error)
-}
 
 // Allows registering of resources to specific APIs
 func (api *restApi) RegisterResource(iface interface{}) {
 	baseName := strings.ToLower(iface.(resource).BaseName())
 
-	if handler, ok := iface.(getCollectionResource); ok {
-		api.getCollectionResources[baseName] = handler
+	if handler, ok := iface.(deleteItemResource); ok {
+		api.itemResources["DELETE"][baseName] = handler.DeleteItem
 	}
 
 	if handler, ok := iface.(getItemResource); ok {
-		api.getItemResources[baseName] = handler
+		api.itemResources["GET"][baseName] = handler.GetItem
+	}
+
+	if handler, ok := iface.(headItemResource); ok {
+		api.itemResources["HEAD"][baseName] = handler.HeadItem
+	}
+
+	if handler, ok := iface.(patchItemResource); ok {
+		api.itemResources["PATCH"][baseName] = handler.PatchItem
+	}
+
+	if handler, ok := iface.(postItemResource); ok {
+		api.itemResources["POST"][baseName] = handler.PostItem
+	}
+
+	if handler, ok := iface.(putItemResource); ok {
+		api.itemResources["PUT"][baseName] = handler.PutItem
 	}
 
 	if handler, ok := iface.(deleteCollectionResource); ok {
-		api.deleteCollectionResources[baseName] = handler
+		api.collectionResources["DELETE"][baseName] = handler.DeleteCollection
 	}
 
-	if handler, ok := iface.(deleteItemResource); ok {
-		api.deleteItemResources[baseName] = handler
+	if handler, ok := iface.(getCollectionResource); ok {
+		api.collectionResources["GET"][baseName] = handler.GetCollection
+	}
+
+	if handler, ok := iface.(headCollectionResource); ok {
+		api.collectionResources["HEAD"][baseName] = handler.HeadCollection
+	}
+
+	if handler, ok := iface.(patchCollectionResource); ok {
+		api.collectionResources["PATCH"][baseName] = handler.PatchCollection
+	}
+
+	if handler, ok := iface.(postCollectionResource); ok {
+		api.collectionResources["POST"][baseName] = handler.PostCollection
+	}
+
+	if handler, ok := iface.(putCollectionResource); ok {
+		api.collectionResources["PUT"][baseName] = handler.PutCollection
 	}
 }
 
-func (api *restApi) handleCollection(baseName string, r *http.Request) (interface{}, error) {
-	if r.Method == "GET" {
-		if handler, ok := api.getCollectionResources[baseName]; ok {
-			response, err := handler.GetCollection(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "DELETE" {
-		if handler, ok := api.deleteCollectionResources[baseName]; ok {
-			response, err := handler.DeleteCollection(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "POST" {
-		if handler, ok := api.postCollectionResources[baseName]; ok {
-			response, err := handler.PostCollection(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "PUT" {
-		if handler, ok := api.putCollectionResources[baseName]; ok {
-			response, err := handler.PutCollection(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "HEAD" {
-		if handler, ok := api.headCollectionResources[baseName]; ok {
-			response, err := handler.HeadCollection(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "OPTIONS" {
-		if handler, ok := api.optionsCollectionResources[baseName]; ok {
-			response, err := handler.OptionsCollection(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "PATCH" {
-		if handler, ok := api.patchCollectionResources[baseName]; ok {
-			response, err := handler.PatchCollection(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "POST" {
-		if handler, ok := api.postCollectionResources[baseName]; ok {
-			response, err := handler.PostCollection(r)
+func (api *restApi) handleItem(baseName string, r *http.Request) (interface{}, error) {
+	if resources, ok := api.itemResources[r.Method]; ok {
+		if handler, ok := resources[baseName]; ok {
+			response, err := handler(r)
 			return response, err
 		}
 	}
@@ -192,59 +167,10 @@ func (api *restApi) handleCollection(baseName string, r *http.Request) (interfac
 	return nil, errors.New(MatchingResourceNotFound)
 }
 
-func (api *restApi) handleItem(baseName string, r *http.Request) (interface{}, error) {
-	if r.Method == "GET" {
-		if handler, ok := api.getItemResources[baseName]; ok {
-			response, err := handler.GetItem(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "DELETE" {
-		if handler, ok := api.deleteItemResources[baseName]; ok {
-			response, err := handler.DeleteItem(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "POST" {
-		if handler, ok := api.postItemResources[baseName]; ok {
-			response, err := handler.PostItem(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "PUT" {
-		if handler, ok := api.putItemResources[baseName]; ok {
-			response, err := handler.PutItem(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "HEAD" {
-		if handler, ok := api.headItemResources[baseName]; ok {
-			response, err := handler.HeadItem(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "OPTIONS" {
-		if handler, ok := api.optionsItemResources[baseName]; ok {
-			response, err := handler.OptionsItem(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "PATCH" {
-		if handler, ok := api.patchItemResources[baseName]; ok {
-			response, err := handler.PatchItem(r)
-			return response, err
-		}
-	}
-
-	if r.Method == "POST" {
-		if handler, ok := api.postItemResources[baseName]; ok {
-			response, err := handler.PostItem(r)
+func (api *restApi) handleCollection(baseName string, r *http.Request) (interface{}, error) {
+	if resources, ok := api.collectionResources[r.Method]; ok {
+		if handler, ok := resources[baseName]; ok {
+			response, err := handler(r)
 			return response, err
 		}
 	}

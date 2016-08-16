@@ -3,6 +3,7 @@ package main
 import (
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/monokrome/restitude"
 	"log"
 	"net/http"
 	"os"
@@ -26,7 +27,7 @@ func getBindAddress() string {
 }
 
 func createServices() {
-	api := NewRestApi("/services/")
+	api := restitude.NewRestApi("/services/")
 	api.RegisterResource(TrackResource{})
 }
 

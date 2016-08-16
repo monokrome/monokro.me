@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -28,6 +29,14 @@ type restApi struct {
 	prefix              string
 	itemResources       map[string]restApiHandlerStore
 	collectionResources map[string]restApiHandlerStore
+}
+
+type CollectionResponse struct {
+	Objects interface{}
+}
+
+type ErrorResponse struct {
+	Message string
 }
 
 func NewRestApi(prefix string) *restApi {
@@ -188,22 +197,27 @@ func (api *restApi) onRequestReceived(w http.ResponseWriter, r *http.Request) {
 	var response interface{}
 	var err error
 
-	if len(parts) == 0 {
-		// TODO: Show schema
-	} else if len(parts) == 1 {
-		response, err = api.handleCollection(parts[0], r)
-	} else {
+	if len(parts) > 1 {
 		response, err = api.handleItem(parts[0], r)
+	} else if parts[0] == "" {
+		err = errors.New("Support for generating schemas is not yet implemented.")
+	} else {
+		response, err = api.handleCollection(parts[0], r)
+		response = CollectionResponse{
+			Objects: response,
+		}
 	}
 
 	if err != nil {
-		log.Print(err)
-		return
+		response = ErrorResponse{
+			Message: fmt.Sprintf("%s", err),
+		}
 	}
 
 	output, err := json.Marshal(response)
 
 	if err != nil {
+		// TODO: Handle this error case
 		log.Print(err)
 		return
 	}

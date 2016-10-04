@@ -6,4 +6,5 @@ machine:
 deployment:
   staging:
     branch: master
-    commands: []
+    commands:
+      - echo 'Deploying'

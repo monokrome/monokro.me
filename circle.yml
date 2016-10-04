@@ -6,5 +6,4 @@ machine:
 deployment:
   staging:
     branch: master
-    commands:
-      - make server
+    commands: []

@@ -1,0 +1,10 @@
+machine:
+  services:
+    - docker
+
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - make server

@@ -15,6 +15,6 @@ body
     width: 480px
     min-height: 100vh
 
-@media only screen and (min-widtH: 960px)
+@media only screen and (min-width: 960px)
   body > aside
     display: block

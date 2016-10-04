@@ -16,8 +16,6 @@ const (
 	timelineURL string = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 )
 
-var twitterCookies *cookiejar.Jar
-
 type twitterTokenResponse struct {
 	TokenType   string `json:"token_type"`
 	AccessToken string `json:"access_token"`
@@ -36,11 +34,20 @@ type twitterTimelineResponse struct {
 	Truncated           bool   `json:"truncated"`
 }
 
+var (
+	twitterCookies     *cookiejar.Jar
+	twitterAccessToken *twitterTokenResponse
+)
+
 func init() {
 	twitterCookies, _ = cookiejar.New(nil)
 }
 
 func getTwitterAccessToken() (*twitterTokenResponse, error) {
+	if twitterAccessToken != nil {
+		return twitterAccessToken, nil
+	}
+
 	if os.Getenv("TWITTER_ACCESS_TOKEN") == "" {
 		log.Println("Warning: TWITTER_ACCESS_TOKEN is not set.")
 	}
@@ -81,6 +88,7 @@ func getTwitterAccessToken() (*twitterTokenResponse, error) {
 		return nil, err
 	}
 
+	twitterAccessToken = tokenResponse
 	return tokenResponse, nil
 }
 

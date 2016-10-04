@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"rsc.io/letsencrypt"
 )
 
 func safeCheckError(err error) {
@@ -18,18 +19,31 @@ func checkError(err error) {
 	}
 }
 
-func main() {
+func ServeTLS() {
+	var letsEncryptManager letsencrypt.Manager
+
+	log.Println("Server starting")
+	log.Fatalln(letsEncryptManager.ServeHTTPS())
+}
+
+func ServeDevelopment() {
 	port := os.Getenv("PORT")
 
 	if port == "" {
 		port = "7000"
 	}
 
-	listenAddress := ":" + port
+	log.Println("Development server started at http://localhost:", port)
+	log.Fatalln(http.ListenAndServe(":"+port, nil))
+}
 
+func main() {
 	log.SetPrefix("monokro.me")
-	log.Println("Started server at ", listenAddress)
-
 	http.HandleFunc("/", onRequestReceived)
-	http.ListenAndServe(listenAddress, nil)
+
+	if isDebugMode() {
+		ServeDevelopment()
+	} else {
+		ServeTLS()
+	}
 }

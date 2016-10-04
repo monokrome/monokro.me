@@ -1,0 +1,20 @@
+body
+  display: -webkit-flex
+  display: flex
+  font-size: 1.3rem
+
+  > main
+    -webkit-flex-grow: 1
+    flex-grow: 1
+    padding: 0 3rem
+    min-height: 100vh
+    max-width: 33rem
+
+  > aside
+    display: none
+    width: 480px
+    min-height: 100vh
+
+@media only screen and (min-widtH: 960px)
+  body > aside
+    display: block

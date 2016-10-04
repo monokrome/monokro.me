@@ -1,0 +1,68 @@
+<!doctype html>
+
+
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <link rel="canonical" href="/">
+    <title>monokro.me</title>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>{{ .Stylesheet|css }}</style>
+
+    <script custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" async></script>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <h1>Hi! I'm Bailey. :}</h1>
+
+      <p>
+        I'm a software engineer working with <a
+          href="http://www.brit.co/">Brit + Co</a>. I've been
+        expirmenting with and learning about software for over
+        20 years, and am alwasy excited to try new things.
+
+        You can find a lot of <a
+          href="https://github.com/monokrome">my open source
+          experiments on GitHub.</a> My more practical code can
+        be <a href="https://github.com/LimpidTech">found
+          here.</a>
+      </p>
+
+      <p>
+        When I'm not working on a new project, I'm usually out
+        dancing, trying to find a new favorite food spot, or
+        making music. If you'd like, you can <a
+          href="https://www.soundcloud.com/monokrome">check out
+          my music on SoundCloud</a>, <a
+          href="https://itun.es/us/PwebS">iTunes</a>, or <a
+          href="https://play.spotify.com/album/601Ka7HrnUt9ghzXarViae?play=true&utm_source=open.spotify.com&utm_medium=open">Spotify</a>.
+      </p>
+
+      <p>
+        I'm just getting started with this site, but I hope
+        you'll <a
+          href="https://www.twitter.com/monokrome">follow me on
+          Twitter</a> if you're into that sort of thing.
+      </p>
+    </main>
+
+    <aside>
+      <section data-twitter-feed>
+        {{ range .Timeline }}
+        <amp-twitter width=486 height=657 layout="responsive"
+          data-tweetid="{{ .Identifier }}" data-cards="hidden">
+          <blockquote placeholder class="twitter-tweet" data-lang="en">
+            <p lang="en" dir="ltr">{{ .Text }}</p>
+            &mdash; Bailey Stoner (@monokrome)
+          </blockquote>
+        </amp-twitter>
+        {{ end }}
+      </section>
+    </aside>
+  </body>
+</html>

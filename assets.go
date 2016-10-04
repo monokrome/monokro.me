@@ -35,5 +35,5 @@ func getStyles() string {
 		stylesheet = result
 	}
 
-	return stylesheet
+	return result
 }

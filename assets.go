@@ -29,10 +29,11 @@ func getStyles() string {
 		log.Fatalln(err)
 	}
 
-	if isDebugMode() {
-		return buffer.String()
+	result := buffer.String()
+
+	if isDebugMode() != true {
+		stylesheet = result
 	}
 
-	stylesheet = buffer.String()
 	return stylesheet
 }

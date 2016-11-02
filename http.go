@@ -15,6 +15,20 @@ type ResponseContext struct {
 
 func ServeTLS() {
 	var letsEncryptManager letsencrypt.Manager
+
+	letsEncryptManager.SetHosts([]string{
+		"monokro.me",
+	})
+
+	for range letsEncryptManager.Watch() {
+		storeCertificateData(letsEncryptManager.Marshal())
+	}
+
+	certificateData, err := getCertificateData()
+	if err == nil {
+		letsEncryptManager.Unmarshal(certificateData)
+	}
+
 	log.Println("Starting service on port 443")
 	log.Fatalln(letsEncryptManager.ServeHTTPS())
 }

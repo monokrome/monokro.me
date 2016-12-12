@@ -20,10 +20,5 @@ func checkError(err error) {
 func main() {
 	log.SetPrefix("monokro.me")
 	http.HandleFunc("/", onRequestReceived)
-
-	if isDebugMode() {
-		ServeDevelopment()
-	} else {
-		ServeTLS()
-	}
+	Serve()
 }

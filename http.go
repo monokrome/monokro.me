@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"rsc.io/letsencrypt"
 	"strings"
 )
 
@@ -13,31 +12,11 @@ type ResponseContext struct {
 	Stylesheet string
 }
 
-func ServeTLS() {
-	var letsEncryptManager letsencrypt.Manager
-
-	letsEncryptManager.SetHosts([]string{
-		"monokro.me",
-	})
-
-	for range letsEncryptManager.Watch() {
-		storeCertificateData(letsEncryptManager.Marshal())
-	}
-
-	certificateData, err := getCertificateData()
-	if err == nil {
-		letsEncryptManager.Unmarshal(certificateData)
-	}
-
-	log.Println("Starting service on port 443")
-	log.Fatalln(letsEncryptManager.ServeHTTPS())
-}
-
-func ServeDevelopment() {
+func Serve() {
 	port := os.Getenv("PORT")
 
 	if port == "" {
-		port = "7000"
+		port = "3000"
 	}
 
 	log.Println("Development server started at http://localhost:", port)

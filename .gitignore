@@ -1,0 +1,8 @@
+# Python build artifacts
+__pycache__
+*.egg-info
+
+
+# Non-git hidden files
+.*
+!.git*

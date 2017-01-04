@@ -17,6 +17,7 @@ requires = [
     'pyramid',
     'pyramid_chameleon',
     'pyramid_debugtoolbar',
+    'pyscss',
     'pytest',
     'pytest-cov',
     'pytest-watch',

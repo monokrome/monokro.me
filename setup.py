@@ -12,6 +12,7 @@ with open(os.path.join(here, 'README.md')) as f:
 requires = [
     'flake8',
     'flake8-print',
+    'mock',
     'opbeat',
     'opbeat_pyramid',
     'pyramid',

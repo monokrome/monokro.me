@@ -1,5 +1,5 @@
 from zope import interface
 
 
-class RootEndpoint(interface.Interface):
+class IRootEndpoint(interface.Interface):
     pass

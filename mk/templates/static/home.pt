@@ -1,0 +1,10 @@
+<html metal:use-macro='layout'>
+<header metal:fill-slot='document_header'>
+    <div>Hi!</div>
+    <div>I'm Bailey</div>
+</header>
+
+<main metal:fill-slot='document_main'>
+    <p>I work on programs that tell computers how to do things. It's awesome.</p>
+</main>
+</html>

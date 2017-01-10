@@ -1,6 +1,6 @@
-from pyramid.view import view_config
+from pyramid import view
 
 
-@view_config(renderer='templates/home.pt')
+@view.view_config(renderer='templates/static/home.pt')
 def home(request, context):
     return {}

@@ -12,7 +12,7 @@ production: build
 
 
 test:
-	ptw -- --cov=mk -rssX -q $(PROJECTNAME)
+	ptw mk
 
 
 build:

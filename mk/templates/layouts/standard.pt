@@ -8,64 +8,44 @@
 
     <title>mk</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Spinnaker&amp;subset=latin-ext" rel="stylesheet">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
     <link rel="canonical" href="http://example.ampproject.org/article-metadata.html" />
 
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
-      * ~ *:not(h1,h2,h3,h4,h5,h6,a,span,code) {
-        margin-top: 1.2rem; }
-
-      p {
-        margin: 1.2rem auto;
-        max-width: 90%; }
-
-      html, body {
-        font-size: 1.32em;
-        font-family: Spinnaker, sans-serif; }
-
-      body > p {
-        margin: 2rem auto;
-        max-width: 90%; }
-
-      body > header {
-        margin-top: 3rem;
-        font-size: 2.4rem;
-        display: flex;
-        user-select: none; }
-
-        body > header > * {
-          flex-grow: 1;
-          padding: 1rem;
-          overflow: hidden;
-          color: #FFF;
-          background-color: #000;
-          text-align: right;
-          transition: flex-grow 300ms linear; }
-
-          body > header > * + * {
-            flex-grow: 0;
-            color: #333;
-            background-color: #C0C0FF; }
-
-        code {
-          margin: 0 auto;
-          display: block;
-          max-width: 48em;
-          font-weight: lighter;
-          font-size: 0.9rem;
-          white-space: pre;
-          color: #999;
-          user-select: none; }
+      @font-face { font-family: 'Spinnaker'; font-style: normal; font-weight: 400; src: local('Spinnaker'), local('Spinnaker-Regular'), url(https://fonts.gstatic.com/s/spinnaker/v8/W7zI5bHqD9Cyn2evfF7Qn4X0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2'); unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF; }
+      @font-face { font-family: 'Spinnaker'; font-style: normal; font-weight: 400; src: local('Spinnaker'), local('Spinnaker-Regular'), url(https://fonts.gstatic.com/s/spinnaker/v8/WxzDAY6mC9v3znSJEtCoW5Bw1xU1rKptJj_0jans920.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+      html { min-height: 100vh; }
+      body { background-color: #333; color: #F9F9F9; font-family: Spinnaker, sans-serif; font-size: 1.6em; min-height: 100vh; }
+      header { height: 40vh; }
+      main { text-align: center; }
+      a:link, a:active, a:visited, a:hover { color: #C9C9C9; text-decoration: none; color: #C9F; }
+      h2 { margin-bottom: 0; color: #C9F; }
+      nav > ul { padding: 0; list-style: none; }
+      nav > ul > li { padding: 0 1rem; display: inline-block; }
+      nav > ul > li > a::before { content: ':: '; font-size: 0.96rem; }
     </style>
 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
 
   <body metal:define-slot='document_body'>
-    <header metal:define-slot='document_header' />
-    <main   metal:define-slot='document_main'   />
-    <aside  metal:define-slot='document_aside'  />
-    <footer metal:define-slot='document_footer' />
+    <header metal:define-slot='document_header'></header>
+
+    <main   metal:define-slot='document_main'>
+      <h2>Hi! &lt;3</h2>
+
+      <p>I'm Bailey, and I <strong>love</strong> to make things!</p>
+      <p><small>Here are some things I like:</small></p>
+
+      <nav>
+        <ul>
+          <li> <a href="https://github.com/monokrome">code</a>
+          <li> <a href="https://soundcloud.com/monokrome">music</a>
+        </ul>
+      </nav>
+    </main>
+
+    <footer metal:define-slot='document_footer'></footer>
   </body>
 </html>

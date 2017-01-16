@@ -17,4 +17,7 @@ build:
 	mkdir build
 
 
+TEST
+
+
 .PHONY: all test latest production

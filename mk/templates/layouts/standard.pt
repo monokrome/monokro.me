@@ -34,7 +34,7 @@
 
     <main   metal:define-slot='document_main'>
       <h2>Hi! &lt;3</h2>
-      <p>I'm Bailey, and I <strong>love</strong> to make things!</p>
+      <p>I'm Bailey, and I love to make things!</p>
 
       <nav>
         <ul>

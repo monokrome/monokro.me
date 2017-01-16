@@ -1,4 +1,4 @@
-PROJECT_NAME=mk
+PROJECT_NAME=monokro.me
 
 
 latest: build
@@ -15,9 +15,6 @@ test:
 
 build:
 	mkdir build
-
-
-TEST
 
 
 .PHONY: all test latest production

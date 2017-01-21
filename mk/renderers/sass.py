@@ -1,3 +1,4 @@
+import cssmin
 import sass
 import os
 
@@ -18,6 +19,14 @@ class SASSRendererFactory(object):
             info.name,
         )
 
+    def _minify(self, contents):
+        should_minify = self.registry.settings.get('sass.minify', 'true')
+
+        if should_minify.lower() == 'false':
+            return contents
+
+        return cssmin.cssmin(contents)
+
     def _get_file_contents(self):
         with open(self.template_path, 'r') as resource:
             return resource.read()
@@ -31,4 +40,5 @@ class SASSRendererFactory(object):
         if not self.registry.settings.get('pyramid.reload_templates'):
             self.STYLES_CACHE[self.template_path] = file_contents
 
-        return sass.compile(string=file_contents)
+        compiled_asset = sass.compile(string=file_contents)
+        return self._minify(compiled_asset)

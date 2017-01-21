@@ -10,10 +10,11 @@ with open(os.path.join(here, 'README.md')) as f:
 
 
 requires = [
-    'libsass',
     'flake8',
     'flake8-print',
     'letsencrypt',
+    'libsass',
+    'cssmin',
     'mock',
     'opbeat',
     'opbeat_pyramid',

@@ -10,8 +10,10 @@ with open(os.path.join(here, 'README.md')) as f:
 
 
 requires = [
+    'libsass',
     'flake8',
     'flake8-print',
+    'letsencrypt',
     'mock',
     'opbeat',
     'opbeat_pyramid',
@@ -22,7 +24,9 @@ requires = [
     'pytest',
     'pytest-cov',
     'pytest-watch',
+    'six',
     'waitress',
+    'wordpress-json',
     'zope.interface',
 ]
 

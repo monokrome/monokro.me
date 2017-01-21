@@ -1,0 +1,10 @@
+<html metal:use-macro='layout'>
+<main metal:fill-slot='document_main'>
+    <article tal:repeat='post items'>
+        <header><h2 tal:content="structure:post.title.rendered"></h2></header>
+        <p tal:content="structure:post.content.rendered"></p>
+        <footer><small>Posted ${post.date}</small></footer>
+    </article>
+</main>
+</html>
+

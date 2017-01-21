@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Spinnaker';
+  font-style: normal;
+  font-weight: 400;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  src: local('Spinnaker'), local('Spinnaker-Regular'),
+       url(https://fonts.gstatic.com/s/spinnaker/v8/WxzDAY6mC9v3znSJEtCoW5Bw1xU1rKptJj_0jans920.woff2) format('woff2');
+}
+
+
+* {
+  margin-top: 0;
+}
+
+
+* ~ * {
+  margin-top: 1.2rem;
+}
+
+
+html {
+  min-height: 100vh;
+}
+
+
+body {
+  font-family: Spinnaker, sans-serif;
+  font-size: 1.6em;
+  min-height: 100vh;
+}
+
+
+body > header {
+  min-height: 2.4rem;
+  font-size: 1.2rem;
+  background-color: #CC6C9C;
+}
+
+
+body > header > h3 {
+  color: #FFF;
+  float: right;
+}
+
+
+article {
+  margin: 0 auto;
+  width: 52rem;
+  max-width: 90%;
+  user-select: none;
+}

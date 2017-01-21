@@ -12,7 +12,7 @@
     <link rel="canonical" href="${request.url}" />
 
     <tal:if condition='stylesheet'>
-      <style tal:content="structure:stylesheet"></style>
+      <style amp-boilerplate tal:content="structure:stylesheet"></style>
     </tal:if>
 
     <script async src="https://cdn.ampproject.org/v0.js"></script>

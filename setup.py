@@ -22,6 +22,7 @@ requires = [
     'pytest',
     'pytest-cov',
     'pytest-watch',
+    'uwsgi',
     'waitress',
     'zope.interface',
 ]

@@ -1,12 +1,12 @@
-PROJECT_NAME=monokro.me
+PROJECT=monokro.me
 
 
 latest: build
-	docker build -t monokrome/$(PROJECT_NAME):$@ .
+	docker build -t monokrome/$(PROJECT):$@ .
 
 
 production: build
-	docker build -t monokrome/$(PROJECT_NAME):$@ .
+	docker build -t monokrome/$(PROJECT):$@ .
 
 
 test:

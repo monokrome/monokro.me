@@ -6,3 +6,4 @@ venusian==1.0
 WebOb==1.7.0
 zope.deprecation==4.2.0
 zope.interface==4.3.3
+uwsgi

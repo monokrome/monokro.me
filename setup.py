@@ -30,7 +30,7 @@ requires = [
 
 setup(
     name='mk',
-    version='0.0',
+    version='0.10',
     description='Exposing my website, one hacker at a time.',
     long_description=README,
     classifiers=[

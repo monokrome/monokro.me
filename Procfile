@@ -1,1 +1,1 @@
-web: uwsgi --ini etc/production.ini
+web: ./bin/serve

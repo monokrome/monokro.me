@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+
+environment=$1
+[ -z $environment ] && environment=production
+
+
+python setup.py develop
+uwsgi --ini etc/${environment}.ini

@@ -14,7 +14,7 @@ requires = [
     'flake8-print',
     'mock',
     'opbeat',
-    'opbeat_pyramid',
+    'opbeat_pyramid=1.0.9',
     'pyramid',
     'pyramid_chameleon',
     'pyramid_debugtoolbar',

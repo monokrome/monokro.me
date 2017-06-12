@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { connect } from 'react-redux'
 
 import styled from 'styled-components'
 
@@ -15,7 +16,11 @@ class Header extends React.Component {
   }
 }
 
-export default styled(Header)`
+function mapStateToProps(state) {
+  return { title: state.title }
+}
+
+export default connect(mapStateToProps)(styled(Header)`
   margin: calc(50vh - 0.8em) auto 0;
   width: 2.5ex;
   height: 0.6em;
@@ -26,4 +31,4 @@ export default styled(Header)`
   font-size: 8rem;
   text-align: center;
   border-radius: 1rem 0 1rem 0;
-`
+`)

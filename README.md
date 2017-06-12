@@ -1,5 +1,5 @@
-React Webpack Starter
-=====================
+React+Redux Webpack Starter
+===========================
 
 
 This is a project providing a minimal boilerplate for getting started with

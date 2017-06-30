@@ -1,1 +1,1 @@
-web: ldconfig && ./bin/serve
+web: ./bin/serve

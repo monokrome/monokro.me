@@ -1,0 +1,17 @@
+machine:
+  timezone: America/Los_Angeles
+  services:
+    - docker
+
+
+dependencies:
+  override:
+    - pip install coveralls
+    - pip install -e .
+
+
+test:
+  override:
+    - py.test --cov=mk -rssX -q mk
+    - flake8 mk
+    - coveralls

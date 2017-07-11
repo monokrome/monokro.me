@@ -3,16 +3,16 @@ import os
 from setuptools import setup
 from setuptools import find_packages
 
-
 here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.md')) as f:
     README = f.read()
 
-
 requires = [
-  'aiohttp'
+    'aiohttp',
+    'aiohttp-devtools',
+    'venusian',
+    'yapf',
 ]
-
 
 setup(
     name='mk',
@@ -38,6 +38,4 @@ setup(
     entry_points="""\
     [paste.app_factory]
     main = mk:main
-    """,
-)
-
+    """, )

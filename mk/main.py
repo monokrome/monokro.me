@@ -1,9 +1,8 @@
 from aiohttp import web
 
+import mk
 from mk import routing
 
 
 def get_application() -> web.Application:
-    application = web.Application()
-    routing.setup(application)
-    return application
+    return routing.scan(mk)

@@ -1,18 +1,57 @@
+import builtins
+import functools
+import importlib
+import sys
 import typing
 
-from aiohttp import web
-from aiohttp import web_request
+from aiohttp import web, web_request
+import venusian
 
-from mk import views
+ViewHndlerType = typing.Callable[[web_request.Request], web.Response]
+# Note; Is there a better way to do this?
+PackageType = builtins.__class__
 
-ViewHandler = typing.Callable[[web_request.Request], web.Response]
-
-
-def add_view(url_pattern: str, handle_via: ViewHandler):
-    return application.router.add_get(url_pattern, handle_via)
+application_ref = None
 
 
-def setup(application: 'aiohttp.web.Application'):
-    """ TODO: Scanning / Decorators """
+def setup_route(
+    application: web.Application,
+    url_pattern: str,
+    method: str,
+    handle_via: ViewHndlerType
+) -> ViewHndlerType:
 
-    return application.router.add_get('/', views.index)
+    method_name = 'add_' + method.lower()
+    add_via = getattr(application.router, method_name, None)
+
+    if add_via is None:
+        fprint(
+            sys.stderr,
+            f'{method} is not a supported method for {handle_via}',
+        )
+
+    add_via(url_pattern, handle_via)
+    return setup_route
+
+
+def view(url_pattern: str, *, method: str='GET') -> ViewHndlerType:
+    return functools.partial(setup_route, application_ref, url_pattern, method)
+
+
+def scan(
+    package: typing.Union[PackageType, str],
+    application: typing.Optional[web.Application] = None,
+) -> web.Application:
+
+    # TODO: Deprecate this
+    global application_ref
+
+    if application is None:
+        application = web.Application()
+
+    application_ref = application
+    scanner = venusian.Scanner()
+    scanner.scan(package)
+    application_ref = None
+
+    return application

@@ -25,9 +25,8 @@ def setup_route(
     add_via = getattr(application.router, method_name, None)
 
     if add_via is None:
-        fprint(
-            sys.stderr,
-            f'{method} is not a supported method for {handle_via}',
+        sys.stderr.write(
+            f'{method} is not a supported method for {handle_via}'
         )
 
     add_via(url_pattern, handle_via)

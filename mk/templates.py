@@ -11,7 +11,6 @@ TEMPLATES_PATH = os.sep.join([os.path.dirname(__file__), TEMPLATES_DIRNAME])
 
 
 def render(path: str, body: str, data: ContextType=None) -> str:
-
     if data is None:
         data = {}
 

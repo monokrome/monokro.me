@@ -10,8 +10,7 @@ TEMPLATES_DIRNAME = os.environ.get('TEMPLATES_DIRNAME', 'templates')
 TEMPLATES_PATH = os.sep.join([os.path.dirname(__file__), TEMPLATES_DIRNAME])
 
 
-def render(path: str, body: str,
-           data: typing.Optional[ContextType]=None) -> str:
+def render(path: str, body: str, data: ContextType=None) -> str:
 
     if data is None:
         data = {}
@@ -19,8 +18,8 @@ def render(path: str, body: str,
     return string.Template(body).safe_substitute(data)
 
 
-async def load(*path_segments: typing.Tuple[str]) -> RendererType:
-    path_segments = list(path_segments)
+async def load(*args: str) -> RendererType:
+    path_segments = list(args)
     path_segments.insert(0, TEMPLATES_PATH)
     path = os.sep.join(path_segments)
 

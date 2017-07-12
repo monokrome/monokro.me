@@ -1,15 +1,13 @@
-import builtins
 import functools
 import importlib
 import sys
+import types
 import typing
 
 from aiohttp import web, web_request
 import venusian
 
-ViewHndlerType = typing.Callable[[web_request.Request], web.Response]
-# Note; Is there a better way to do this?
-PackageType = builtins.__class__
+ViewHandlerType = typing.Callable[[web_request.Request], web.Response]
 
 application_ref = None
 
@@ -18,8 +16,8 @@ def setup_route(
     application: web.Application,
     url_pattern: str,
     method: str,
-    handle_via: ViewHndlerType
-) -> ViewHndlerType:
+    handle_via: ViewHandlerType
+) -> ViewHandlerType:
 
     method_name = 'add_' + method.lower()
     add_via = getattr(application.router, method_name, None)
@@ -30,15 +28,15 @@ def setup_route(
         )
 
     add_via(url_pattern, handle_via)
-    return setup_route
+    return handle_via
 
 
-def view(url_pattern: str, *, method: str='GET') -> ViewHndlerType:
+def view(url_pattern: str, *, method: str='GET') -> ViewHandlerType:
     return functools.partial(setup_route, application_ref, url_pattern, method)
 
 
 def scan(
-    package: typing.Union[PackageType, str],
+    package: typing.Union[types.ModuleType, str],
     application: typing.Optional[web.Application] = None,
 ) -> web.Application:
 

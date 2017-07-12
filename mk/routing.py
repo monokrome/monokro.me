@@ -43,12 +43,16 @@ def scan(
     application: typing.Optional[web.Application] = None,
 ) -> web.Application:
 
-    # TODO: Deprecate this
+    # TODO: Deprecate this silly hack
     global application_ref
+
+    if isinstance(package, str):
+        package = importlib.import_module(package)
 
     if application is None:
         application = web.Application()
 
+    # Hack to get application into setup_route
     application_ref = application
     scanner = venusian.Scanner()
     scanner.scan(package)

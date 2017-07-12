@@ -9,5 +9,4 @@ from mk import templates
 async def index(request: web_request.Request) -> web.Response:
     template = await templates.load('index.html')
     content = template()
-
     return web.Response(text=content, content_type='text/html')

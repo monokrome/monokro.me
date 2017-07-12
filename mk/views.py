@@ -2,8 +2,12 @@ from aiohttp import web
 from aiohttp import web_request
 
 from mk import routing
+from mk import templates
 
 
 @routing.view('/')
 async def index(request: web_request.Request) -> web.Response:
-    return web.Response(text='Hello, Bailey!')
+    template = await templates.load('index.html')
+    content = template()
+
+    return web.Response(text=content, content_type='text/html')

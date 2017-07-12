@@ -10,6 +10,7 @@ with open(os.path.join(here, 'README.md')) as f:
 requires = [
     'aiohttp',
     'aiohttp-devtools',
+    'cchardet',
     'venusian',
     'yapf',
 ]

@@ -14,7 +14,7 @@ def render(path: str, body: str, data: ContextType=None) -> str:
     if data is None:
         data = {}
 
-    return string.Template(body).safe_substitute(data)
+    return string.Template(body).substitute(data)
 
 
 async def load(*args: str) -> RendererType:

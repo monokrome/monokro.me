@@ -10,7 +10,7 @@ async def index(request: web_request.Request) -> web.Response:
     template = await templates.load('index.html')
 
     content = template({
-        'request': request,
+        'url': request.url,
     })
 
     return web.Response(text=content, content_type='text/html')

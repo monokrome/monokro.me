@@ -12,20 +12,17 @@ ViewHandlerType = typing.Callable[[web_request.Request], web.Response]
 application_ref = None
 
 
-def setup_route(
-    application: web.Application,
-    url_pattern: str,
-    method: str,
-    handle_via: ViewHandlerType
-) -> ViewHandlerType:
+def setup_route(application: web.Application,
+                url_pattern: str,
+                method: str,
+                handle_via: ViewHandlerType) -> ViewHandlerType:
 
     method_name = 'add_' + method.lower()
     add_via = getattr(application.router, method_name, None)
 
     if add_via is None:
-        sys.stderr.write(
-            f'{method} is not a supported method for {handle_via}'
-        )
+        error_message = '{} is not a supported method for {}'
+        sys.stderr.write(error_message.format(method, handle_via))
 
     add_via(url_pattern, handle_via)
     return handle_via
@@ -36,8 +33,8 @@ def view(url_pattern: str, *, method: str='GET') -> ViewHandlerType:
 
 
 def scan(
-    package: typing.Union[types.ModuleType, str],
-    application: typing.Optional[web.Application] = None,
+        package: typing.Union[types.ModuleType, str],
+        application: typing.Optional[web.Application]=None,
 ) -> web.Application:
 
     # TODO: Deprecate this silly hack

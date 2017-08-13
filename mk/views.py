@@ -8,5 +8,9 @@ from mk import templates
 @routing.view('/')
 async def index(request: web_request.Request) -> web.Response:
     template = await templates.load('index.html')
-    content = template()
+
+    content = template({
+        'request': request,
+    })
+
     return web.Response(text=content, content_type='text/html')

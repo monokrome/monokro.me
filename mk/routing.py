@@ -4,7 +4,8 @@ import sys
 import types
 import typing
 
-from aiohttp import web, web_request
+from aiohttp import web
+from aiohttp import web_request
 import venusian
 
 ViewHandlerType = typing.Callable[[web_request.Request], web.Response]

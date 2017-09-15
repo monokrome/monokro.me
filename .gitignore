@@ -1,0 +1,9 @@
+# Build artifacts
+**/*.rs.bk
+*.lock
+/target/
+
+# Non-git hidden files
+.*
+!/.git*
+

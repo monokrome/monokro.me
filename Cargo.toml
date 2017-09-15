@@ -1,0 +1,13 @@
+[package]
+name = "mk"
+version = "0.1.0"
+authors = ["Bailey Stoner <bailey@patreon.com>"]
+
+[dependencies]
+hyper = "0.11"
+futures = "0.1.14"
+pretty_env_logger = "0.1.1"
+
+[[bin]]
+name = "mk"
+path = "main.rs"

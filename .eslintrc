@@ -13,16 +13,12 @@
     "__dirname": true,
     "console": true,
     "document": true,
+    "window": true,
     "expect": true,
     "module": true,
     "process": true,
     "require": true,
     "test": true,
-  },
-
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true
   },
 
   "env": {

@@ -29,7 +29,13 @@ export default class Blocks extends Component {
         const xDelta = context.canvas.width / gridSize;
         const yDelta = context.canvas.height / gridSize;
 
-        const drawResult = draw(1 / gridSize * x, 1 / gridSize * y);
+        const drawResult = draw(
+          1 / gridSize * x,
+          1 / gridSize * y,
+          xDelta,
+          yDelta,
+          context
+        );
         const updates = Object.assign({ fillStyle: "white" }, drawResult);
 
         Object.assign(context, updates);

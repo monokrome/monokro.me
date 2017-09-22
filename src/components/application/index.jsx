@@ -2,10 +2,20 @@ import React from "react";
 
 import Blocks from "components/blocks";
 
-const draw = (x, y) => {
-  const time = +new Date();
-  if (Math.sin(time * x / 200) > 0.5) return { fillStyle: "steelblue" };
-  return { fillStyle: "#FF9900" };
+const draw = (x, y, xGridSize, yGridSize, context) => {
+  const xPos = context.canvas.width * x;
+  const yPos = context.canvas.height * y;
+
+  context.fillStyle = "#FF9900";
+  context.strokeStyle = "steelblue";
+  context.strokeWidth = 3;
+
+  context.fillRect(
+    xPos,
+    yPos + Math.sin(+new Date() / 500),
+    xGridSize,
+    yGridSize
+  );
 };
 
 export default props => <Blocks draw={draw} />;

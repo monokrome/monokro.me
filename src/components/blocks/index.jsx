@@ -24,25 +24,8 @@ export default class Blocks extends Component {
   draw = () => {
     const { context, draw, gridSize } = this.props;
 
-    for (let x = 0; x < gridSize; ++x) {
-      for (let y = 0; y < gridSize; ++y) {
-        const xDelta = context.canvas.width / gridSize;
-        const yDelta = context.canvas.height / gridSize;
-
-        const drawResult = draw(
-          1 / gridSize * x,
-          1 / gridSize * y,
-          xDelta,
-          yDelta,
-          context
-        );
-        const updates = Object.assign({ fillStyle: "white" }, drawResult);
-
-        Object.assign(context, updates);
-
-        context.fillRect(xDelta * x, yDelta * y, xDelta, yDelta);
-      }
-    }
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+    draw(context);
 
     this.animationRequestId = null;
     this.requestAnimationFrame();

@@ -4,11 +4,7 @@ import Blocks from "components/blocks";
 
 const gridCount = 10;
 
-const gridXSize = context => context.canvas.width / gridCount;
-const gridYSize = context => context.canvas.height / gridCount;
-
-const gridX = (context, x) => gridXSize(context) * x;
-const gridY = (context, y) => gridYSize(context) * y;
+const gridSize = () => Math.min(window.innerHeight, window.innerWidth) / 10;
 
 const sinAsRatio = value => (Math.sin(value) + 1) / 2;
 
@@ -33,10 +29,10 @@ class Rect {
   }
 
   draw(context) {
-    const xPos = gridX(context, this.x);
-    const yPos = gridY(context, this.y);
-    const xSize = gridXSize(context) * this.w;
-    const ySize = gridYSize(context) * this.h;
+    const xPos = gridSize() * this.x;
+    const yPos = gridSize() * this.y;
+    const xSize = gridSize(context) * this.w;
+    const ySize = gridSize(context) * this.h;
 
     Object.assign(context, this.attributes);
     context.fillRect(xPos, yPos, xSize, ySize);
@@ -62,6 +58,19 @@ const getObjects = () => {
 };
 
 const draw = context => {
+  context.canvas.width = gridSize() * gridCount;
+  context.canvas.height = gridSize() * gridCount;
+
+  context.canvas.style.marginLeft = parseInt(
+    (window.innerWidth - context.canvas.width) / 2,
+    10
+  );
+
+  context.canvas.style.marginTop = parseInt(
+    (window.innerHeight - context.canvas.height) / 2,
+    10
+  );
+
   context.fillStyle = "steelblue";
   context.strokeStyle = "white";
 
@@ -70,10 +79,10 @@ const draw = context => {
       new Rect(x, y, 1, 1).draw(context);
 
       context.strokeRect(
-        gridX(context, x),
-        gridY(context, y),
-        gridXSize(context),
-        gridYSize(context)
+        gridSize() * x,
+        gridSize() * y,
+        gridSize(),
+        gridSize()
       );
     }
 

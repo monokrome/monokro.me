@@ -25,6 +25,7 @@ export default class Blocks extends Component {
     const { context, draw, gridSize } = this.props;
 
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
     draw(context);
 
     this.animationRequestId = null;

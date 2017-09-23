@@ -4,7 +4,8 @@ import Blocks from "components/blocks";
 
 const gridCount = 10;
 
-const gridSize = () => Math.min(window.innerHeight, window.innerWidth) / 10;
+const gridSize = () =>
+  Math.min(window.innerHeight, window.innerWidth) / 10 * 0.9;
 
 const sinAsRatio = value => (Math.sin(value) + 1) / 2;
 

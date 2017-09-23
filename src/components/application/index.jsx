@@ -10,6 +10,8 @@ const gridYSize = context => context.canvas.height / gridCount;
 const gridX = (context, x) => gridXSize(context) * x;
 const gridY = (context, y) => gridYSize(context) * y;
 
+const sinAsRatio = value => (Math.sin(value) + 1) / 2;
+
 class Rect {
   constructor(x, y, w, h, maxAge) {
     this.createdAt = +new Date();
@@ -41,14 +43,23 @@ class Rect {
   }
 }
 
-const OBJECTS = [
-  new Rect(0, 0, 1, 1).withAttributes({ fillStyle: "white" }),
-  new Rect(9, 0, 1, 1).withAttributes({ fillStyle: "white" }),
-  new Rect(9, 9, 1, 1).withAttributes({ fillStyle: "white" }),
-  new Rect(0, 9, 1, 1).withAttributes({ fillStyle: "white" }),
+const clamp = (min, val, max) => Math.min(max, Math.max(min, val));
+const getObjects = () => {
+  const padding = 2;
+  const range = -1 + gridCount - padding * 2;
 
-  new Rect(4, 6, 4, 2).withAttributes({ fillStyle: "#FF9900" })
-];
+  const yValue = parseInt(sinAsRatio(+new Date() / 600) * range, 10) + padding;
+  const y = Math.max(padding, clamp(padding, yValue, gridCount - padding));
+
+  return [
+    new Rect(0, 0, 1, 1).withAttributes({ fillStyle: "white" }),
+    new Rect(9, 0, 1, 1).withAttributes({ fillStyle: "white" }),
+    new Rect(9, 9, 1, 1).withAttributes({ fillStyle: "white" }),
+    new Rect(0, 9, 1, 1).withAttributes({ fillStyle: "white" }),
+
+    new Rect(4, y, 4, 2).withAttributes({ fillStyle: "#FF9900" })
+  ];
+};
 
 const draw = context => {
   context.fillStyle = "steelblue";
@@ -66,7 +77,7 @@ const draw = context => {
       );
     }
 
-  OBJECTS.map(obj => obj.draw(context));
+  getObjects().map(obj => obj.draw(context));
 };
 
 export default props => <Blocks draw={draw} />;

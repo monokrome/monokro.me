@@ -1,35 +1,18 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-const CODEPEN_SCRIPT_URL = 'https://codepen.io/eijs.js'
-
-// Tracks whether or not we have injected the codepen script into this document
-let embedScriptInstance = null
+import ExternalInclude from 'components/external_include'
 
 export default class CodePen extends Component {
   static propTypes = {
     slug: PropTypes.string.isRequired,
-    initialTab: PropTypes.oneOf(['html', 'css', 'js', 'code']),
+    initialTab: PropTypes.oneOf(['html', 'css', 'js', 'result']),
     height: PropTypes.number,
   }
 
   static defaultProps = {
     height: 260,
     initialTab: 'result',
-  }
-
-  constructor() {
-    super()
-    this.injectCodePenScript()
-  }
-
-  injectCodePenScript() {
-    if (embedScriptInstance) document.head.removeChild(embedScriptInstance)
-    const element = document.createElement('script')
-    element.async = true
-    element.src = CODEPEN_SCRIPT_URL
-    document.head.appendChild(element)
-    embedScriptInstance = element
   }
 
   getUserURL() {
@@ -45,14 +28,16 @@ export default class CodePen extends Component {
     const height = this.props.height
 
     return (
-      <p
-        className="codepen"
-        data-height={height}
-        data-slug-hash={slug}
-        data-user={user}
-        data-theme-id="0"
-        data-default-tab={initialTab}
-      />
+      <ExternalInclude src="https://codepen.io/eijs.js">
+        <p
+          className="codepen"
+          data-height={height}
+          data-slug-hash={slug}
+          data-user={user}
+          data-theme-id="0"
+          data-default-tab={initialTab}
+        />
+      </ExternalInclude>
     )
   }
 }

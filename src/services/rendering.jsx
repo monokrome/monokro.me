@@ -1,8 +1,8 @@
 import React from 'react'
 import DOM from 'react-dom/server'
 import fs from 'fs'
-import { Provider } from 'react-redux'
-import { ServerStyleSheet } from 'styled-components'
+import {Provider} from 'react-redux'
+import {ServerStyleSheet} from 'styled-components'
 
 import store from 'store'
 
@@ -11,11 +11,13 @@ import Application from '../components/application'
 export default function render(request: Object) {
   const sheet = new ServerStyleSheet()
 
-  const document = DOM.renderToString(sheet.collectStyles(
-    <Provider store={store}>
-      <Application />
-    </Provider>
-  ))
+  const document = DOM.renderToString(
+    sheet.collectStyles(
+      <Provider store={store}>
+        <Application />
+      </Provider>,
+    ),
+  )
 
   return `
     <DOCTYPE html>
@@ -24,6 +26,7 @@ export default function render(request: Object) {
       <head>
         <meta charset=UTF-8>
         <title>Welcome to React</title>
+        <style>html, body { margin: 0; box-sizing: border-box; }</style>
         ${sheet.getStyleTags()}
       </head>
 

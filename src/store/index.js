@@ -1,4 +1,5 @@
-import { createStore } from 'redux'
+import {createStore} from 'redux'
+import {themes} from 'design/themes'
 
 // TODO: Look into better/conventional patterns for this
 const ACTION_HANDLERS = {}
@@ -10,5 +11,5 @@ const reducer = (currentState: Object, action: Object) => {
 }
 
 export default createStore(reducer, {
-  title: '❤',
+  theme: {current: 'default'},
 })

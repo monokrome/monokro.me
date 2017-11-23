@@ -12,11 +12,11 @@ import Application from '../components/application'
 module.exports = function render(request: Object) {
   const sheet = new ServerStyleSheet()
 
-  const document = sheet.collectStyles(
+  const document = DOM.renderToString(sheet.collectStyles(
     <Provider store={store}>
       <Application />
     </Provider>
-  )
+  ))
 
   return `
     <DOCTYPE html>
@@ -29,7 +29,7 @@ module.exports = function render(request: Object) {
       </head>
 
       <body>
-        <div id="root">${DOM.renderToString(document)}</div>
+        <div id="root">${document}</div>
         <script src=/index.js></script>
       </body>
     </html>

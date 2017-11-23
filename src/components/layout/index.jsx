@@ -26,8 +26,11 @@ class Layout extends Component {
 }
 
 export default styled(Layout)`
-  display: flex;
-  flex-direction: ${props => props.direction};
+  display: ${props => props.mode};
+
+  ${props => {
+    if (props.mode === 'flex') return `flex-direction: ${props.direction}`
+  }};
 
   h3 {
     color: ${props => props.theme.darkest};

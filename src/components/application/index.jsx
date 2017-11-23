@@ -16,8 +16,10 @@ class Application extends Component {
     return (
       <WithTheme>
         <Layout>
-          <main className={this.props.className}>
-            <Article header="Lorem ipsum dolor sit amet">
+          <main>
+            <Article
+              className={this.props.className}
+              header="Lorem ipsum dolor sit amet">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
                 elementum rutrum lorem, et efficitur dolor. Nulla vel tempor

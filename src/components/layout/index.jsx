@@ -5,7 +5,7 @@ import styled from 'styled-components'
 class Layout extends Component {
   static propTypes = {
     // Display mode for the children in this layout
-    mode: PropTypes.oneOf(['flex', 'block', 'inline', 'inline-block']),
+    mode: PropTypes.oneOf(['flex', 'block']),
 
     // Direction for Flex layout
     direction: PropTypes.oneOf(['row', 'column']),
@@ -15,7 +15,7 @@ class Layout extends Component {
   }
 
   static defaultProps = {
-    mode: 'flex',
+    mode: 'block',
     direction: 'row',
   }
 

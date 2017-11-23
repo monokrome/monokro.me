@@ -1,15 +1,14 @@
-const fs = require('fs')
-
-const DOM = require('react-dom/server')
-const React = require('react')
-
-const { Provider } = require('react-redux')
-const { ServerStyleSheet } = require('styled-components')
+import DOM from 'react-dom/server'
+import React from 'react'
+import fs from 'fs'
+import { Provider } from 'react-redux'
+import { ServerStyleSheet } from 'styled-components'
 
 import store from 'store'
+
 import Application from '../components/application'
 
-module.exports = function render(request: Object) {
+export default function render(request: Object) {
   const sheet = new ServerStyleSheet()
 
   const document = DOM.renderToString(sheet.collectStyles(

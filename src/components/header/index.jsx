@@ -7,11 +7,11 @@ import styled from 'styled-components'
 class Header extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    className: PropTypes.string.isRequired
+    className: PropTypes.string.isRequired,
   }
 
   render() {
-    const { className, title } = this.props
+    const {className, title} = this.props
     return <h3 className={className}>{title}</h3>
   }
 }
@@ -26,7 +26,7 @@ export default connect(mapStateToProps)(styled(Header)`
   height: 0.6em;
   line-height: 0.9em;
   background-color: #090939;
-  color: #FFF;
+  color: #fff;
   overflow: hidden;
   font-size: 8rem;
   text-align: center;

@@ -33,7 +33,7 @@ class Application extends Component {
                 nulla, id sodales dui.
               </p>
 
-              <CodePen slug="rVYOao" user="monokrome" />
+              <CodePen slug="rVYOao" />
 
               <p>
                 Vestibulum vel enim neque. Quisque mollis commodo nulla id

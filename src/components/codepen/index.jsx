@@ -9,13 +9,12 @@ let embedScriptInstance = null
 export default class CodePen extends Component {
   static propTypes = {
     slug: PropTypes.string.isRequired,
-    user: PropTypes.string.isRequired,
     initialTab: PropTypes.oneOf(['html', 'css', 'js', 'code']),
     height: PropTypes.number,
   }
 
   static defaultProps = {
-    height: 320,
+    height: 260,
     initialTab: 'result',
   }
 
